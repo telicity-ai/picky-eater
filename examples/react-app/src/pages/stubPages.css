@@ -1,0 +1,46 @@
+.stub-page h1 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-xl);
+}
+
+.stub-page__intro {
+  margin: 0 0 var(--space-6);
+  color: var(--color-neutral-700);
+}
+
+.stub-page__muted {
+  color: var(--color-neutral-500);
+  font-size: var(--font-size-sm);
+}
+
+.stub-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-sm);
+}
+
+.stub-table th,
+.stub-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-neutral-100);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.stub-table th {
+  color: var(--color-neutral-700);
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-neutral-100);
+}
+
+.stub-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.stub-table-wrap {
+  overflow-x: auto;
+}

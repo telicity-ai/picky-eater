@@ -1,0 +1,1819 @@
+{
+  "category": "input",
+  "patterns": [
+    {
+      "id": "text-field",
+      "name": "Text field",
+      "aka": [
+        "text input",
+        "text box",
+        "single-line input"
+      ],
+      "what": "A box where the user types one line of text.",
+      "useWhen": [
+        "The answer is short free text: a name, an email address, a number, a reference",
+        "The possible answers cannot be listed in advance"
+      ],
+      "avoidWhen": [
+        "The answer is one of a known set (use radios, a select or a combobox)",
+        "The answer runs to several lines (use a textarea)"
+      ],
+      "rules": [
+        "Give every field a visible label above it, linked with for and id; never use the placeholder as the label.",
+        "Size the field to the expected answer: a postcode field is short, an email field is wide.",
+        "Set type, inputmode and autocomplete to match the content (for example type=\"email\", inputmode=\"numeric\", autocomplete=\"given-name\").",
+        "Accept input in any reasonable format (spaces, dashes, upper or lower case) and clean it up yourself.",
+        "Show hint text between label and field and link it with aria-describedby.",
+        "Make the field at least 44 px tall on touch screens and show a clear focus outline."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Text input: labels, hints, fixed and fluid widths, numeric inputs",
+          "url": "https://design-system.service.gov.uk/components/text-input/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Text fields: filled and outlined, with label and supporting text",
+          "url": "https://m3.material.io/components/text-fields/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Text fields",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/text-fields",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Text input",
+          "url": "https://designsystem.digital.gov/components/text-input/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wroblewski-2008",
+          "where": "Input Fields"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Forgiving Format"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Text input"
+        }
+      ],
+      "alternatives": [
+        "textarea",
+        "select",
+        "combobox"
+      ]
+    },
+    {
+      "id": "textarea",
+      "name": "Textarea",
+      "aka": [
+        "multi-line text field",
+        "text area"
+      ],
+      "what": "A taller box where the user types several lines of text.",
+      "useWhen": [
+        "The answer is free text longer than one sentence: a message, a description, a comment",
+        "Line breaks in the answer should be kept"
+      ],
+      "avoidWhen": [
+        "The answer is short and single-line (use a text field)",
+        "The text needs formatting such as headings or lists (use a rich text editor)"
+      ],
+      "rules": [
+        "Set the height to the expected length (at least three lines) and let it grow or be resized vertically.",
+        "If there is a length limit, show a live count of characters remaining under the field and allow typing past the limit, with an error, rather than cutting text off.",
+        "Announce the remaining count to screen readers politely, not on every keystroke.",
+        "Do not submit on Enter; Enter adds a line break.",
+        "Keep the label above and the hint below the label, as for a text field."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Textarea: for answers longer than a single line",
+          "url": "https://design-system.service.gov.uk/components/textarea/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Character count: tells users how many characters remain",
+          "url": "https://design-system.service.gov.uk/components/character-count/",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Text area",
+          "url": "https://atlassian.design/components/textarea/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wroblewski-2008",
+          "where": "Input Fields"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Character count"
+        }
+      ],
+      "alternatives": [
+        "text-field"
+      ]
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "aka": [
+        "dropdown",
+        "drop-down list",
+        "pop-up button",
+        "picker"
+      ],
+      "what": "A closed control that opens a list from which the user picks one option.",
+      "useWhen": [
+        "There are roughly 5 to 15 options and space is limited",
+        "The options are familiar so the user does not need to see them all to decide",
+        "A default is right for most people"
+      ],
+      "avoidWhen": [
+        "There are four or fewer options (use radios so they are all visible)",
+        "There are so many options that scrolling is slow (use a combobox)",
+        "Typing is faster than picking, as with a birth year"
+      ],
+      "rules": [
+        "Use the native select element unless you need search or rich options; it works with every keyboard, screen reader and phone.",
+        "Label it like any field; do not put the label inside as the first option.",
+        "Order options in a way users expect: alphabetical, numeric or by frequency.",
+        "Start with a real default when one exists; otherwise start with an empty \"Select…\" option and validate.",
+        "Do not submit or navigate as soon as an option is chosen.",
+        "For multiple choice use checkboxes, not a multi-select list."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "Question page: a select with the list of nationalities",
+          "url": "https://www.gov.uk/check-uk-visa/y",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Select: to be used as a last resort in public-facing services",
+          "url": "https://design-system.service.gov.uk/components/select/",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Pop-up buttons: choose one of a list of mutually exclusive options",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/pop-up-buttons",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Select",
+          "url": "https://designsystem.digital.gov/components/select/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-listbox-dropdown-2020",
+          "where": "Listboxes vs. Dropdown Lists"
+        },
+        {
+          "ref": "baymard-dropdown-2018",
+          "where": "Drop-Down Usability"
+        },
+        {
+          "ref": "wroblewski-dropdowns-2015",
+          "where": "Dropdowns Should be the UI of Last Resort"
+        }
+      ],
+      "alternatives": [
+        "radio-group",
+        "combobox",
+        "segmented-control"
+      ]
+    },
+    {
+      "id": "combobox",
+      "name": "Combobox",
+      "aka": [
+        "autocomplete",
+        "typeahead",
+        "searchable select",
+        "autosuggest"
+      ],
+      "what": "A text field that shows a list of matching options as the user types, to pick from.",
+      "useWhen": [
+        "There are many options: USWDS suggests more than about 15",
+        "Users know the name of what they want: a country, a person, a product",
+        "Options come from a search or a server"
+      ],
+      "avoidWhen": [
+        "There are few options (radios or a select show them without typing)",
+        "Users cannot guess what to type and need to see the choices"
+      ],
+      "rules": [
+        "Follow the ARIA combobox pattern: the input has role=\"combobox\" with aria-expanded and aria-controls; the list is a listbox.",
+        "Down arrow opens the list and moves through options, Enter selects, Escape closes; typing keeps filtering.",
+        "Match anywhere in the option and tolerate typos; highlight the matching part.",
+        "Show about 10 suggestions at most and say \"No results\" when nothing matches.",
+        "State whether free text is allowed; if only listed values are valid, validate on blur.",
+        "Announce the number of available results to screen readers."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Combobox pattern with list, grid and dialog popups",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Combo box: for lists of more than 15 options",
+          "url": "https://designsystem.digital.gov/components/combo-box/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Auto-suggest box",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/auto-suggest-box",
+          "verified": true
+        },
+        {
+          "who": "shadcn/ui",
+          "where": "Combobox component",
+          "url": "https://ui.shadcn.com/docs/components/base/combobox",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Autocompletion"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Combobox pattern"
+        },
+        {
+          "ref": "baymard-autocomplete-2022",
+          "where": "9 UX Best Practice Design Patterns for Autocomplete Suggestions"
+        }
+      ],
+      "alternatives": [
+        "select",
+        "search-field",
+        "tag-input"
+      ]
+    },
+    {
+      "id": "radio-group",
+      "name": "Radio group",
+      "aka": [
+        "radio buttons",
+        "option buttons"
+      ],
+      "what": "A visible list of options from which the user picks exactly one.",
+      "useWhen": [
+        "The user picks one of two to about five options",
+        "Seeing every option helps the user decide",
+        "The choice is sent with a form"
+      ],
+      "avoidWhen": [
+        "The user may pick more than one (use checkboxes)",
+        "There are many options (use a select or combobox)",
+        "The choice is a single yes/no with an obvious off state (a checkbox may do)"
+      ],
+      "rules": [
+        "Stack options vertically, one per line, with the circle to the left of its label.",
+        "Wrap the group in a fieldset with a legend that asks the question.",
+        "Make the label clickable and the target at least 44 px tall.",
+        "Preselect an option only when it is a safe, expected default; GOV.UK advises never preselecting, so that an unanswered question is noticed.",
+        "Add \"None of these\" or \"I don't know\" as an option rather than expecting the user to leave the group empty.",
+        "One Tab stop for the group; arrow keys move between options."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Radios: stacked options, hints, conditionally revealed fields",
+          "url": "https://design-system.service.gov.uk/components/radios/",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Appearance panel: Text, Width and Color each offered as a short radio group",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Radio group pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Radio button",
+          "url": "https://m3.material.io/components/radio-button/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-checkbox-radio-2004",
+          "where": "Checkboxes vs. Radio Buttons"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Radios"
+        }
+      ],
+      "alternatives": [
+        "select",
+        "segmented-control",
+        "checkbox-group"
+      ]
+    },
+    {
+      "id": "checkbox",
+      "name": "Checkbox",
+      "aka": [
+        "tick box",
+        "check box"
+      ],
+      "what": "A box that the user ticks to say yes to one statement; the answer is applied when the form is saved.",
+      "useWhen": [
+        "One yes/no choice is sent with a form: \"Remember me\", \"I agree to the terms\"",
+        "The choice needs an explicit confirmation step, such as Save"
+      ],
+      "avoidWhen": [
+        "The change takes effect immediately (use a switch)",
+        "The two states are not yes/no, for example \"Monthly\" and \"Yearly\" (use radios)"
+      ],
+      "rules": [
+        "Write the label as a positive statement that is true when ticked; avoid negatives such as \"Don't send\".",
+        "Put the box to the left of the label and make the label clickable.",
+        "Leave consent and marketing boxes unticked by default.",
+        "Use the native input type=\"checkbox\"; Space toggles it.",
+        "Use the indeterminate state only for a parent whose children are partly selected."
+      ],
+      "examples": [
+        {
+          "who": "Salesforce",
+          "where": "Sign-in form: a \"Remember me\" checkbox under the Log In button",
+          "url": "https://login.salesforce.com/",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Checkbox pattern: two-state and tri-state",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Checkbox",
+          "url": "https://m3.material.io/components/checkbox/guidelines",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Checkbox",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/checkbox/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-checkbox-radio-2004",
+          "where": "Checkboxes vs. Radio Buttons"
+        },
+        {
+          "ref": "nng-toggle-2018",
+          "where": "Toggle-Switch Guidelines"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        }
+      ],
+      "alternatives": [
+        "switch",
+        "toggle-button",
+        "radio-group"
+      ]
+    },
+    {
+      "id": "checkbox-group",
+      "name": "Checkbox group",
+      "aka": [
+        "multiple choice",
+        "checkboxes"
+      ],
+      "what": "A visible list of options from which the user ticks any number, including none.",
+      "useWhen": [
+        "The user may choose several of a short list of options",
+        "Each option is independent of the others"
+      ],
+      "avoidWhen": [
+        "Only one option may be chosen (use radios)",
+        "The list is long (use a tag input or a filterable list)"
+      ],
+      "rules": [
+        "Stack options vertically inside a fieldset whose legend asks the question; add the hint \"Select all that apply\".",
+        "When \"none\" is a valid answer, offer it as a last option, visually separated, that unticks the others.",
+        "Order options by what users expect; alphabetical when there is no better order.",
+        "For a long list add \"Select all\" as a tri-state parent checkbox.",
+        "Each checkbox is its own Tab stop; Space toggles."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Checkboxes: \"Select all that apply\" and a \"none\" option",
+          "url": "https://design-system.service.gov.uk/components/checkboxes/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Checkbox: default and tile variants in a fieldset",
+          "url": "https://designsystem.digital.gov/components/checkbox/",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "CheckboxGroup",
+          "url": "https://primer.style/product/components/checkbox-group/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-checkbox-radio-2004",
+          "where": "Checkboxes vs. Radio Buttons"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Checkboxes"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "List Builder"
+        }
+      ],
+      "alternatives": [
+        "tag-input",
+        "radio-group",
+        "combobox"
+      ]
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "aka": [
+        "toggle",
+        "toggle switch"
+      ],
+      "what": "A control that turns one setting on or off, and takes effect at once.",
+      "useWhen": [
+        "The change applies immediately, without a Save button",
+        "The setting has two clear states: on and off",
+        "The setting sits in a list of settings"
+      ],
+      "avoidWhen": [
+        "The choice only applies after the form is submitted (use a checkbox)",
+        "The two options are not on/off, such as \"List\" and \"Grid\" (use a segmented control)",
+        "Turning it on starts something that needs more input or confirmation"
+      ],
+      "rules": [
+        "Label the setting, not the state: \"Wi-Fi\", not \"Turn Wi-Fi on\".",
+        "Apply the change within about 0.1 s; if it has to be saved to a server, show progress and roll back with a message on failure.",
+        "Show the state by position and by more than color, for example a tick or I/O marks.",
+        "Use a button or checkbox input with role=\"switch\" and aria-checked; Space toggles.",
+        "Put the switch at the trailing end of its row and make the whole row the tap target.",
+        "Do not mix switches and checkboxes for the same kind of setting on one screen."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Toggles: the switch style in list rows",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toggles",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Switch",
+          "url": "https://m3.material.io/components/switch/guidelines",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Toggle: for binary actions that occur immediately",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/toggle/guidelines",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Switch pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-toggle-2018",
+          "where": "Toggle-Switch Guidelines"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Toggles"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Switch pattern"
+        }
+      ],
+      "alternatives": [
+        "checkbox",
+        "toggle-button",
+        "segmented-control"
+      ]
+    },
+    {
+      "id": "segmented-control",
+      "name": "Segmented control",
+      "aka": [
+        "segmented button",
+        "button group selector",
+        "pill switcher"
+      ],
+      "what": "A row of two to five joined buttons of which exactly one is selected.",
+      "useWhen": [
+        "The user picks one of two to five short options and all should be visible",
+        "The choice takes effect at once: a view, a unit, a time range",
+        "Space is horizontal, such as a toolbar"
+      ],
+      "avoidWhen": [
+        "Labels are long or there are more than five options (use a select or radios)",
+        "The options are actions rather than a choice",
+        "The choice is part of a long form (radios read better stacked)"
+      ],
+      "rules": [
+        "Give all segments the same width and short labels of one or two words; use icons only when their meaning is certain.",
+        "Always have exactly one segment selected and show it with a filled background, not color alone.",
+        "Mark up as a radio group, or as buttons with aria-pressed; arrow keys move the selection.",
+        "Do not let segments wrap; on narrow screens switch to a select.",
+        "Keep the set of options fixed; do not hide or disable segments depending on context."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Segmented controls: a set of segments, each working as a button",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/segmented-controls",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Segmented button: two to five segments, single-select or multi-select",
+          "url": "https://m3.material.io/components/segmented-buttons/guidelines",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "SegmentedControl",
+          "url": "https://primer.style/product/components/segmented-control/",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Segmented control",
+          "url": "https://design.gitlab.com/components/segmented-control/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "apple-hig",
+          "where": "Segmented controls"
+        },
+        {
+          "ref": "material-3",
+          "where": "Segmented button"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        }
+      ],
+      "alternatives": [
+        "radio-group",
+        "select",
+        "switch",
+        "view-switcher"
+      ]
+    },
+    {
+      "id": "toggle-button",
+      "name": "Toggle button",
+      "aka": [
+        "pressed button",
+        "latching button",
+        "state button"
+      ],
+      "what": "A button that stays pressed to show that something is on, and is released by pressing it again.",
+      "useWhen": [
+        "A state applies to the current object and lives in a toolbar: bold, mute, favorite, pin",
+        "The control is small or icon-only and a switch would not fit"
+      ],
+      "avoidWhen": [
+        "The setting belongs in a settings list (use a switch)",
+        "The label would have to change between two verbs and it is unclear whether it shows the state or the action"
+      ],
+      "rules": [
+        "Keep the label constant and show the state with the pressed look: \"Mute\" pressed, not a label that flips between \"Mute\" and \"Unmute\".",
+        "Set aria-pressed=\"true\" or \"false\" on a real button element.",
+        "Show pressed with a clear fill or inset, plus an icon change where possible (outline heart to filled heart).",
+        "Give icon-only toggles an accessible name and a tooltip.",
+        "Apply the change at once and make it reversible by the same button."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Button pattern: toggle buttons with aria-pressed",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Icon buttons: default and toggle variants",
+          "url": "https://m3.material.io/components/icon-buttons/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Toggles: buttons that behave like toggles",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toggles",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "pickering-2019",
+          "where": "Toggle Buttons"
+        },
+        {
+          "ref": "nng-state-switch-2020",
+          "where": "State-Switch Controls: The Case of the \"Mute\" Button"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        }
+      ],
+      "alternatives": [
+        "switch",
+        "checkbox",
+        "segmented-control"
+      ]
+    },
+    {
+      "id": "slider",
+      "name": "Slider",
+      "aka": [
+        "range input",
+        "range slider"
+      ],
+      "what": "A handle on a track that the user drags to pick a value from a range.",
+      "useWhen": [
+        "An approximate value is enough: volume, brightness, zoom",
+        "The effect of the value is visible while dragging",
+        "The range is bounded and its ends are meaningful"
+      ],
+      "avoidWhen": [
+        "An exact value matters, such as a price or a quantity; NN/g notes that hitting a precise value with a slider is hard",
+        "The range is very large or unbounded"
+      ],
+      "rules": [
+        "Show the current value as text next to the handle and label both ends of the track.",
+        "Pair it with a number field when users may want an exact value.",
+        "Make the handle at least 44 px to grab and let users tap the track to jump.",
+        "Use input type=\"range\" or role=\"slider\" with aria-valuemin, aria-valuemax, aria-valuenow; arrows step, Home and End jump to the ends.",
+        "Apply the value live while dragging when it is cheap, on release when it is not."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Slider pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Sliders",
+          "url": "https://m3.material.io/components/sliders/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Sliders",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sliders",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Range slider",
+          "url": "https://designsystem.digital.gov/components/range-slider/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-slider-2015",
+          "where": "Slider Design: Rules of Thumb"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Slider pattern"
+        }
+      ],
+      "alternatives": [
+        "number-stepper",
+        "text-field"
+      ]
+    },
+    {
+      "id": "number-stepper",
+      "name": "Number stepper",
+      "aka": [
+        "input stepper",
+        "spin button",
+        "quantity selector",
+        "number input"
+      ],
+      "what": "A number shown between minus and plus buttons that change it by one step.",
+      "useWhen": [
+        "The value is a small whole number that is adjusted by a few steps: quantity, guests, copies",
+        "A sensible default exists and most people stay near it"
+      ],
+      "avoidWhen": [
+        "Values are large or vary widely (typing is faster)",
+        "The value is not a quantity: phone numbers, card numbers, years"
+      ],
+      "rules": [
+        "Show the value between the two buttons, with the minus on the left and plus on the right, each at least 44 px.",
+        "Let the user also type the value; the field uses inputmode=\"numeric\".",
+        "Disable minus at the minimum and plus at the maximum, and state the limits when they are not obvious.",
+        "Give the buttons accessible names such as \"Decrease quantity\".",
+        "Use role=\"spinbutton\" semantics: Up and Down arrows change the value."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Steppers: a two-segment control for increasing or decreasing a value",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/steppers",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Number input",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/number-input/guidelines",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Spinbutton pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Number box",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/number-box",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-input-steppers-2018",
+          "where": "Design Guidelines for Input Steppers"
+        },
+        {
+          "ref": "baymard-quantity-2022",
+          "where": "Use Buttons or Buttons Plus an Open Text Field for Updating Cart Quantity"
+        }
+      ],
+      "alternatives": [
+        "slider",
+        "text-field",
+        "select"
+      ]
+    },
+    {
+      "id": "date-picker",
+      "name": "Date picker",
+      "aka": [
+        "calendar picker",
+        "calendar"
+      ],
+      "what": "A field that opens a calendar from which the user chooses a day or a range of days.",
+      "useWhen": [
+        "The date is near today and the weekday or the surrounding days matter: bookings, deadlines, schedules",
+        "The user chooses a range",
+        "Some days are unavailable and that should be visible"
+      ],
+      "avoidWhen": [
+        "The date is known by heart or far from today, such as a date of birth (use text fields)",
+        "Only a month or year is needed"
+      ],
+      "rules": [
+        "Always allow typing the date in the field as well as picking it; state the expected format in a hint.",
+        "Open on the most likely month, show today, and show unavailable days as disabled rather than hiding them.",
+        "For ranges show two months side by side on wide screens and highlight the days between start and end.",
+        "Offer month and year jumps, not only previous and next arrows.",
+        "Build the popup as a dialog containing a grid: arrow keys move by day, Page Up and Page Down by month, Escape closes.",
+        "Use the locale's first day of the week and date order."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Date pickers: docked, modal and modal date input",
+          "url": "https://m3.material.io/components/date-pickers/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Date picker: a text field with a calendar button",
+          "url": "https://designsystem.digital.gov/components/date-picker/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Date picker: simple, single and range",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/date-picker/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-date-input-2017",
+          "where": "Date-Input Form Fields: UX Design Guidelines"
+        },
+        {
+          "ref": "smashing-date-picker-2017",
+          "where": "Designing The Perfect Date And Time Picker"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Ask users for dates"
+        }
+      ],
+      "alternatives": [
+        "date-text-input",
+        "select"
+      ]
+    },
+    {
+      "id": "date-text-input",
+      "name": "Date text input",
+      "aka": [
+        "memorable date",
+        "day month year fields"
+      ],
+      "what": "Three short text fields, for day, month and year, in which the user types a date they already know.",
+      "useWhen": [
+        "The date is known by heart or copied from a document: date of birth, issue date, expiry date",
+        "The date may be many years from today"
+      ],
+      "avoidWhen": [
+        "The user has to choose a date in relation to today or to a weekday (use a date picker)",
+        "An approximate date is all the user can give"
+      ],
+      "rules": [
+        "Use three fields labelled Day, Month and Year, in the order of the locale, inside a fieldset whose legend asks for the date.",
+        "Give an example in the hint, for example \"For example, 27 3 2007\".",
+        "Use inputmode=\"numeric\" and do not auto-advance focus between fields.",
+        "Accept month names and one- or two-digit days and months.",
+        "When the date is wrong, say which part: \"Date of birth must include a year\".",
+        "Add autocomplete=\"bday-day\", \"bday-month\" and \"bday-year\" for a date of birth."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Date input: for a memorable date or one that can be looked up",
+          "url": "https://design-system.service.gov.uk/components/date-input/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Memorable date: three fields for month, day and year",
+          "url": "https://designsystem.digital.gov/components/memorable-date/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Ask users for dates pattern",
+          "url": "https://design-system.service.gov.uk/patterns/dates/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Date input"
+        },
+        {
+          "ref": "nng-date-input-2017",
+          "where": "Date-Input Form Fields: UX Design Guidelines"
+        },
+        {
+          "ref": "silver-2018",
+          "where": "A Flight Booking Form"
+        }
+      ],
+      "alternatives": [
+        "date-picker",
+        "text-field"
+      ]
+    },
+    {
+      "id": "file-upload",
+      "name": "File upload",
+      "aka": [
+        "drop zone",
+        "file input",
+        "uploader"
+      ],
+      "what": "A control for choosing files from the device, by a button or by dragging them onto an area.",
+      "useWhen": [
+        "The user must supply a document, image or other file",
+        "Several files may be added at once"
+      ],
+      "avoidWhen": [
+        "The content could be typed or pasted more easily",
+        "The user is unlikely to have the file on the current device, and no alternative is offered"
+      ],
+      "rules": [
+        "Always provide a button that opens the file chooser; a drop area is an addition, never the only way.",
+        "State accepted types, size limit and number of files before the user chooses.",
+        "After choosing, list each file with name, size, progress and a Remove button.",
+        "Show errors per file and keep the files that succeeded.",
+        "Highlight the drop area while a file is dragged over the page.",
+        "Use a native input type=\"file\" under the styling so it works with keyboard and screen readers."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "File upload: a \"Choose file\" button and a drop area",
+          "url": "https://design-system.service.gov.uk/components/file-upload/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Drop zone",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/forms/drop-zone",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Upload files to a repository by dragging them into the browser or choosing them",
+          "url": "https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository",
+          "verified": true
+        },
+        {
+          "who": "Google Drive",
+          "where": "Upload by dragging files into a Drive folder",
+          "url": "https://support.google.com/drive/answer/2424368?hl=en",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "silver-2018",
+          "where": "An Upload Form"
+        },
+        {
+          "ref": "nng-drag-drop-2020",
+          "where": "Drag–and–Drop: How to Design for Ease of Use"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "File upload"
+        }
+      ],
+      "alternatives": [
+        "text-field",
+        "drag-and-drop"
+      ]
+    },
+    {
+      "id": "search-field",
+      "name": "Search field",
+      "aka": [
+        "search box",
+        "search input"
+      ],
+      "what": "A text field for entering words to find, with a search icon or button.",
+      "useWhen": [
+        "The collection is too large to scan",
+        "People know words that identify what they want"
+      ],
+      "avoidWhen": [
+        "The list is short enough to read",
+        "The field would only filter what is already visible (label it \"Filter\")"
+      ],
+      "rules": [
+        "Show it open on wide screens; an icon alone is found less often.",
+        "Make it wide enough to show a typical query without scrolling inside the field.",
+        "Label it for assistive technology and put it inside a search landmark; a placeholder such as \"Search products\" may supplement the label.",
+        "Submit on Enter and with a visible button; show a clear (×) button once there is text.",
+        "Use type=\"search\" and keep the query in the field on the results page.",
+        "If results update while typing, wait for a short pause before fetching and announce the result count."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "Home page: a labelled search field with a search button",
+          "url": "https://www.gov.uk/",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Search fields: Search icon, Clear button and placeholder text",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/search-fields",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Search bar and search view",
+          "url": "https://m3.material.io/components/search/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Search: big, default and small variants",
+          "url": "https://designsystem.digital.gov/components/search/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-search-visible-2001",
+          "where": "Search: Visible and Simple"
+        },
+        {
+          "ref": "silver-2018",
+          "where": "A Search Form"
+        },
+        {
+          "ref": "nng-site-search-suggestions-2018",
+          "where": "Site Search Suggestions"
+        }
+      ],
+      "alternatives": [
+        "combobox",
+        "command-palette"
+      ]
+    },
+    {
+      "id": "tag-input",
+      "name": "Tag input",
+      "aka": [
+        "token field",
+        "chip input",
+        "multi-select combobox",
+        "tag picker"
+      ],
+      "what": "A text field in which each chosen value turns into a removable chip, so several values can be entered.",
+      "useWhen": [
+        "The user picks several values from a long list: recipients, labels, skills",
+        "Values may be new ones that the user types"
+      ],
+      "avoidWhen": [
+        "There are few options (checkboxes show them all)",
+        "Only one value is allowed (use a combobox)"
+      ],
+      "rules": [
+        "Suggest matching values while typing; Enter or comma adds the highlighted one as a chip.",
+        "Give each chip a remove button with an accessible name (\"Remove Design\"); Backspace in an empty field removes the last chip.",
+        "Let the field grow in height as chips wrap; never hide chosen values behind \"+3\".",
+        "Prevent duplicates and say why when one is rejected.",
+        "Keep chips reachable by keyboard with arrow keys and announce additions and removals."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Token fields: Mail turns each recipient into a token",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/token-fields",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "TextInputWithTokens",
+          "url": "https://primer.style/product/components/text-input-with-tokens/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Tag picker",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/tagpicker/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "List Builder"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Token fields"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Combobox pattern"
+        }
+      ],
+      "alternatives": [
+        "checkbox-group",
+        "combobox"
+      ]
+    },
+    {
+      "id": "rating",
+      "name": "Rating input",
+      "aka": [
+        "star rating"
+      ],
+      "what": "A row of symbols, usually five stars, on which the user chooses a score.",
+      "useWhen": [
+        "People give a quick opinion on a simple scale",
+        "The same scale is shown back as an average"
+      ],
+      "avoidWhen": [
+        "The answer needs words or several dimensions",
+        "The scale has more points than can be shown as symbols"
+      ],
+      "rules": [
+        "Use five symbols unless there is a reason not to, and label the ends when the meaning is not obvious.",
+        "Show the chosen value as text as well (\"4 out of 5\").",
+        "Build as a radio group so arrow keys change the value; each option has a name such as \"3 stars\".",
+        "Let the user change or clear the rating.",
+        "Keep display-only ratings visibly different from the input and do not make them focusable."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Rating indicators",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/rating-indicators",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Rating",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/rating/usage",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Rating control",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/rating",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "apple-hig",
+          "where": "Rating indicators"
+        },
+        {
+          "ref": "fluent-2",
+          "where": "Rating"
+        }
+      ],
+      "alternatives": [
+        "radio-group",
+        "slider"
+      ]
+    },
+    {
+      "id": "password-field",
+      "name": "Password field",
+      "aka": [
+        "password input",
+        "show/hide password"
+      ],
+      "what": "A text field that hides what is typed, with a button to show it.",
+      "useWhen": [
+        "The user creates or enters a password",
+        "Another secret, such as an API key, is typed where others might see the screen"
+      ],
+      "avoidWhen": [
+        "The value is a one-time code (use a one-time code field)",
+        "The value is not secret; hiding it only causes typing errors"
+      ],
+      "rules": [
+        "Add a \"Show\" / \"Hide\" button that switches the field between type=\"password\" and type=\"text\".",
+        "Allow paste and password managers; set autocomplete=\"current-password\" or \"new-password\".",
+        "Ask for a new password once, not twice, when a show button is present.",
+        "State password rules before the user types and show which are met as they type.",
+        "Do not set a short maximum length and do not forbid spaces or symbols.",
+        "Return the field to hidden when the form is submitted."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Password input with a show/hide button",
+          "url": "https://design-system.service.gov.uk/components/password-input/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Ask users for passwords pattern",
+          "url": "https://design-system.service.gov.uk/patterns/passwords/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Password field",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/forms/password-field",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Password box with a reveal button",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/password-box",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-password-masking-2009",
+          "where": "Stop Password Masking"
+        },
+        {
+          "ref": "wroblewski-passwords-2012",
+          "where": "Mobile Design Details: Hide/Show Passwords"
+        },
+        {
+          "ref": "webdev-signin-2020",
+          "where": "Sign-in form best practices"
+        }
+      ],
+      "alternatives": [
+        "text-field",
+        "one-time-code"
+      ]
+    },
+    {
+      "id": "one-time-code",
+      "name": "One-time code field",
+      "aka": [
+        "OTP input",
+        "verification code",
+        "PIN input"
+      ],
+      "what": "A field for typing the short code sent by text message, email or an authenticator app.",
+      "useWhen": [
+        "A sign-in or payment needs a second factor",
+        "A phone number or email address has to be confirmed"
+      ],
+      "avoidWhen": [
+        "The secret is a password the user chose (use a password field)"
+      ],
+      "rules": [
+        "Use one text input with inputmode=\"numeric\" and autocomplete=\"one-time-code\" so phones offer the code from the message.",
+        "If the design shows one box per digit, it must still accept a pasted or auto-filled whole code and Backspace across boxes.",
+        "Say where the code was sent and how long it is valid.",
+        "Offer \"Send a new code\" after a short wait, and another method.",
+        "Do not mask the code; accept spaces and dashes.",
+        "Submit automatically only when the last digit arrives from autofill or paste, never mid-typing."
+      ],
+      "examples": [
+        {
+          "who": "web.dev",
+          "where": "SMS OTP form best practices: one input with autocomplete=\"one-time-code\"",
+          "url": "https://web.dev/articles/sms-otp-form",
+          "verified": true
+        },
+        {
+          "who": "Apple iOS",
+          "where": "iPhone offers codes from messages above the keyboard",
+          "url": "https://support.apple.com/guide/iphone/automatically-fill-in-sms-passcodes-iphc89a3a3af/ios",
+          "verified": true
+        },
+        {
+          "who": "shadcn/ui",
+          "where": "Input OTP component",
+          "url": "https://ui.shadcn.com/docs/components/base/input-otp",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "webdev-otp-2020",
+          "where": "SMS OTP form best practices"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Accessible Authentication (Minimum)"
+        }
+      ],
+      "alternatives": [
+        "password-field",
+        "text-field"
+      ]
+    },
+    {
+      "id": "inline-edit",
+      "name": "Inline edit",
+      "aka": [
+        "edit in place",
+        "click to edit"
+      ],
+      "what": "A displayed value that turns into a field when clicked, so it can be changed where it is shown.",
+      "useWhen": [
+        "People often change one value at a time while reading the page: a title, a status, a cell",
+        "The value is short and can be validated on its own"
+      ],
+      "avoidWhen": [
+        "Several values must change together or be validated together (use an edit form)",
+        "The change is risky or hard to undo",
+        "Most visitors only read and editing must not be triggered by accident"
+      ],
+      "rules": [
+        "Signal that the value is editable: a pencil icon or hover outline, and a focusable control for keyboard users.",
+        "Swap to a field of the same size in the same place, with the old value selected.",
+        "Enter or the tick button saves, Escape or the cross cancels and restores the old value.",
+        "State what happens on blur and keep to it: either save or cancel, the same everywhere.",
+        "Show saving and saved states next to the field, and keep the field open with a message if saving fails."
+      ],
+      "examples": [
+        {
+          "who": "Atlassian Design System",
+          "where": "Inline edit: switches between reading and editing on the same page",
+          "url": "https://atlassian.design/components/inline-edit/usage",
+          "verified": true
+        },
+        {
+          "who": "Trello",
+          "where": "Card titles and list names become editable when clicked",
+          "verified": false
+        },
+        {
+          "who": "Jira",
+          "where": "Issue fields are edited in place on the issue view",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "scott-neil-2009",
+          "where": "In-Page Editing"
+        },
+        {
+          "ref": "atlassian-ds",
+          "where": "Inline edit"
+        }
+      ],
+      "alternatives": [
+        "modal-dialog",
+        "side-sheet",
+        "text-field"
+      ]
+    },
+    {
+      "id": "label-top",
+      "name": "Label above field",
+      "aka": [
+        "top-aligned label",
+        "stacked label"
+      ],
+      "what": "The field's label sits on its own line directly above the field.",
+      "useWhen": [
+        "Almost always: it is the fastest to complete and works at any width",
+        "Labels vary in length or will be translated",
+        "The form must work on phones"
+      ],
+      "avoidWhen": [
+        "Vertical space is very tight and labels are short (left-aligned labels save height)"
+      ],
+      "rules": [
+        "Place the label directly above the field with a small gap, and a larger gap between one field group and the next.",
+        "Keep the label visible while the user types; link it with for and id.",
+        "Write labels as short nouns or questions in sentence case, without a trailing colon.",
+        "Put hint text between the label and the field.",
+        "Use one column of fields."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Text input: label above the field, hint between label and field",
+          "url": "https://design-system.service.gov.uk/components/text-input/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Forms pattern: top-aligned labels are the default and only arrangement",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/patterns/forms",
+          "verified": true
+        },
+        {
+          "who": "Salesforce",
+          "where": "Sign-in form: \"Username\" label above its field",
+          "url": "https://login.salesforce.com/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wroblewski-2008",
+          "where": "Labels"
+        },
+        {
+          "ref": "wroblewski-labels-2007",
+          "where": "Top, Right or Left Aligned Form Labels"
+        },
+        {
+          "ref": "baymard-multicolumn-2023",
+          "where": "Avoid Extensive Multicolumn Layouts"
+        }
+      ],
+      "alternatives": [
+        "label-left",
+        "label-floating",
+        "label-placeholder-only"
+      ]
+    },
+    {
+      "id": "label-left",
+      "name": "Label beside field",
+      "aka": [
+        "left-aligned label",
+        "inline label",
+        "horizontal form"
+      ],
+      "what": "The label sits to the left of its field on the same line.",
+      "useWhen": [
+        "The form is dense, used by experts on wide screens, and vertical space is scarce",
+        "Users scan the labels to find one field to change, as in a settings panel"
+      ],
+      "avoidWhen": [
+        "The screen is narrow",
+        "Labels differ much in length or are translated",
+        "Speed of completion matters most; Wroblewski reports top labels are completed faster"
+      ],
+      "rules": [
+        "Give all labels one column width, sized to the longest label, and keep the gap to the field small.",
+        "Right-align labels to keep them close to their fields, or left-align them when scanning the labels matters more.",
+        "Switch to labels above the fields below about 600 px.",
+        "Align the label's text baseline with the field's text."
+      ],
+      "examples": [
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Field: vertical and horizontal label alignment, with a caution about left-aligned labels",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/field/usage",
+          "verified": true
+        },
+        {
+          "who": "Apple macOS",
+          "where": "System and app settings windows: right-aligned labels to the left of their controls",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wroblewski-2008",
+          "where": "Labels"
+        },
+        {
+          "ref": "wroblewski-labels-2007",
+          "where": "Top, Right or Left Aligned Form Labels"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Fill-in-the-Blanks"
+        }
+      ],
+      "alternatives": [
+        "label-top",
+        "label-floating"
+      ]
+    },
+    {
+      "id": "label-floating",
+      "name": "Floating label",
+      "aka": [
+        "float label",
+        "label inside field"
+      ],
+      "what": "The label starts inside the empty field and shrinks to the top edge of the field when the user types.",
+      "useWhen": [
+        "Vertical space is tight and the design system already provides the component",
+        "The form is short, such as sign-in or payment card details"
+      ],
+      "avoidWhen": [
+        "Fields need hint text or examples; there is no room for them",
+        "Labels are long or translated and would be cut off when small",
+        "Empty fields must be easy to tell from filled ones at a glance"
+      ],
+      "rules": [
+        "Keep the floated label at a readable size (12 px or more) with full contrast.",
+        "Use a real label element, not the placeholder attribute.",
+        "Do not also show a placeholder; it collides with the resting label.",
+        "Make the field tall enough (about 56 px) to hold label and value without crowding.",
+        "Float the label for autofilled values too."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Text fields: label text sits in the empty field and moves up when populated",
+          "url": "https://m3.material.io/components/text-fields/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Stripe",
+          "where": "Elements Appearance API: a \"floating\" labels option for payment fields",
+          "url": "https://docs.stripe.com/elements/appearance-api",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Text fields"
+        },
+        {
+          "ref": "silver-float-labels-2017",
+          "where": "The problem with float labels and what to do instead"
+        },
+        {
+          "ref": "nng-placeholders-2014",
+          "where": "Placeholders in Form Fields Are Harmful"
+        }
+      ],
+      "alternatives": [
+        "label-top",
+        "label-left",
+        "label-placeholder-only"
+      ]
+    },
+    {
+      "id": "label-placeholder-only",
+      "name": "Placeholder as label",
+      "aka": [
+        "placeholder-only label",
+        "inline label"
+      ],
+      "what": "The only description of a field is grey text inside it, which disappears when the user types. Listed here as an anti-pattern.",
+      "useWhen": [
+        "Only for a single search field whose purpose is obvious from an icon and a button",
+        "And only if that field still has an accessible name from a hidden label or aria-label"
+      ],
+      "avoidWhen": [
+        "Any form with more than one field",
+        "The field needs a format hint or will be reviewed before submitting",
+        "Users rely on autofill, translation or screen readers"
+      ],
+      "rules": [
+        "Replace it with a visible label above the field.",
+        "If the field truly stands alone, give it aria-label or a visually hidden label; the placeholder attribute is not a label.",
+        "Never put instructions or formats only in the placeholder; put them in hint text.",
+        "Placeholder text needs 4.5:1 contrast, which makes it look like a typed value: another reason to avoid it."
+      ],
+      "examples": [
+        {
+          "who": "Dribbble",
+          "where": "Header search: \"What are you looking for?\" inside the field is the only visible label",
+          "url": "https://dribbble.com/shots/popular",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Header search: \"Search Wikipedia\" inside the field, next to a Search button",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Text input guidance: do not use placeholder text in place of a label",
+          "url": "https://design-system.service.gov.uk/components/text-input/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-placeholders-2014",
+          "where": "Placeholders in Form Fields Are Harmful"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Labels"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Text input"
+        }
+      ],
+      "alternatives": [
+        "label-top",
+        "label-floating"
+      ]
+    },
+    {
+      "id": "help-text",
+      "name": "Hint text",
+      "aka": [
+        "help text",
+        "helper text",
+        "input hint",
+        "supporting text"
+      ],
+      "what": "A short line of always-visible text next to a field that says what to enter or why it is asked.",
+      "useWhen": [
+        "The format is not obvious: date order, units, reference numbers",
+        "Users may wonder why the information is needed or where to find it"
+      ],
+      "avoidWhen": [
+        "The label alone is clear; unneeded hints add reading",
+        "The help is long (link to it or use a disclosure)"
+      ],
+      "rules": [
+        "Place it between the label and the field so it is read before typing and stays visible on phones when the keyboard is open.",
+        "Link it to the field with aria-describedby.",
+        "Keep it to one sentence; give an example value rather than a description of the format.",
+        "Do not hide it in a tooltip or in the placeholder.",
+        "Keep it when an error appears; the error message is shown in addition."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Text input: hint text under the label",
+          "url": "https://design-system.service.gov.uk/components/text-input/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Text input: helper text",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/text-input/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Text field: helper text below the label",
+          "url": "https://atlassian.design/components/textfield/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wroblewski-2008",
+          "where": "Help Text"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Input Hints"
+        },
+        {
+          "ref": "silver-tooltips-2019",
+          "where": "The problem with tooltips and what to do instead"
+        }
+      ],
+      "alternatives": [
+        "tooltip",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "mark-required",
+      "name": "Mark required fields",
+      "aka": [
+        "required indicator",
+        "asterisk"
+      ],
+      "what": "Every field that must be filled in carries a mark, usually an asterisk, next to its label.",
+      "useWhen": [
+        "The form mixes required and optional fields",
+        "The audience expects the asterisk convention, as in most commercial web forms"
+      ],
+      "avoidWhen": [
+        "Every field is required and the form is short (say so once, or mark nothing)",
+        "House style follows GOV.UK, which marks only optional fields and never uses asterisks"
+      ],
+      "rules": [
+        "Put the asterisk next to the label and explain it once at the top: \"* required\".",
+        "Set the required attribute or aria-required=\"true\" on the field; the asterisk alone is not announced reliably.",
+        "Do not rely on red alone; the asterisk is the signal.",
+        "Baymard advises marking optional fields as well, so that no field is left ambiguous.",
+        "Ask only for what is needed; removing an optional field beats marking it."
+      ],
+      "examples": [
+        {
+          "who": "Atlassian Design System",
+          "where": "Form: a red asterisk after the label of each required field, with a legend",
+          "url": "https://atlassian.design/components/form/usage",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Forms pattern: when to label fields as required and when as optional",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/patterns/forms",
+          "verified": true
+        },
+        {
+          "who": "Amazon",
+          "where": "Checkout address form: optional fields are labelled, the rest are required",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-required-fields-2019",
+          "where": "Marking Required Fields in Forms"
+        },
+        {
+          "ref": "baymard-required-optional-2018",
+          "where": "E-Commerce Checkouts Need to Mark Both Required Fields and Optional Fields Explicitly"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Labels"
+        }
+      ],
+      "alternatives": [
+        "mark-optional"
+      ]
+    },
+    {
+      "id": "mark-optional",
+      "name": "Mark optional fields",
+      "aka": [
+        "optional indicator"
+      ],
+      "what": "Fields are required unless their label ends with \"(optional)\".",
+      "useWhen": [
+        "Nearly every field is required",
+        "The form asks one thing per page, so a legend explaining an asterisk would repeat on every page",
+        "The service follows GOV.UK style"
+      ],
+      "avoidWhen": [
+        "Many fields are optional (first ask whether they are needed at all)",
+        "Users expect asterisks and would read unmarked fields as optional; NN/g found marking only optional fields makes forms harder to fill"
+      ],
+      "rules": [
+        "Add \"(optional)\" in plain text at the end of the label or legend.",
+        "Do not set required on optional fields, and do not mark required fields at all.",
+        "Validate required fields on submit with a message that names the field.",
+        "Keep optional fields to a minimum."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Question pages: add \"(optional)\" to labels and never mark mandatory fields with asterisks",
+          "url": "https://design-system.service.gov.uk/patterns/question-pages/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Forms pattern: when to label fields as optional rather than required",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/patterns/forms",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Question pages"
+        },
+        {
+          "ref": "nng-required-fields-2019",
+          "where": "Marking Required Fields in Forms"
+        },
+        {
+          "ref": "baymard-required-optional-2018",
+          "where": "E-Commerce Checkouts Need to Mark Both Required Fields and Optional Fields Explicitly"
+        }
+      ],
+      "alternatives": [
+        "mark-required"
+      ]
+    }
+  ]
+}

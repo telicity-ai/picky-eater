@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "tidwell-2020",
+    "kind": "book",
+    "authors": "Jenifer Tidwell, Charles Brewer, Aynne Valencia",
+    "title": "Designing Interfaces: Patterns for Effective Interaction Design",
+    "edition": "3rd",
+    "year": 2020,
+    "publisher": "O'Reilly Media"
+  },
+  {
+    "id": "cooper-2014",
+    "kind": "book",
+    "authors": "Alan Cooper, Robert Reimann, David Cronin, Christopher Noessel",
+    "title": "About Face: The Essentials of Interaction Design",
+    "edition": "4th",
+    "year": 2014,
+    "publisher": "Wiley"
+  },
+  {
+    "id": "wroblewski-2008",
+    "kind": "book",
+    "authors": "Luke Wroblewski",
+    "title": "Web Form Design: Filling in the Blanks",
+    "year": 2008,
+    "publisher": "Rosenfeld Media"
+  },
+  {
+    "id": "wroblewski-2011",
+    "kind": "book",
+    "authors": "Luke Wroblewski",
+    "title": "Mobile First",
+    "year": 2011,
+    "publisher": "A Book Apart"
+  },
+  {
+    "id": "krug-2014",
+    "kind": "book",
+    "authors": "Steve Krug",
+    "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability",
+    "edition": "3rd",
+    "year": 2014,
+    "publisher": "New Riders"
+  },
+  {
+    "id": "norman-2013",
+    "kind": "book",
+    "authors": "Don Norman",
+    "title": "The Design of Everyday Things",
+    "edition": "Revised and expanded",
+    "year": 2013,
+    "publisher": "Basic Books"
+  },
+  {
+    "id": "johnson-2020",
+    "kind": "book",
+    "authors": "Jeff Johnson",
+    "title": "Designing with the Mind in Mind: Simple Guide to Understanding User Interface Design Guidelines",
+    "edition": "3rd",
+    "year": 2020,
+    "publisher": "Morgan Kaufmann"
+  },
+  {
+    "id": "scott-neil-2009",
+    "kind": "book",
+    "authors": "Bill Scott, Theresa Neil",
+    "title": "Designing Web Interfaces: Principles and Patterns for Rich Interactions",
+    "year": 2009,
+    "publisher": "O'Reilly Media"
+  },
+  {
+    "id": "wathan-schoger-2018",
+    "kind": "book",
+    "authors": "Adam Wathan, Steve Schoger",
+    "title": "Refactoring UI",
+    "year": 2018,
+    "publisher": "Refactoring UI"
+  },
+  {
+    "id": "yablonski-2024",
+    "kind": "book",
+    "authors": "Jon Yablonski",
+    "title": "Laws of UX: Using Psychology to Design Better Products & Services",
+    "edition": "2nd",
+    "year": 2024,
+    "publisher": "O'Reilly Media"
+  },
+  {
+    "id": "pickering-2019",
+    "kind": "book",
+    "authors": "Heydon Pickering",
+    "title": "Inclusive Components",
+    "year": 2019,
+    "publisher": "Smashing Magazine"
+  },
+  {
+    "id": "pickering-bell-2019",
+    "kind": "book",
+    "authors": "Heydon Pickering, Andy Bell",
+    "title": "Every Layout",
+    "year": 2019,
+    "publisher": "Heydon Pickering and Andy Bell"
+  },
+  {
+    "id": "silver-2018",
+    "kind": "book",
+    "authors": "Adam Silver",
+    "title": "Form Design Patterns",
+    "year": 2018,
+    "publisher": "Smashing Magazine"
+  },
+  {
+    "id": "hoober-berkman-2011",
+    "kind": "book",
+    "authors": "Steven Hoober, Eric Berkman",
+    "title": "Designing Mobile Interfaces",
+    "year": 2011,
+    "publisher": "O'Reilly Media"
+  },
+  {
+    "id": "marcotte-2014",
+    "kind": "book",
+    "authors": "Ethan Marcotte",
+    "title": "Responsive Web Design",
+    "edition": "2nd",
+    "year": 2014,
+    "publisher": "A Book Apart"
+  },
+  {
+    "id": "apple-hig",
+    "kind": "design-system",
+    "authors": "Apple",
+    "title": "Human Interface Guidelines",
+    "publisher": "Apple",
+    "url": "https://developer.apple.com/design/human-interface-guidelines"
+  },
+  {
+    "id": "material-3",
+    "kind": "design-system",
+    "authors": "Google",
+    "title": "Material Design 3",
+    "publisher": "Google",
+    "url": "https://m3.material.io/"
+  },
+  {
+    "id": "govuk-ds",
+    "kind": "design-system",
+    "authors": "Government Digital Service",
+    "title": "GOV.UK Design System",
+    "publisher": "Government Digital Service",
+    "url": "https://design-system.service.gov.uk/"
+  },
+  {
+    "id": "polaris",
+    "kind": "design-system",
+    "authors": "Shopify",
+    "title": "Polaris",
+    "publisher": "Shopify",
+    "url": "https://shopify.dev/docs/api/app-home/latest"
+  },
+  {
+    "id": "carbon",
+    "kind": "design-system",
+    "authors": "IBM",
+    "title": "Carbon Design System",
+    "publisher": "IBM",
+    "url": "https://carbondesignsystem.com/"
+  },
+  {
+    "id": "atlassian-ds",
+    "kind": "design-system",
+    "authors": "Atlassian",
+    "title": "Atlassian Design System",
+    "publisher": "Atlassian",
+    "url": "https://atlassian.design/"
+  },
+  {
+    "id": "fluent-2",
+    "kind": "design-system",
+    "authors": "Microsoft",
+    "title": "Fluent 2 Design System",
+    "publisher": "Microsoft",
+    "url": "https://fluent2.microsoft.design/"
+  },
+  {
+    "id": "wai-aria-apg",
+    "kind": "design-system",
+    "authors": "W3C Web Accessibility Initiative",
+    "title": "ARIA Authoring Practices Guide (APG)",
+    "publisher": "W3C Web Accessibility Initiative",
+    "url": "https://www.w3.org/WAI/ARIA/apg/"
+  },
+  {
+    "id": "primer",
+    "kind": "design-system",
+    "authors": "GitHub",
+    "title": "Primer Design System",
+    "publisher": "GitHub",
+    "url": "https://primer.style/"
+  },
+  {
+    "id": "uswds",
+    "kind": "design-system",
+    "authors": "U.S. General Services Administration",
+    "title": "U.S. Web Design System (USWDS)",
+    "publisher": "U.S. General Services Administration",
+    "url": "https://designsystem.digital.gov/"
+  },
+  {
+    "id": "pajamas",
+    "kind": "design-system",
+    "authors": "GitLab",
+    "title": "Pajamas Design System",
+    "publisher": "GitLab",
+    "url": "https://design.gitlab.com/"
+  },
+  {
+    "id": "windows-design",
+    "kind": "design-system",
+    "authors": "Microsoft",
+    "title": "Windows app design guidance",
+    "publisher": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/windows/apps/design/"
+  },
+  {
+    "id": "wcag-22",
+    "kind": "article",
+    "authors": "W3C",
+    "title": "Web Content Accessibility Guidelines (WCAG) 2.2, with Understanding documents",
+    "year": 2023,
+    "publisher": "W3C",
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/"
+  },
+  {
+    "id": "wai-tutorials",
+    "kind": "article",
+    "authors": "W3C Web Accessibility Initiative",
+    "title": "Web Accessibility Tutorials",
+    "publisher": "W3C",
+    "url": "https://www.w3.org/WAI/tutorials/"
+  },
+  {
+    "id": "nng-toggle-2018",
+    "kind": "article",
+    "authors": "Alita Kendrick",
+    "title": "Toggle-Switch Guidelines",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/toggle-switch-guidelines/"
+  },
+  {
+    "id": "nng-checkbox-radio-2004",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Checkboxes vs. Radio Buttons",
+    "year": 2004,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/"
+  },
+  {
+    "id": "nng-listbox-dropdown-2020",
+    "kind": "article",
+    "authors": "Anna Kaley",
+    "title": "Listboxes vs. Dropdown Lists",
+    "year": 2020,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/listbox-dropdown/"
+  },
+  {
+    "id": "nng-date-input-2017",
+    "kind": "article",
+    "authors": "Angie Li",
+    "title": "Date-Input Form Fields: UX Design Guidelines",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/date-input/"
+  },
+  {
+    "id": "nng-placeholders-2014",
+    "kind": "article",
+    "authors": "Katie Sherwin",
+    "title": "Placeholders in Form Fields Are Harmful",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/form-design-placeholders/"
+  },
+  {
+    "id": "nng-required-fields-2019",
+    "kind": "article",
+    "authors": "Raluca Budiu",
+    "title": "Marking Required Fields in Forms",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/required-fields/"
+  },
+  {
+    "id": "nng-errors-forms-2019",
+    "kind": "article",
+    "authors": "Rachel Krause",
+    "title": "10 Design Guidelines for Reporting Errors in Forms",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/errors-forms-design-guidelines/"
+  },
+  {
+    "id": "nng-slider-2015",
+    "kind": "article",
+    "authors": "Aurora Harley",
+    "title": "Slider Design: Rules of Thumb",
+    "year": 2015,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/gui-slider-controls/"
+  },
+  {
+    "id": "nng-input-steppers-2018",
+    "kind": "article",
+    "authors": "Yuxuan (Tammy) Zhou",
+    "title": "Design Guidelines for Input Steppers",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/input-steppers/"
+  },
+  {
+    "id": "nng-password-masking-2009",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Stop Password Masking",
+    "year": 2009,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/stop-password-masking/"
+  },
+  {
+    "id": "nng-site-search-suggestions-2018",
+    "kind": "article",
+    "authors": "Kate Moran",
+    "title": "Site Search Suggestions",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/site-search-suggestions/"
+  },
+  {
+    "id": "nng-search-visible-2001",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Search: Visible and Simple",
+    "year": 2001,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/search-visible-and-simple/"
+  },
+  {
+    "id": "nng-accordions-desktop-2023",
+    "kind": "article",
+    "authors": "Huei-Hsin Wang",
+    "title": "Accordions on Desktop: When and How to Use",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/accordions-on-desktop/"
+  },
+  {
+    "id": "nng-carousels-2013",
+    "kind": "article",
+    "authors": "Kara Pernice",
+    "title": "Carousel Usability: Effective UI for Content Overload",
+    "year": 2013,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/designing-effective-carousels/"
+  },
+  {
+    "id": "nng-auto-forwarding-2013",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Auto-Forwarding Carousels, Accordions Annoy Users & Reduce Visibility",
+    "year": 2013,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/auto-forwarding/"
+  },
+  {
+    "id": "nng-modal-2017",
+    "kind": "article",
+    "authors": "Therese Fessenden",
+    "title": "Modal & Nonmodal Dialogs: When (& When Not) to Use Them",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/modal-nonmodal-dialog/"
+  },
+  {
+    "id": "nng-hamburger-2016",
+    "kind": "article",
+    "authors": "Kara Pernice, Raluca Budiu",
+    "title": "Hamburger Menus and Hidden Navigation Hurt UX Metrics",
+    "year": 2016,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/hamburger-menus/"
+  },
+  {
+    "id": "nng-mega-menus-2017",
+    "kind": "article",
+    "authors": "Angie Li, Jakob Nielsen",
+    "title": "Mega Menus Work Well for Site Navigation",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/mega-menus-work-well/"
+  },
+  {
+    "id": "nng-infinite-scroll-2022",
+    "kind": "article",
+    "authors": "Tim Neusesser",
+    "title": "Infinite Scrolling: When to Use It, When to Avoid It",
+    "year": 2022,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/infinite-scrolling-tips/"
+  },
+  {
+    "id": "nng-breadcrumbs-2018",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Breadcrumbs: 11 Design Guidelines for Desktop and Mobile",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/breadcrumbs/"
+  },
+  {
+    "id": "nng-tabs-2024",
+    "kind": "article",
+    "authors": "Evan Sunwall",
+    "title": "Tabs, Used Right",
+    "year": 2024,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/tabs-used-right/"
+  },
+  {
+    "id": "nng-confirmation-2018",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Confirmation Dialogs Can Prevent User Errors",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/confirmation-dialog/"
+  },
+  {
+    "id": "nng-tooltips-2019",
+    "kind": "article",
+    "authors": "Alita Kendrick",
+    "title": "Tooltip Guidelines",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/tooltip-guidelines/"
+  },
+  {
+    "id": "nng-skeleton-2023",
+    "kind": "article",
+    "authors": "Samhita Tankala",
+    "title": "Skeleton Screens 101",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/skeleton-screens/"
+  },
+  {
+    "id": "nng-progress-2014",
+    "kind": "article",
+    "authors": "Katie Sherwin",
+    "title": "Progress Indicators Make a Slow System Less Insufferable",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/progress-indicators/"
+  },
+  {
+    "id": "nng-empty-states-2021",
+    "kind": "article",
+    "authors": "Kate Kaplan",
+    "title": "Designing Empty States in Complex Applications: 3 Guidelines",
+    "year": 2021,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/empty-state-interface-design/"
+  },
+  {
+    "id": "nng-response-times-1993",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Response Time Limits",
+    "year": 1993,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/response-times-3-important-limits/"
+  },
+  {
+    "id": "nng-f-pattern-2017",
+    "kind": "article",
+    "authors": "Kara Pernice",
+    "title": "F-Shaped Pattern of Reading: Misunderstood, But Still Relevant",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/"
+  },
+  {
+    "id": "nng-split-buttons-2019",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Split Buttons: Definition",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/split-buttons/"
+  },
+  {
+    "id": "nng-bottom-sheet-2023",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Bottom Sheets: Definition and UX Guidelines",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/bottom-sheet/"
+  },
+  {
+    "id": "nng-cards-2016",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Cards: UI-Component Definition",
+    "year": 2016,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/cards-component/"
+  },
+  {
+    "id": "nng-wizards-2017",
+    "kind": "article",
+    "authors": "Raluca Budiu",
+    "title": "Wizards: Definition and Design Recommendations",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/wizards/"
+  },
+  {
+    "id": "nng-progressive-disclosure-2006",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Progressive Disclosure",
+    "year": 2006,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/progressive-disclosure/"
+  },
+  {
+    "id": "nng-comparison-tables-2024",
+    "kind": "article",
+    "authors": "Kate Moran, Taylor Dykes",
+    "title": "Comparison Tables for Products, Services, and Features",
+    "year": 2024,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/comparison-tables/"
+  },
+  {
+    "id": "nng-back-to-top-2017",
+    "kind": "article",
+    "authors": "Hoa Loranger",
+    "title": "Back-to-Top Button Design Guidelines",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/back-to-top/"
+  },
+  {
+    "id": "nng-sticky-headers-2021",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Sticky Headers: 5 Ways to Make Them Better",
+    "year": 2021,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/sticky-headers/"
+  },
+  {
+    "id": "nng-overlays-2015",
+    "kind": "article",
+    "authors": "Kathryn Whitenton",
+    "title": "Overuse of Overlays: How to Avoid Misusing Lightboxes",
+    "year": 2015,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/overuse-of-overlays/"
+  },
+  {
+    "id": "nng-indicators-2024",
+    "kind": "article",
+    "authors": "Kim Flaherty",
+    "title": "Indicators, Validations, and Notifications: Pick the Correct Communication Option",
+    "year": 2024,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/indicators-validations-notifications/"
+  },
+  {
+    "id": "nng-data-tables-2022",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Data Tables: Four Major User Tasks",
+    "year": 2022,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/data-tables/"
+  },
+  {
+    "id": "nng-toc-2023",
+    "kind": "article",
+    "authors": "Huei-Hsin Wang, Maddie Brown",
+    "title": "Table of Contents: The Ultimate Design Guide",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/table-of-contents/"
+  },
+  {
+    "id": "nng-in-page-links-2023",
+    "kind": "article",
+    "authors": "Huei-Hsin Wang",
+    "title": "In-Page Links for Content Navigation",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/in-page-links-content-navigation/"
+  },
+  {
+    "id": "nng-contextual-menus-2019",
+    "kind": "article",
+    "authors": "Anna Kaley",
+    "title": "Contextual Menus: Delivering Relevant Tools for Tasks",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/contextual-menus/"
+  },
+  {
+    "id": "nng-footers-2019",
+    "kind": "article",
+    "authors": "Therese Fessenden",
+    "title": "Web Page Footers 101: Design Patterns and When to Use Each",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/footers/"
+  },
+  {
+    "id": "nng-coach-marks-2014",
+    "kind": "article",
+    "authors": "Aurora Harley",
+    "title": "Instructional Overlays and Coach Marks for Mobile Apps",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/mobile-instructional-overlay/"
+  },
+  {
+    "id": "nng-onboarding-2023",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Onboarding Tutorials vs. Contextual Help",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/onboarding-tutorials/"
+  },
+  {
+    "id": "nng-cookies-2023",
+    "kind": "article",
+    "authors": "Samhita Tankala",
+    "title": "Cookie Permissions 101",
+    "year": 2023,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/cookie-permissions/"
+  },
+  {
+    "id": "nng-drag-drop-2020",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Drag–and–Drop: How to Design for Ease of Use",
+    "year": 2020,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/drag-drop/"
+  },
+  {
+    "id": "nng-icon-usability-2014",
+    "kind": "article",
+    "authors": "Aurora Harley",
+    "title": "Icon Usability",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/icon-usability/"
+  },
+  {
+    "id": "nng-mobile-nav-2015",
+    "kind": "article",
+    "authors": "Raluca Budiu",
+    "title": "Basic Patterns for Mobile Navigation",
+    "year": 2015,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/mobile-navigation-patterns/"
+  },
+  {
+    "id": "nng-filters-2018",
+    "kind": "article",
+    "authors": "Kate Moran",
+    "title": "Helpful Filter Categories and Values for Better UX",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/filter-categories-values/"
+  },
+  {
+    "id": "nng-vertical-nav-2021",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Left-Side Vertical Navigation on Desktop: Scalable, Responsive, and Easy to Scan",
+    "year": 2021,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/vertical-nav/"
+  },
+  {
+    "id": "nng-local-nav-2021",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Local Navigation Is a Valuable Orientation and Wayfinding Aid",
+    "year": 2021,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/local-navigation/"
+  },
+  {
+    "id": "nng-state-switch-2020",
+    "kind": "article",
+    "authors": "Raluca Budiu",
+    "title": "State-Switch Controls: The Case of the \"Mute\" Button",
+    "year": 2020,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/state-switch-buttons/"
+  },
+  {
+    "id": "nng-ok-cancel-2008",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "OK-Cancel or Cancel-OK? The Trouble With Buttons",
+    "year": 2008,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/ok-cancel-or-cancel-ok/"
+  },
+  {
+    "id": "nng-command-links-2007",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Command Links",
+    "year": 2007,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/command-links/"
+  },
+  {
+    "id": "nng-undo-2020",
+    "kind": "article",
+    "authors": "Maria Rosala",
+    "title": "User Control and Freedom (Usability Heuristic #3)",
+    "year": 2020,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/user-control-and-freedom/"
+  },
+  {
+    "id": "nng-dashboards-2017",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Dashboards: Making Charts and Graphs Easier to Understand",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/dashboards-preattentive/"
+  },
+  {
+    "id": "nng-list-entries-2016",
+    "kind": "article",
+    "authors": "Kim Flaherty",
+    "title": "The Anatomy of a List Entry",
+    "year": 2016,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/list-entries/"
+  },
+  {
+    "id": "nng-layer-cake-2019",
+    "kind": "article",
+    "authors": "Kara Pernice",
+    "title": "The Layer-Cake Pattern of Scanning Content on the Web",
+    "year": 2019,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/layer-cake-pattern-scanning/"
+  },
+  {
+    "id": "nng-zigzag-2017",
+    "kind": "article",
+    "authors": "Kim Flaherty",
+    "title": "Zigzag Image–Text Layouts Make Scanning Less Efficient",
+    "year": 2017,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/zigzag-page-layout/"
+  },
+  {
+    "id": "nng-homepage-2024",
+    "kind": "article",
+    "authors": "Huei-Hsin Wang",
+    "title": "Homepage Design: 5 Fundamental Principles",
+    "year": 2024,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/homepage-design-principles/"
+  },
+  {
+    "id": "nng-scrolling-2018",
+    "kind": "article",
+    "authors": "Therese Fessenden",
+    "title": "Scrolling and Attention",
+    "year": 2018,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/scrolling-and-attention/"
+  },
+  {
+    "id": "nng-pagination-2013",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "Users' Pagination Preferences and \"View All\"",
+    "year": 2013,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/item-list-view-all/"
+  },
+  {
+    "id": "nng-clickable-2015",
+    "kind": "article",
+    "authors": "Hoa Loranger",
+    "title": "Beyond Blue Links: Making Clickable Elements Recognizable",
+    "year": 2015,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/clickable-elements/"
+  },
+  {
+    "id": "nng-heuristics-1994",
+    "kind": "article",
+    "authors": "Jakob Nielsen",
+    "title": "10 Usability Heuristics for User Interface Design",
+    "year": 1994,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/ten-usability-heuristics/"
+  },
+  {
+    "id": "nng-social-proof-2014",
+    "kind": "article",
+    "authors": "Jen Cardello",
+    "title": "Social Proof in the User Experience",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/social-proof-ux/"
+  },
+  {
+    "id": "nng-faqs-2014",
+    "kind": "article",
+    "authors": "Susan Farrell",
+    "title": "FAQs Still Deliver Great Value",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/faqs-deliver-value/"
+  },
+  {
+    "id": "baymard-inline-validation-2024",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "Usability Testing of Inline Form Validation",
+    "year": 2024,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/inline-form-validation"
+  },
+  {
+    "id": "baymard-required-optional-2018",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "E-Commerce Checkouts Need to Mark Both Required Fields and Optional Fields Explicitly (Only 14% Do So)",
+    "year": 2018,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/required-optional-form-fields"
+  },
+  {
+    "id": "baymard-dropdown-2018",
+    "kind": "article",
+    "authors": "Lars Söderlund",
+    "title": "Drop-Down Usability: When You Should (and Shouldn't) Use Them",
+    "year": 2018,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/drop-down-usability"
+  },
+  {
+    "id": "baymard-multicolumn-2023",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "Avoid Extensive Multicolumn Layouts",
+    "year": 2023,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/avoid-multi-column-forms"
+  },
+  {
+    "id": "baymard-carousel-2019",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "10 UX Requirements for Homepage Carousels",
+    "year": 2019,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/homepage-carousel"
+  },
+  {
+    "id": "baymard-autocomplete-2022",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "9 UX Best Practice Design Patterns for Autocomplete Suggestions (Only 19% Get Everything Right)",
+    "year": 2022,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/autocomplete-design"
+  },
+  {
+    "id": "baymard-comparison-2022",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "4 Ways to Optimize the Comparison Feature for Scanning",
+    "year": 2022,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/user-friendly-comparison-tools"
+  },
+  {
+    "id": "baymard-hover-delay-2023",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "Provide a Hover Delay of 300–500 MS for Hover-Based Drop-Down Menus (60% Don’t)",
+    "year": 2023,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/dropdown-menu-flickering-issue"
+  },
+  {
+    "id": "baymard-applied-filters-2020",
+    "kind": "article",
+    "authors": "Kathryn Reeves",
+    "title": "Filtering UX: Display “Applied Filters” in an Overview",
+    "year": 2020,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/how-to-design-applied-filters"
+  },
+  {
+    "id": "baymard-quantity-2022",
+    "kind": "article",
+    "authors": "Edward Scott",
+    "title": "Use Buttons or Buttons Plus an Open Text Field for Updating Cart Quantity (61% Don’t)",
+    "year": 2022,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/auto-update-users-quantity-changes"
+  },
+  {
+    "id": "baymard-thumbnails-2020",
+    "kind": "article",
+    "authors": "Alan Blackwood",
+    "title": "Product Image UX: Always Use Thumbnails",
+    "year": 2020,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/always-use-thumbnails-additional-images"
+  },
+  {
+    "id": "baymard-no-results-2019",
+    "kind": "article",
+    "authors": "Sonia Sousa",
+    "title": "5 Proven UX Strategies For \"No Results\" Pages",
+    "year": 2019,
+    "publisher": "Baymard Institute",
+    "url": "https://baymard.com/research-articles/no-results-page"
+  },
+  {
+    "id": "wroblewski-inline-validation-2009",
+    "kind": "article",
+    "authors": "Luke Wroblewski",
+    "title": "Inline Validation in Web Forms",
+    "year": 2009,
+    "publisher": "A List Apart",
+    "url": "https://alistapart.com/article/inline-validation-in-web-forms/"
+  },
+  {
+    "id": "wroblewski-labels-2007",
+    "kind": "article",
+    "authors": "Luke Wroblewski",
+    "title": "Top, Right or Left Aligned Form Labels",
+    "year": 2007,
+    "publisher": "LukeW Ideation + Design",
+    "url": "https://www.lukew.com/ff/504/top-right-or-left-aligned-form-labels"
+  },
+  {
+    "id": "wroblewski-dropdowns-2015",
+    "kind": "article",
+    "authors": "Luke Wroblewski",
+    "title": "Dropdowns Should be the UI of Last Resort",
+    "year": 2015,
+    "publisher": "LukeW Ideation + Design",
+    "url": "https://www.lukew.com/ff/1950/dropdowns-should-be-the-ui-of-last-resort"
+  },
+  {
+    "id": "wroblewski-passwords-2012",
+    "kind": "article",
+    "authors": "Luke Wroblewski",
+    "title": "Mobile Design Details: Hide/Show Passwords",
+    "year": 2012,
+    "publisher": "LukeW Ideation + Design",
+    "url": "https://www.lukew.com/ff/1653/mobile-design-details-hide-show-passwords"
+  },
+  {
+    "id": "raskin-undo-2007",
+    "kind": "article",
+    "authors": "Aza Raskin",
+    "title": "Never Use a Warning When you Mean Undo",
+    "year": 2007,
+    "publisher": "A List Apart",
+    "url": "https://alistapart.com/article/neveruseawarning/"
+  },
+  {
+    "id": "silver-float-labels-2017",
+    "kind": "article",
+    "authors": "Adam Silver",
+    "title": "The problem with float labels and what to do instead",
+    "year": 2017,
+    "publisher": "Adam Silver",
+    "url": "https://adamsilver.io/blog/the-problem-with-float-labels-and-what-to-do-instead/"
+  },
+  {
+    "id": "silver-toast-2020",
+    "kind": "article",
+    "authors": "Adam Silver",
+    "title": "The problem with toast messages and what to do instead",
+    "year": 2020,
+    "publisher": "Adam Silver",
+    "url": "https://adamsilver.io/blog/the-problem-with-toast-messages-and-what-to-do-instead/"
+  },
+  {
+    "id": "silver-tooltips-2019",
+    "kind": "article",
+    "authors": "Adam Silver",
+    "title": "The problem with tooltips and what to do instead",
+    "year": 2019,
+    "publisher": "Adam Silver",
+    "url": "https://adamsilver.io/blog/the-problem-with-tooltips-and-what-to-do-instead/"
+  },
+  {
+    "id": "silver-disabled-buttons-2023",
+    "kind": "article",
+    "authors": "Adam Silver",
+    "title": "The problem with disabled buttons and what to do instead",
+    "year": 2023,
+    "publisher": "Adam Silver",
+    "url": "https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/"
+  },
+  {
+    "id": "silver-live-validation-2017",
+    "kind": "article",
+    "authors": "Adam Silver",
+    "title": "The problem with live validation and what to do instead",
+    "year": 2017,
+    "publisher": "Adam Silver",
+    "url": "https://adamsilver.io/blog/the-problem-with-live-validation-and-what-to-do-instead/"
+  },
+  {
+    "id": "smashing-sticky-2023",
+    "kind": "article",
+    "authors": "Vitaly Friedman",
+    "title": "Designing Sticky Menus: UX Guidelines",
+    "year": 2023,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2023/05/sticky-menus-ux-guidelines/"
+  },
+  {
+    "id": "smashing-mega-2021",
+    "kind": "article",
+    "authors": "Vitaly Friedman",
+    "title": "User-Friendly Mega-Dropdowns: When Hover Menus Fail",
+    "year": 2021,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2021/05/frustrating-design-patterns-mega-dropdown-hover-menus/"
+  },
+  {
+    "id": "smashing-infinite-2022",
+    "kind": "article",
+    "authors": "Vitaly Friedman",
+    "title": "Infinite Scroll UX Done Right: Guidelines and Best Practices",
+    "year": 2022,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2022/03/designing-better-infinite-scroll/"
+  },
+  {
+    "id": "smashing-live-validation-2022",
+    "kind": "article",
+    "authors": "Vitaly Friedman",
+    "title": "A Complete Guide To Live Validation UX",
+    "year": 2022,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/"
+  },
+  {
+    "id": "smashing-comparison-2017",
+    "kind": "article",
+    "authors": "Vitaly Friedman",
+    "title": "Designing The Perfect Feature Comparison Table",
+    "year": 2017,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2017/08/designing-perfect-feature-comparison-table/"
+  },
+  {
+    "id": "smashing-date-picker-2017",
+    "kind": "article",
+    "authors": "Vitaly Friedman",
+    "title": "Designing The Perfect Date And Time Picker",
+    "year": 2017,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2017/07/designing-perfect-date-time-picker/"
+  },
+  {
+    "id": "smashing-optimistic-2016",
+    "kind": "article",
+    "authors": "Denys Mishunov",
+    "title": "True Lies Of Optimistic User Interfaces",
+    "year": 2016,
+    "publisher": "Smashing Magazine",
+    "url": "https://www.smashingmagazine.com/2016/11/true-lies-of-optimistic-user-interfaces/"
+  },
+  {
+    "id": "webdev-otp-2020",
+    "kind": "article",
+    "authors": "Eiji Kitamura",
+    "title": "SMS OTP form best practices",
+    "year": 2020,
+    "publisher": "web.dev",
+    "url": "https://web.dev/articles/sms-otp-form"
+  },
+  {
+    "id": "webdev-signin-2020",
+    "kind": "article",
+    "authors": "Sam Dutton",
+    "title": "Sign-in form best practices",
+    "year": 2020,
+    "publisher": "web.dev",
+    "url": "https://web.dev/articles/sign-in-form-best-practices"
+  },
+  {
+    "id": "webdev-cookie-2021",
+    "kind": "article",
+    "authors": "Katie Hempenius",
+    "title": "Best practices for cookie notices",
+    "year": 2021,
+    "publisher": "web.dev",
+    "url": "https://web.dev/articles/cookie-notice-best-practices"
+  },
+  {
+    "id": "gds-faqs-2013",
+    "kind": "article",
+    "authors": "Sarah Richards",
+    "title": "FAQs: why we don't have them",
+    "year": 2013,
+    "publisher": "Government Digital Service blog",
+    "url": "https://gds.blog.gov.uk/2013/07/25/faqs-why-we-dont-have-them/"
+  },
+  {
+    "id": "nng-animation-duration-2020",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "Executing UX Animations: Duration and Motion Characteristics",
+    "year": 2020,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/animation-duration/"
+  },
+  {
+    "id": "nng-animation-purpose-2020",
+    "kind": "article",
+    "authors": "Page Laubheimer",
+    "title": "The Role of Animation and Motion in UX",
+    "year": 2020,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/animation-purpose-ux/"
+  },
+  {
+    "id": "nng-animation-attention-2014",
+    "kind": "article",
+    "authors": "Aurora Harley",
+    "title": "Animation for Attention and Comprehension",
+    "year": 2014,
+    "publisher": "Nielsen Norman Group",
+    "url": "https://www.nngroup.com/articles/animation-usability/"
+  },
+  {
+    "id": "kowalski-no-animations",
+    "kind": "article",
+    "authors": "Emil Kowalski",
+    "title": "You Don't Need Animations",
+    "url": "https://emilkowal.ski/ui/you-dont-need-animations"
+  },
+  {
+    "id": "kowalski-animation-tips",
+    "kind": "article",
+    "authors": "Emil Kowalski",
+    "title": "7 Practical Animation Tips",
+    "url": "https://emilkowal.ski/ui/7-practical-animation-tips"
+  },
+  {
+    "id": "kowalski-great-animations",
+    "kind": "article",
+    "authors": "Emil Kowalski",
+    "title": "Great Animations",
+    "url": "https://emilkowal.ski/ui/great-animations"
+  },
+  {
+    "id": "webdev-reduced-motion",
+    "kind": "article",
+    "authors": "Thomas Steiner",
+    "title": "prefers-reduced-motion: Sometimes less movement is more",
+    "publisher": "web.dev",
+    "url": "https://web.dev/articles/prefers-reduced-motion"
+  },
+  {
+    "id": "webdev-animations-guide",
+    "kind": "article",
+    "authors": "Kayce Basques, Rachel Andrew",
+    "title": "How to create high-performance CSS animations",
+    "publisher": "web.dev",
+    "url": "https://web.dev/articles/animations-guide"
+  },
+  {
+    "id": "comeau-css-transitions-2021",
+    "kind": "article",
+    "authors": "Josh W. Comeau",
+    "title": "An Interactive Guide to CSS Transitions",
+    "year": 2021,
+    "url": "https://www.joshwcomeau.com/animation/css-transitions/"
+  },
+  {
+    "id": "chrome-height-auto-2024",
+    "kind": "article",
+    "authors": "Bramus",
+    "title": "Animate to height: auto; (and other intrinsic sizing keywords) in CSS",
+    "year": 2024,
+    "publisher": "Chrome for Developers",
+    "url": "https://developer.chrome.com/docs/css-ui/animate-to-height-auto"
+  },
+  {
+    "id": "chrome-view-transitions",
+    "kind": "article",
+    "authors": "Chrome for Developers",
+    "title": "Cross-document view transitions for multi-page applications",
+    "publisher": "Chrome for Developers",
+    "url": "https://developer.chrome.com/docs/web-platform/view-transitions/cross-document"
+  },
+  {
+    "id": "mdn-starting-style",
+    "kind": "article",
+    "authors": "MDN contributors",
+    "title": "@starting-style",
+    "publisher": "MDN Web Docs",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style"
+  },
+  {
+    "id": "mdn-view-timeline",
+    "kind": "article",
+    "authors": "MDN contributors",
+    "title": "animation-timeline: view()",
+    "publisher": "MDN Web Docs",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view"
+  },
+  {
+    "id": "saffer-2013",
+    "kind": "book",
+    "authors": "Dan Saffer",
+    "title": "Microinteractions: Designing with Details",
+    "year": 2013,
+    "publisher": "O'Reilly Media"
+  },
+  {
+    "id": "thomas-johnston-1981",
+    "kind": "book",
+    "authors": "Frank Thomas, Ollie Johnston",
+    "title": "The Illusion of Life: Disney Animation",
+    "year": 1981,
+    "publisher": "Abbeville Press"
+  }
+]

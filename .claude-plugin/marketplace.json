@@ -1,0 +1,43 @@
+{
+  "name": "telicity-ai",
+  "owner": {
+    "name": "telicity-ai"
+  },
+  "metadata": {
+    "description": "Agent Skills by telicity-ai.",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "picky-eater",
+      "source": "./skills",
+      "description": "Build web pages like a storyboard: the agent prepares options once, you pick a drawn option for each area in a local review page (on a sketch for a new page, on your running page for an existing one), and the approved mockup is what gets built.",
+      "version": "0.2.0",
+      "author": {
+        "name": "telicity-ai contributors"
+      },
+      "homepage": "https://github.com/telicity-ai/picky-eater",
+      "repository": "https://github.com/telicity-ai/picky-eater",
+      "license": "MIT",
+      "keywords": [
+        "frontend",
+        "design",
+        "ui",
+        "ui-design",
+        "ux",
+        "web-design",
+        "mockup",
+        "wireframe",
+        "prototyping",
+        "storyboard",
+        "ui-patterns",
+        "agent-skills"
+      ],
+      "category": "development",
+      "strict": false,
+      "skills": [
+        "./picky-eater"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Codex skill metadata (read by the Codex harness, not by the model).
+# Fields follow codex-rs/skills/src/interface.rs and metadata.rs: strings are whitespace-collapsed;
+# display_name <= 64 chars; short_description and default_prompt <= 1024 chars; brand_color #RRGGBB;
+# icons must be relative paths under this skill's assets/ folder. Invalid fields are ignored with a warning.
+interface:
+  display_name: "picky-eater"
+  short_description: "Sketch a page, pick drawn options in a browser, then build"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#DB2777"
+  default_prompt: "Use $picky-eater to prepare options for each area of this page, let me pick in the browser (on a sketch for a new page, on my running page for an existing one), and build only what I approve."
+policy:
+  allow_implicit_invocation: true

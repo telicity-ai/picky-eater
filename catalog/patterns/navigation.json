@@ -1,0 +1,1107 @@
+{
+  "category": "navigation",
+  "patterns": [
+    {
+      "id": "top-nav",
+      "name": "Top navigation bar",
+      "aka": [
+        "horizontal navigation",
+        "navbar",
+        "global navigation"
+      ],
+      "what": "A row of links to the main sections of a site, across the top of every page.",
+      "useWhen": [
+        "The site has about two to seven top-level sections with short names",
+        "Content needs the full page width",
+        "Visitors are new and should see the sections without opening anything"
+      ],
+      "avoidWhen": [
+        "There are more sections than fit one row at common widths (use a sidebar or a mega menu)",
+        "The product is a tool with deep, frequently switched sections (use a sidebar)"
+      ],
+      "rules": [
+        "Show the section links as visible text on screens wide enough; do not hide them behind a menu icon on desktop.",
+        "Order: logo linking home at the start, section links next, search and account at the end.",
+        "Mark the current section with more than color and with aria-current=\"page\".",
+        "Wrap the links in a nav element with a label; put a skip link before it.",
+        "If an item opens a submenu, make it a button with aria-expanded and open it on click; if it also opens on hover, wait about 300–500 ms first.",
+        "Below the width where the links stop fitting, move them into a menu button or a bottom tab bar."
+      ],
+      "examples": [
+        {
+          "who": "Stripe",
+          "where": "Home page: Products, Solutions, Developers, Resources and Pricing across the top, sign-in at the end",
+          "url": "https://stripe.com/",
+          "verified": true
+        },
+        {
+          "who": "Slack",
+          "where": "Site header: five section links, search, sign-in and two buttons",
+          "url": "https://slack.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Header: basic and extended variants with primary navigation",
+          "url": "https://designsystem.digital.gov/components/header/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Service navigation: links to the sections of a service",
+          "url": "https://design-system.service.gov.uk/components/service-navigation/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "krug-2014",
+          "where": "Street signs and Breadcrumbs"
+        },
+        {
+          "ref": "nng-hamburger-2016",
+          "where": "Hamburger Menus and Hidden Navigation Hurt UX Metrics"
+        },
+        {
+          "ref": "baymard-hover-delay-2023",
+          "where": "Provide a Hover Delay of 300–500 MS for Hover-Based Drop-Down Menus"
+        }
+      ],
+      "alternatives": [
+        "sidebar-nav",
+        "nav-drawer",
+        "mega-menu",
+        "bottom-tab-bar"
+      ]
+    },
+    {
+      "id": "sidebar-nav",
+      "name": "Sidebar navigation",
+      "aka": [
+        "side navigation",
+        "vertical navigation",
+        "left nav",
+        "navigation rail"
+      ],
+      "what": "A vertical list of destinations down the side of the page, often with nested groups.",
+      "useWhen": [
+        "There are many destinations, or the list will grow",
+        "Destinations form two or more levels",
+        "People switch sections often during work, as in applications and documentation"
+      ],
+      "avoidWhen": [
+        "There are five or fewer destinations and the content needs width (use a top bar)",
+        "The screen is a phone (collapse to a drawer or a bottom tab bar)"
+      ],
+      "rules": [
+        "Put it on the leading edge; NN/g notes people look at the left side of the page most.",
+        "Show icon and text label for each item; an icon-only rail needs tooltips and well-known icons.",
+        "Indent nested levels and make a parent either a link or an expander, not both on the same click target.",
+        "Keep the current item highlighted and its parents expanded; expose it with aria-current.",
+        "Let the list scroll on its own when it is taller than the window.",
+        "When collapsible, remember the user's choice between visits."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Docs",
+          "where": "Documentation: a tree of sections that expand to show their pages",
+          "url": "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          "verified": true
+        },
+        {
+          "who": "Grafana",
+          "where": "Application: icon-and-label sections down the left, some with expanders",
+          "url": "https://play.grafana.org/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Side navigation: hierarchical, vertical navigation with up to three levels",
+          "url": "https://designsystem.digital.gov/components/side-navigation/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Navigation rail: a vertical strip of destinations for wider windows",
+          "url": "https://m3.material.io/components/navigation-rail/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-vertical-nav-2021",
+          "where": "Left-Side Vertical Navigation on Desktop"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Sidebars"
+        },
+        {
+          "ref": "nng-local-nav-2021",
+          "where": "Local Navigation Is a Valuable Orientation and Wayfinding Aid"
+        }
+      ],
+      "alternatives": [
+        "top-nav",
+        "nav-drawer",
+        "nav-tabs",
+        "bottom-tab-bar"
+      ]
+    },
+    {
+      "id": "bottom-tab-bar",
+      "name": "Bottom tab bar",
+      "aka": [
+        "bottom navigation",
+        "navigation bar",
+        "tab bar"
+      ],
+      "what": "A bar fixed to the bottom of a phone screen with three to five top-level destinations, each an icon with a label.",
+      "useWhen": [
+        "The product has three to five sections of similar importance",
+        "People switch between sections often",
+        "The screen is a phone or small tablet"
+      ],
+      "avoidWhen": [
+        "There are more than five destinations (put the extra ones behind a \"More\" item or in a drawer)",
+        "There are only two destinations, or the items are actions rather than places",
+        "The window is wide; use a rail or sidebar there"
+      ],
+      "rules": [
+        "Use three to five items, as both Material Design and Apple advise; never scroll the bar.",
+        "Give every item an icon and a short text label; do not rely on icons alone.",
+        "Show the selected item with a filled icon or indicator plus a color change.",
+        "Tapping an item goes to the top level of that section; tapping the selected item again returns to its start or scrolls to the top.",
+        "Keep the bar visible on every top-level screen; hide it only inside full-screen tasks.",
+        "Make each target at least 48×48 CSS px and pad for the device safe area."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Tab bars: for example the Alarm, Stopwatch and Timer tabs in Clock",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Navigation bar: three to five destinations at the bottom of the window",
+          "url": "https://m3.material.io/components/navigation-bar/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Instagram",
+          "where": "Phone app: five destinations in a bar at the bottom",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "apple-hig",
+          "where": "Tab bars"
+        },
+        {
+          "ref": "material-3",
+          "where": "Navigation bar"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Bottom Navigation"
+        }
+      ],
+      "alternatives": [
+        "nav-drawer",
+        "top-nav",
+        "sidebar-nav"
+      ]
+    },
+    {
+      "id": "nav-drawer",
+      "name": "Navigation drawer",
+      "aka": [
+        "hamburger menu",
+        "off-canvas menu",
+        "menu button"
+      ],
+      "what": "Navigation hidden behind a menu button that opens a panel of links over or beside the page.",
+      "useWhen": [
+        "The screen is too narrow to show the navigation",
+        "There are too many destinations for a tab bar",
+        "Navigation is used rarely compared with the content"
+      ],
+      "avoidWhen": [
+        "The screen is wide enough to show the links; NN/g measured lower use of navigation, longer task times and lower discoverability when it was hidden, more so on desktop",
+        "People move between a few sections all the time (use a bottom tab bar)"
+      ],
+      "rules": [
+        "Label the button with the word \"Menu\", with or without the three-line icon.",
+        "Make the button a real button with aria-expanded and aria-controls; move focus into the drawer when it opens.",
+        "When the drawer covers the page, treat it as a modal: trap focus, close on Escape and on a tap outside, return focus to the button.",
+        "Show the current section inside the drawer.",
+        "Keep the most used destinations visible outside the drawer when space allows."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Navigation drawer: standard and modal variants",
+          "url": "https://m3.material.io/components/navigation-drawer/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia (mobile site)",
+          "where": "Mobile site: a three-line button opens the main menu",
+          "url": "https://en.m.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Site header: a \"Menu\" button that expands the navigation, with search next to it",
+          "url": "https://www.gov.uk/learn-to-drive-a-car",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-hamburger-2016",
+          "where": "Hamburger Menus and Hidden Navigation Hurt UX Metrics"
+        },
+        {
+          "ref": "nng-mobile-nav-2015",
+          "where": "Basic Patterns for Mobile Navigation"
+        },
+        {
+          "ref": "material-3",
+          "where": "Navigation drawer"
+        }
+      ],
+      "alternatives": [
+        "bottom-tab-bar",
+        "top-nav",
+        "sidebar-nav"
+      ]
+    },
+    {
+      "id": "mega-menu",
+      "name": "Mega menu",
+      "aka": [
+        "fat menu",
+        "mega dropdown"
+      ],
+      "what": "A large panel that opens from a top navigation item and shows many links at once, arranged in labelled groups.",
+      "useWhen": [
+        "The site has many categories on two levels and people benefit from seeing them together",
+        "The options are easier to choose from when grouped and, where useful, illustrated"
+      ],
+      "avoidWhen": [
+        "The section has only a handful of links (use a plain dropdown menu)",
+        "The screen is a phone; a mega menu does not fit and hover does not exist"
+      ],
+      "rules": [
+        "Show all options at once in columns under short group headings; do not make the panel scroll.",
+        "Open on click, or on hover only after the pointer rests on the item (NN/g: about 0.5 s; Baymard: 300–500 ms), and keep it open briefly after the pointer leaves.",
+        "Make the trigger a button with aria-expanded; Escape closes the panel and returns focus to the trigger.",
+        "Keep the panel narrower than the window and anchored to the navigation bar.",
+        "On phones replace it with an accordion list inside the navigation drawer.",
+        "Do not use a menu role for site navigation: a list of links in a nav landmark is enough."
+      ],
+      "examples": [
+        {
+          "who": "U.S. Web Design System",
+          "where": "Header: megamenu variant that opens a multi-column panel of links",
+          "url": "https://designsystem.digital.gov/components/header/",
+          "verified": true
+        },
+        {
+          "who": "W3C WAI tutorials",
+          "where": "Fly-out menus tutorial: keyboard and timing behavior",
+          "url": "https://www.w3.org/WAI/tutorials/menus/flyout/",
+          "verified": true
+        },
+        {
+          "who": "Amazon",
+          "where": "Department menu: categories on the left and their subcategories in columns",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-mega-menus-2017",
+          "where": "Mega Menus Work Well for Site Navigation"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Fat Menus"
+        },
+        {
+          "ref": "smashing-mega-2021",
+          "where": "User-Friendly Mega-Dropdowns: When Hover Menus Fail"
+        }
+      ],
+      "alternatives": [
+        "top-nav",
+        "sidebar-nav",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "id": "nav-tabs",
+      "name": "Navigation tabs",
+      "aka": [
+        "underline navigation",
+        "local navigation tabs",
+        "sub-navigation"
+      ],
+      "what": "A row of labels under the page header that switches between the sibling pages of one object or section.",
+      "useWhen": [
+        "One object has a few fixed sub-pages: Overview, Activity, Settings",
+        "People move between the sub-pages often and need to see which one they are on"
+      ],
+      "avoidWhen": [
+        "The labels are steps of a process (use a step indicator)",
+        "There are more sub-pages than fit one row (use sidebar navigation)",
+        "Switching only changes content inside the page, not the URL (use tabbed sections)"
+      ],
+      "rules": [
+        "Build them as links in a nav element, not as ARIA tabs: each one loads a page and has its own URL.",
+        "Mark the current one with a visible indicator and aria-current=\"page\".",
+        "Keep labels to one or two words and the set to one row; on small screens scroll the row or move overflow into a \"More\" menu.",
+        "Keep the set and its order identical on every sub-page."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Primer",
+          "where": "UnderlineNav: navigation between the pages of a repository or profile",
+          "url": "https://primer.style/product/components/underline-nav/",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Article header: \"Article\" and \"Talk\", and \"Read\", \"Edit\", \"View history\"",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Tabs: line and contained tabs for switching between views",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/tabs/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-tabs-2024",
+          "where": "Tabs, Used Right"
+        },
+        {
+          "ref": "nng-local-nav-2021",
+          "where": "Local Navigation Is a Valuable Orientation and Wayfinding Aid"
+        }
+      ],
+      "alternatives": [
+        "sidebar-nav",
+        "tabbed-sections",
+        "view-switcher"
+      ]
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "aka": [
+        "breadcrumb trail"
+      ],
+      "what": "A row of links showing where the current page sits in the site hierarchy, from the top level down.",
+      "useWhen": [
+        "The site has three or more levels and people arrive deep inside it from search or links",
+        "People need to go up one or more levels"
+      ],
+      "avoidWhen": [
+        "The site is flat or has one level",
+        "The page is a step in a linear process (use a Back link)",
+        "They would replace the main navigation instead of supplementing it"
+      ],
+      "rules": [
+        "Show the path of the hierarchy, not the pages the user happened to visit.",
+        "Start with the home or top level and end with the parent of the current page, or with the current page as plain text, not a link.",
+        "Place them above the page title, in a small type size, on one line.",
+        "Mark up as an ordered list inside a nav element labelled \"Breadcrumb\"; mark a current-page item with aria-current=\"page\".",
+        "On small screens show only the parent as a \"back to\" link, or let the trail scroll; do not wrap onto several lines."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Breadcrumbs: from the home page to the parent section",
+          "url": "https://design-system.service.gov.uk/components/breadcrumbs/",
+          "verified": true
+        },
+        {
+          "who": "GitHub Docs",
+          "where": "Documentation: Home / Get started / Using GitHub / Hello World above the article",
+          "url": "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          "verified": true
+        },
+        {
+          "who": "MDN Web Docs",
+          "where": "Reference pages: Web > HTML > Reference > Elements > <dialog>",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Breadcrumb pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-breadcrumbs-2018",
+          "where": "Breadcrumbs: 11 Design Guidelines for Desktop and Mobile"
+        },
+        {
+          "ref": "krug-2014",
+          "where": "Street signs and Breadcrumbs"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Breadcrumbs"
+        }
+      ],
+      "alternatives": [
+        "sidebar-nav",
+        "nav-tabs"
+      ]
+    },
+    {
+      "id": "pagination",
+      "name": "Pagination",
+      "aka": [
+        "paging",
+        "page numbers"
+      ],
+      "what": "A long list split into numbered pages, with controls to move to the next, previous or a specific page.",
+      "useWhen": [
+        "People look for a specific item and need to keep their place, return to it or share it",
+        "The list has a known size and a stable order",
+        "The page has a footer people must be able to reach"
+      ],
+      "avoidWhen": [
+        "The list is short enough to show whole",
+        "Content is a stream that people skim with no goal (infinite scroll or load-more fits better)"
+      ],
+      "rules": [
+        "Show \"Previous\" and \"Next\" as words, the current page, and enough page numbers to jump; use an ellipsis for gaps.",
+        "Put the page number in the URL so pages can be bookmarked and the Back button restores the position.",
+        "State the range and total: \"Showing 21–40 of 312\".",
+        "Place the control after the list; repeat it above only for very long pages.",
+        "Mark up as links inside a nav element labelled \"Pagination\"; mark the current page with aria-current=\"page\".",
+        "On small screens keep Previous, Next and the current page; drop the other numbers."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "Search results: \"Next page\" with \"2 of 634\" beneath the list",
+          "url": "https://www.gov.uk/search/all?keywords=passport",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Pagination: numbered pages and previous/next links",
+          "url": "https://design-system.service.gov.uk/components/pagination/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Pagination: page numbers with ellipses for skipped ranges",
+          "url": "https://designsystem.digital.gov/components/pagination/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Pagination: items per page, item range and page selector",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/pagination/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-pagination-2013",
+          "where": "Users' Pagination Preferences and \"View All\""
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Pagination"
+        },
+        {
+          "ref": "nng-infinite-scroll-2022",
+          "where": "Infinite Scrolling: When to Use It, When to Avoid It"
+        }
+      ],
+      "alternatives": [
+        "infinite-scroll",
+        "load-more"
+      ]
+    },
+    {
+      "id": "infinite-scroll",
+      "name": "Infinite scroll",
+      "aka": [
+        "continuous scroll",
+        "endless list"
+      ],
+      "what": "A list that loads more items by itself when the reader nears the end.",
+      "useWhen": [
+        "Content is a stream that people browse without a specific target: posts, photos, news",
+        "Items are similar and skimmed quickly",
+        "Use is mostly on phones, where scrolling is the easiest gesture"
+      ],
+      "avoidWhen": [
+        "People search for a particular item or need to return to one",
+        "The page has a footer with links people need; it keeps moving out of reach",
+        "Keyboard and screen-reader users must get past the list; GitLab deprecated its infinite scroll component over accessibility concerns"
+      ],
+      "rules": [
+        "Load the next batch before the user reaches the end, and show a loading indicator at the end of the list.",
+        "Restore the scroll position when the user opens an item and comes back.",
+        "Offer a way to the footer content: move it to a side column or stop auto-loading after a few batches and show a \"Load more\" button.",
+        "Reserve space for incoming items so nothing above the viewport shifts.",
+        "Announce newly loaded items to screen readers and keep keyboard focus on the item the user was on."
+      ],
+      "examples": [
+        {
+          "who": "GitLab Pajamas",
+          "where": "Infinite scroll component, now deprecated in favor of a load-more pattern or pagination",
+          "url": "https://design.gitlab.com/components/infinite-scroll/",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Feed pattern: a list that adds articles as the user scrolls",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+          "verified": true
+        },
+        {
+          "who": "Instagram",
+          "where": "Home feed: posts keep loading as the user scrolls",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-infinite-scroll-2022",
+          "where": "Infinite Scrolling: When to Use It, When to Avoid It"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Infinite List"
+        },
+        {
+          "ref": "pajamas",
+          "where": "Infinite scroll"
+        }
+      ],
+      "alternatives": [
+        "pagination",
+        "load-more"
+      ]
+    },
+    {
+      "id": "load-more",
+      "name": "Load-more button",
+      "aka": [
+        "show more results",
+        "view more"
+      ],
+      "what": "A button at the end of a list that adds the next batch of items below the ones already shown.",
+      "useWhen": [
+        "People browse a list and want to keep what they have seen on screen",
+        "The page has a footer that must stay reachable",
+        "You want the ease of scrolling without loading content the user did not ask for"
+      ],
+      "avoidWhen": [
+        "People need to jump to a known position or a later page",
+        "The list is a live stream where stopping to press a button gets in the way"
+      ],
+      "rules": [
+        "Label the button with what it does and how much is left: \"Show 20 more\" and \"Showing 40 of 312\".",
+        "Append the new items in place, keep the scroll position, and move focus to the first new item.",
+        "Show a loading state on the button itself while fetching.",
+        "Reflect the loaded amount in the URL so reload and Back return to the same place.",
+        "Remove the button when nothing is left and say so."
+      ],
+      "examples": [
+        {
+          "who": "GitLab Pajamas",
+          "where": "Guidance to replace infinite scroll with a load-more pattern or pagination",
+          "url": "https://design.gitlab.com/components/infinite-scroll/",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Long diffs and comment threads: \"Load more\" between items",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-infinite-scroll-2022",
+          "where": "Infinite Scrolling: When to Use It, When to Avoid It"
+        },
+        {
+          "ref": "smashing-infinite-2022",
+          "where": "Infinite Scroll UX Done Right"
+        }
+      ],
+      "alternatives": [
+        "pagination",
+        "infinite-scroll"
+      ]
+    },
+    {
+      "id": "step-indicator",
+      "name": "Step indicator",
+      "aka": [
+        "progress tracker",
+        "stepper",
+        "progress steps"
+      ],
+      "what": "A row or column of labelled steps that shows which step of a process the user is on, which are done and which remain.",
+      "useWhen": [
+        "A process has a fixed number of steps, usually three to seven",
+        "People want to know how much is left before they commit",
+        "Steps have meaningful names"
+      ],
+      "avoidWhen": [
+        "The number of steps changes with the answers",
+        "There are only two steps, or so many that the labels do not fit",
+        "The items are peer sections, not a sequence (use tabs)"
+      ],
+      "rules": [
+        "Show each step with a number or icon and a text label; mark states as completed, current and upcoming with more than color.",
+        "Expose the current step with aria-current=\"step\" and include \"Step 2 of 5\" as text.",
+        "Make completed steps links only if going back is allowed and safe; never let people jump ahead past required steps.",
+        "On small screens collapse to \"Step 2 of 5: Delivery\" with a thin bar.",
+        "Keep the indicator above the step heading, and keep its labels the same as the step headings."
+      ],
+      "examples": [
+        {
+          "who": "U.S. Web Design System",
+          "where": "Step indicator: segments with labels and a \"step x of y\" counter",
+          "url": "https://designsystem.digital.gov/components/step-indicator/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Progress indicator: steps with complete, current and incomplete states",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/progress-indicator/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Progress tracker: steps of a journey with visited and current states",
+          "url": "https://atlassian.design/components/progress-tracker/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Progress Indicator"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Goal-Gradient Effect"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Path to Completion"
+        }
+      ],
+      "alternatives": [
+        "wizard",
+        "task-list",
+        "progress-bar"
+      ]
+    },
+    {
+      "id": "table-of-contents",
+      "name": "Table of contents",
+      "aka": [
+        "contents list",
+        "on this page",
+        "anchor links",
+        "jump links"
+      ],
+      "what": "A list of links near the top of a long page, one per section, that jump to that section.",
+      "useWhen": [
+        "The page has several sections with headings and is longer than a few screens",
+        "People come for one section and should not have to scroll to find it"
+      ],
+      "avoidWhen": [
+        "The page is short or has fewer than three sections",
+        "The links would go to other pages; people expect these to stay on the page"
+      ],
+      "rules": [
+        "Place it after the page title and before the first section, under a heading such as \"Contents\" or \"On this page\".",
+        "Use the exact section headings as link text and keep the same order.",
+        "Link to heading ids so each section has a shareable URL; make Back return to where the user was.",
+        "List one level of headings, two at most.",
+        "For very long pages keep the list in view while scrolling (see section-nav-page)."
+      ],
+      "examples": [
+        {
+          "who": "Wikipedia",
+          "where": "Articles: a \"Contents\" list of the section headings",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "MDN Web Docs",
+          "where": "Reference pages: \"In this article\" with a link per section",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "In-page navigation built from the headings on the page",
+          "url": "https://designsystem.digital.gov/components/in-page-navigation/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-toc-2023",
+          "where": "Table of Contents: The Ultimate Design Guide"
+        },
+        {
+          "ref": "nng-in-page-links-2023",
+          "where": "In-Page Links for Content Navigation"
+        }
+      ],
+      "alternatives": [
+        "section-nav-page",
+        "back-to-top",
+        "accordion-sections"
+      ]
+    },
+    {
+      "id": "footer-sitemap",
+      "name": "Sitemap footer",
+      "aka": [
+        "fat footer",
+        "doormat navigation",
+        "big footer"
+      ],
+      "what": "A page footer that lists links to the main areas of the site in labelled columns.",
+      "useWhen": [
+        "The site is large and people reach the bottom of pages still looking for something",
+        "Secondary destinations (careers, legal, contact, help) need a home on every page"
+      ],
+      "avoidWhen": [
+        "The site has a handful of pages (a one-line footer is enough)",
+        "Lists load endlessly above it, so the footer can never be reached"
+      ],
+      "rules": [
+        "Group links in three to five columns under short headings that match the main navigation names.",
+        "Put legal and utility links (privacy, terms, cookies, accessibility) in a separate last row.",
+        "Use the same footer on every page.",
+        "Mark it up as a footer with a nav element per group, or one labelled nav.",
+        "Stack the columns on phones; collapse them into accordions only if the list is very long."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "Site footer: \"Services and information\" and \"Government activity\" columns of links",
+          "url": "https://www.gov.uk/search/all?keywords=passport",
+          "verified": true
+        },
+        {
+          "who": "Airbnb",
+          "where": "Site footer: Support, Hosting and Airbnb columns",
+          "url": "https://www.airbnb.com/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Footer: the \"big\" variant with link columns and a \"Return to top\" link",
+          "url": "https://designsystem.digital.gov/components/footer/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Sitemap Footer"
+        },
+        {
+          "ref": "nng-footers-2019",
+          "where": "Web Page Footers 101: Design Patterns and When to Use Each"
+        }
+      ],
+      "alternatives": [
+        "top-nav",
+        "mega-menu"
+      ]
+    },
+    {
+      "id": "search-navigation",
+      "name": "Search as navigation",
+      "aka": [
+        "site search",
+        "search-first navigation",
+        "global search"
+      ],
+      "what": "A search box offered as a main way to reach content, on every page or as the centerpiece of the home page.",
+      "useWhen": [
+        "The site has more content than menus can list",
+        "People arrive knowing the name of what they want",
+        "Content is added faster than the navigation can be reorganized"
+      ],
+      "avoidWhen": [
+        "The site is small enough to browse",
+        "Search quality is poor; a prominent box that returns bad results is worse than none",
+        "People do not know the words to search for and need to see categories"
+      ],
+      "rules": [
+        "Show an open text field, not only an icon, on screens that have room.",
+        "Put it where people look for it: in the header toward the end, or centered on a search-led home page.",
+        "Suggest matching pages and queries as the user types, and let Enter run the full search.",
+        "Keep the query in the field on the results page so it can be refined.",
+        "Keep browse navigation as well; search complements it and does not replace it.",
+        "Mark the form up with role=\"search\" and give the field a label."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "Home page: a large search field in the page header band, above the list of topics",
+          "url": "https://www.gov.uk/",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Site header: an open search field with a Search button",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Searching: guidance on search fields, suggestions and scopes",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/searching",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-search-visible-2001",
+          "where": "Search: Visible and Simple"
+        },
+        {
+          "ref": "krug-2014",
+          "where": "Street signs and Breadcrumbs"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Feature, Search, and Browse"
+        }
+      ],
+      "alternatives": [
+        "top-nav",
+        "command-palette",
+        "mega-menu"
+      ]
+    },
+    {
+      "id": "command-palette",
+      "name": "Command palette",
+      "aka": [
+        "quick switcher",
+        "command menu",
+        "launcher"
+      ],
+      "what": "A search box that opens over the page with a keyboard shortcut and lists matching pages and commands to run.",
+      "useWhen": [
+        "The product has many commands and destinations and frequent users who prefer the keyboard",
+        "People know what they want by name but not where it lives in the menus"
+      ],
+      "avoidWhen": [
+        "Users are occasional visitors who will never learn a shortcut",
+        "It would be the only way to reach a feature; it is an accelerator, not the navigation"
+      ],
+      "rules": [
+        "Open with a documented shortcut (commonly Ctrl/Cmd+K) and also from a visible search control.",
+        "Focus the input on open; filter as the user types; show recent or suggested items before typing.",
+        "Up and Down move through results, Enter runs the selected one, Escape closes and returns focus.",
+        "Group results by type (pages, commands, people) and show each command's own shortcut beside it.",
+        "Build as a modal dialog containing a combobox with a listbox of results.",
+        "Match loosely: accept partial words and common synonyms."
+      ],
+      "examples": [
+        {
+          "who": "GitHub",
+          "where": "GitHub Command Palette: navigate, search and run commands from the keyboard",
+          "url": "https://docs.github.com/en/get-started/accessibility/github-command-palette",
+          "verified": true
+        },
+        {
+          "who": "Visual Studio Code",
+          "where": "Command Palette: access to every command by typing its name",
+          "url": "https://code.visualstudio.com/docs/editing/getting-started/userinterface",
+          "verified": true
+        },
+        {
+          "who": "Grafana",
+          "where": "Header: a search control labelled with its Cmd+K shortcut",
+          "url": "https://play.grafana.org/",
+          "verified": true
+        },
+        {
+          "who": "shadcn/ui",
+          "where": "Command: a command menu component",
+          "url": "https://ui.shadcn.com/docs/components/base/command",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-heuristics-1994",
+          "where": "Flexibility and efficiency of use"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Combobox pattern"
+        },
+        {
+          "ref": "primer",
+          "where": "Navigation"
+        }
+      ],
+      "alternatives": [
+        "search-navigation",
+        "sidebar-nav",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "id": "view-switcher",
+      "name": "View switcher",
+      "aka": [
+        "alternative views",
+        "layout switcher",
+        "content switcher"
+      ],
+      "what": "A small control that switches the same set of items between different presentations, such as list, grid, board or calendar.",
+      "useWhen": [
+        "The same data is useful in more than one arrangement",
+        "Different users or tasks prefer different arrangements"
+      ],
+      "avoidWhen": [
+        "One presentation is clearly right for the data",
+        "The options change which items are shown rather than how (that is a filter or a tab)"
+      ],
+      "rules": [
+        "Offer two to five views in one segmented control, placed at the top of the list near sort and filter.",
+        "Label each option with text, or with an icon that has an accessible name and a tooltip.",
+        "Keep selection, filters, sort and scroll position when the view changes.",
+        "Remember the chosen view per user and per list.",
+        "Mark up as a radio group or a group of toggle buttons with aria-pressed; arrow keys move between options."
+      ],
+      "examples": [
+        {
+          "who": "Notion",
+          "where": "Databases: the same items as a table, board, calendar, list, gallery or timeline",
+          "url": "https://www.notion.com/help/views-filters-and-sorts",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Projects: switch a view between table, board and roadmap layouts",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view",
+          "verified": true
+        },
+        {
+          "who": "Google Calendar",
+          "where": "Calendar: day, week and month views",
+          "url": "https://support.google.com/calendar/answer/6110849?hl=en",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Content switcher: toggles between alternate views of the same content",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/content-switcher/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Alternative Views"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Segmented controls"
+        },
+        {
+          "ref": "carbon",
+          "where": "Content switcher"
+        }
+      ],
+      "alternatives": [
+        "nav-tabs",
+        "tabbed-sections",
+        "segmented-control"
+      ]
+    },
+    {
+      "id": "back-to-top",
+      "name": "Back-to-top link",
+      "aka": [
+        "scroll to top",
+        "return to top"
+      ],
+      "what": "A link or button that returns the reader to the start of a long page.",
+      "useWhen": [
+        "The page is long: NN/g suggests more than about four screens",
+        "The navigation is at the top and is not sticky"
+      ],
+      "avoidWhen": [
+        "The page is short",
+        "A sticky header already keeps navigation in view"
+      ],
+      "rules": [
+        "Label it with words, \"Back to top\", with or without an up arrow.",
+        "Place it at the bottom right as a small floating button, or as a link in the footer; show a floating one only after the user has scrolled down.",
+        "Keep it small and never over content the user needs to tap.",
+        "Scroll quickly or jump; respect prefers-reduced-motion.",
+        "Move keyboard focus to the top of the page as well as the scroll position."
+      ],
+      "examples": [
+        {
+          "who": "U.S. Web Design System",
+          "where": "Footer: a \"Return to top\" link",
+          "url": "https://designsystem.digital.gov/components/footer/",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "GitHub Docs articles: a \"Back to top\" link at the end of the page",
+          "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Articles: \"(Top)\" as the first entry of the contents list",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-back-to-top-2017",
+          "where": "Back-to-Top Button Design Guidelines"
+        }
+      ],
+      "alternatives": [
+        "sticky-header",
+        "table-of-contents"
+      ]
+    }
+  ]
+}

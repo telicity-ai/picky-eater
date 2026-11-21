@@ -1,0 +1,69 @@
+{
+  "name": "picky-eater",
+  "version": "0.2.0",
+  "description": "An Agent Skill that builds web pages like a storyboard: the coding agent sketches the page once, a person picks a drawn option for each area in the browser, and the approved mockup is the answer key for the implementation.",
+  "license": "MIT",
+  "type": "module",
+  "author": "telicity-ai contributors",
+  "homepage": "https://github.com/telicity-ai/picky-eater#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telicity-ai/picky-eater.git"
+  },
+  "bugs": {
+    "url": "https://github.com/telicity-ai/picky-eater/issues"
+  },
+  "keywords": [
+    "agent-skills",
+    "agent-skill",
+    "claude-code",
+    "claude-code-plugin",
+    "codex",
+    "cursor",
+    "ai-agents",
+    "coding-agents",
+    "frontend",
+    "design",
+    "ui",
+    "ui-design",
+    "ux",
+    "web-design",
+    "mockup",
+    "wireframe",
+    "prototyping",
+    "storyboard",
+    "ui-patterns"
+  ],
+  "bin": {
+    "picky-eater": "skills/picky-eater/scripts/picky-eater.mjs"
+  },
+  "files": [
+    "skills/",
+    "catalog/",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check:bundle": "node scripts/build.mjs --check",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:stacks": "node tests/stacks/run.mjs",
+    "prepack": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.0",
+    "@types/node": "22.20.5",
+    "esbuild": "0.28.2",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5",
+    "zod": "4.6.7"
+  }
+}

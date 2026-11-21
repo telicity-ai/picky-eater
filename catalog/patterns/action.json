@@ -1,0 +1,998 @@
+{
+  "category": "action",
+  "patterns": [
+    {
+      "id": "button",
+      "name": "Button hierarchy",
+      "aka": [
+        "primary, secondary and tertiary buttons",
+        "call to action",
+        "emphasis levels"
+      ],
+      "what": "Buttons in two or three levels of visual weight, so that the most likely action on a screen stands out and the others stay available.",
+      "useWhen": [
+        "A screen offers more than one action",
+        "One action is what most people came to do"
+      ],
+      "avoidWhen": [
+        "Every action is equally likely (give them equal weight)",
+        "The \"action\" goes to another page (use a link)"
+      ],
+      "rules": [
+        "Use one primary button per screen or per dialog: solid fill, strongest contrast.",
+        "Style secondary actions with an outline or a muted fill and tertiary actions as plain text; do not set hierarchy by color alone.",
+        "Label buttons with a verb and its object (\"Save changes\", \"Send invoice\"), not \"OK\" or \"Submit\".",
+        "In a form, put the primary button first after the fields, aligned with the left edge of the fields, with secondary actions beside it.",
+        "In dialogs follow the platform order for confirm and cancel and keep it the same throughout the product.",
+        "Make targets at least 44×44 px on touch screens (24×24 CSS px is the WCAG 2.2 AA minimum) and give every button visible hover, focus, pressed and disabled states."
+      ],
+      "examples": [
+        {
+          "who": "Apple",
+          "where": "Product sections: a filled \"Learn more\" button next to an outlined \"Buy\" button",
+          "url": "https://www.apple.com/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Buttons: filled buttons for the most important actions, tonal, outlined and text for the rest",
+          "url": "https://m3.material.io/components/buttons/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Buttons: a prominent style for the most likely action in a view",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/buttons",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Button: primary, secondary, tertiary and ghost",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/button/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Hierarchy is Everything"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Actions"
+        },
+        {
+          "ref": "nng-ok-cancel-2008",
+          "where": "OK-Cancel or Cancel-OK? The Trouble With Buttons"
+        }
+      ],
+      "alternatives": [
+        "text-link",
+        "button-group",
+        "split-button",
+        "floating-action-button"
+      ]
+    },
+    {
+      "id": "destructive-button",
+      "name": "Destructive button",
+      "aka": [
+        "danger button",
+        "warning button"
+      ],
+      "what": "A button for an action that deletes or cannot easily be reversed, styled to look different from ordinary actions.",
+      "useWhen": [
+        "The action removes data, cancels something paid for or affects other people",
+        "The action sits near ordinary actions and must not be hit by mistake"
+      ],
+      "avoidWhen": [
+        "The action is easily undone (offer undo and use a normal button)",
+        "Everything on the screen is marked as dangerous; the signal stops working"
+      ],
+      "rules": [
+        "Name the consequence in the label: \"Delete project\", not \"Remove\" or \"OK\".",
+        "Use the danger color together with the wording; add an icon if color is the only other cue.",
+        "Keep it away from the primary action: at the end of the page, in an overflow menu or in its own \"Danger zone\" section.",
+        "Follow it with a confirmation step in proportion to the damage, or with an undo.",
+        "In the confirmation dialog the destructive action may be the primary button, and Cancel must be the safe default for Enter and Escape."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Button: warning buttons for actions with serious, destructive consequences",
+          "url": "https://design-system.service.gov.uk/components/button/",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Destructive actions: friction to match the severity",
+          "url": "https://design.gitlab.com/patterns/destructive-actions/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Button: the danger variant",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/button/guidelines",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Repository settings: \"Delete this repository\" in a separate danger area",
+          "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "norman-2013",
+          "where": "Human Error? No, Bad Design"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Preventing Errors and Informing Decisions"
+        },
+        {
+          "ref": "pajamas",
+          "where": "Destructive actions"
+        }
+      ],
+      "alternatives": [
+        "confirmation-dialog",
+        "typed-confirmation",
+        "undo"
+      ]
+    },
+    {
+      "id": "button-group",
+      "name": "Button group",
+      "aka": [
+        "toolbar group",
+        "action group"
+      ],
+      "what": "Related buttons placed next to each other as one visual unit.",
+      "useWhen": [
+        "Two to five actions act on the same thing and are used together",
+        "A toolbar needs clusters so that it can be scanned"
+      ],
+      "avoidWhen": [
+        "The buttons are unrelated",
+        "There are more actions than fit (move the rest into an overflow menu)",
+        "Only one of them can be active (that is a segmented control)"
+      ],
+      "rules": [
+        "Group by what the actions affect and separate groups with space or a divider.",
+        "Keep one consistent order across the product, with at most one primary button in a group.",
+        "Give the buttons equal height and consistent gaps; join them only when they are variations of one command.",
+        "Wrap them in an element with role=\"group\", or role=\"toolbar\" with arrow-key navigation for long sets, and a label.",
+        "On narrow screens stack full-width or collapse the lowest-priority buttons into a \"More\" menu."
+      ],
+      "examples": [
+        {
+          "who": "Shopify Polaris",
+          "where": "Button group",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/actions/button-group",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Button groups: standard and connected",
+          "url": "https://m3.material.io/components/button-groups/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Button group: default and segmented",
+          "url": "https://designsystem.digital.gov/components/button-group/",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "ActionBar: icon buttons in a row with an overflow menu when space runs out",
+          "url": "https://primer.style/product/components/action-bar/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Button Groups"
+        },
+        {
+          "ref": "johnson-2020",
+          "where": "Our Vision is Optimized to See Structure"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Toolbar pattern"
+        }
+      ],
+      "alternatives": [
+        "overflow-menu",
+        "split-button",
+        "segmented-control"
+      ]
+    },
+    {
+      "id": "split-button",
+      "name": "Split button",
+      "aka": [
+        "combo button",
+        "button with menu"
+      ],
+      "what": "A button with a main action on one part and a small arrow part that opens a menu of related alternatives.",
+      "useWhen": [
+        "One action is used most of the time and has a few variants: \"Send\" and \"Schedule send\"",
+        "There is no room for a row of buttons"
+      ],
+      "avoidWhen": [
+        "The menu items are unrelated to the main action",
+        "No single variant is the common one (use a menu button)",
+        "The menu would hold navigation links"
+      ],
+      "rules": [
+        "Make the two parts visibly separate with a divider and give each its own focus stop and accessible name.",
+        "Keep the main part's action fixed, or make clear that it repeats the last chosen variant.",
+        "Make the arrow part at least 24 px wide and 44 px on touch screens.",
+        "The menu follows the menu-button pattern: opens on click, arrow keys move, Escape closes and returns focus.",
+        "Keep the menu short and limited to variants of the main action."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Split buttons",
+          "url": "https://m3.material.io/components/split-button/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Buttons: split button with a primary action and a flyout",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/buttons",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Split button",
+          "url": "https://atlassian.design/components/button/split-button/usage",
+          "verified": true
+        },
+        {
+          "who": "Gmail",
+          "where": "Compose window: \"Send\" with an arrow for \"Schedule send\"",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-split-buttons-2019",
+          "where": "Split Buttons: Definition"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        }
+      ],
+      "alternatives": [
+        "button-group",
+        "overflow-menu",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "id": "icon-button",
+      "name": "Icon button",
+      "aka": [
+        "icon-only button"
+      ],
+      "what": "A button that shows only an icon, with its name available to assistive technology and on hover.",
+      "useWhen": [
+        "Space is tight, as in toolbars and table rows",
+        "The icon is one almost everyone knows: search, close, menu, print, settings",
+        "The same action repeats on many rows"
+      ],
+      "avoidWhen": [
+        "The icon needs explaining; NN/g found few icons are understood without a label",
+        "It is the main action of the screen (give it a text label)"
+      ],
+      "rules": [
+        "Give it an accessible name with aria-label and show the same words in a tooltip on hover and on keyboard focus.",
+        "Keep the visual icon around 20–24 px inside a target of at least 44×44 px on touch screens.",
+        "Use one icon for one meaning across the product.",
+        "Show hover, focus and pressed states; an icon alone does not look clickable.",
+        "Prefer icon plus text wherever there is room, especially in navigation."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Icon buttons: for common actions, with default and toggle variants",
+          "url": "https://m3.material.io/components/icon-buttons/guidelines",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "IconButton: an icon-only button with a required label",
+          "url": "https://primer.style/product/components/icon-button/",
+          "verified": true
+        },
+        {
+          "who": "GitHub Docs",
+          "where": "Header: an icon-only button that collapses the sidebar",
+          "url": "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-icon-usability-2014",
+          "where": "Icon Usability"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Target Size (Minimum)"
+        },
+        {
+          "ref": "material-3",
+          "where": "Icon buttons"
+        }
+      ],
+      "alternatives": [
+        "button",
+        "overflow-menu",
+        "toggle-button"
+      ]
+    },
+    {
+      "id": "floating-action-button",
+      "name": "Floating action button",
+      "aka": [
+        "FAB"
+      ],
+      "what": "A round or pill-shaped button that floats above the content, usually at the bottom right, for the one main action of a screen.",
+      "useWhen": [
+        "A screen has one main constructive action such as create, compose or add",
+        "The content scrolls and the action must stay in reach",
+        "The screen is a phone or tablet"
+      ],
+      "avoidWhen": [
+        "The action is minor or destructive",
+        "A screen would need several",
+        "It would cover content or controls at the bottom of the screen"
+      ],
+      "rules": [
+        "Use at most one per screen and only for a positive action.",
+        "Place it at the bottom trailing corner, above any bottom navigation, with a 16 px margin.",
+        "Use a familiar icon; add a text label (extended FAB) when the icon is not self-evident.",
+        "Leave room at the end of scrolling content so the last item can be moved clear of it.",
+        "Give it an accessible name and put it in a sensible place in the focus order, not last on the page."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "FAB: for the most important action on a screen",
+          "url": "https://m3.material.io/components/floating-action-button/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Gmail for Android",
+          "where": "Inbox: a \"Compose\" button floating at the bottom right",
+          "verified": false
+        },
+        {
+          "who": "Google Maps",
+          "where": "Map view: a floating button for directions",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Floating action buttons"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Fitts's Law"
+        }
+      ],
+      "alternatives": [
+        "bottom-action-bar",
+        "button"
+      ]
+    },
+    {
+      "id": "text-link",
+      "name": "Text link",
+      "aka": [
+        "hyperlink",
+        "link styled as text"
+      ],
+      "what": "Underlined or colored text that takes the user to another page or place.",
+      "useWhen": [
+        "Activating it navigates: to another page, a section or a file",
+        "The destination should be openable in a new tab, copied or bookmarked"
+      ],
+      "avoidWhen": [
+        "Activating it changes data or state (use a button)",
+        "It is the main call to action of the page and needs weight (use a link styled as a button)"
+      ],
+      "rules": [
+        "Use an a element with href for navigation and a button element for actions, whatever they look like.",
+        "Underline links inside running text; color alone is not enough.",
+        "Write link text that makes sense out of context; never \"click here\".",
+        "Say so in the link text when it opens a new tab or downloads a file (\"Annual report (PDF, 2 MB)\").",
+        "Keep a visible focus outline and a distinct visited color where history matters."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Link pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Link: standalone and inline",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/link/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Link",
+          "url": "https://designsystem.digital.gov/components/link/",
+          "verified": true
+        },
+        {
+          "who": "Apple",
+          "where": "Under the page title: \"Shop iPhone\" and \"Chat with a Specialist\" as text links with a chevron",
+          "url": "https://www.apple.com/iphone/compare/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "krug-2014",
+          "where": "Billboard Design 101"
+        },
+        {
+          "ref": "nng-command-links-2007",
+          "where": "Command Links"
+        },
+        {
+          "ref": "nng-clickable-2015",
+          "where": "Beyond Blue Links: Making Clickable Elements Recognizable"
+        }
+      ],
+      "alternatives": [
+        "button",
+        "icon-button"
+      ]
+    },
+    {
+      "id": "overflow-menu",
+      "name": "Overflow menu",
+      "aka": [
+        "more menu",
+        "kebab menu",
+        "meatball menu",
+        "ellipsis menu",
+        "actions menu"
+      ],
+      "what": "A button marked with three dots, or \"More\", that opens a short menu of the less used actions.",
+      "useWhen": [
+        "An item or toolbar has more actions than fit",
+        "Some actions are used rarely",
+        "The same set of actions repeats on every row or card"
+      ],
+      "avoidWhen": [
+        "It would hide the main action",
+        "There are only one or two actions and room to show them",
+        "The menu would mix navigation, settings and commands with no relation to the item"
+      ],
+      "rules": [
+        "Keep the one or two most used actions visible and put only the rest in the menu.",
+        "Label the trigger for assistive technology with what it acts on (\"More actions for Invoice 1042\").",
+        "Use the menu-button pattern: aria-haspopup, aria-expanded, arrow keys, Escape returns focus to the trigger.",
+        "Order items by use, separate destructive ones with a divider at the end, and write items as verbs.",
+        "Use the same trigger icon in the same position on every row."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Primer",
+          "where": "ActionMenu",
+          "url": "https://primer.style/product/components/action-menu/",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Pull-down buttons: a menu of items related to the button",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/pull-down-buttons",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Article toolbar: a three-dot button for further tools",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Dropdown menu",
+          "url": "https://atlassian.design/components/dropdown-menu/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-contextual-menus-2019",
+          "where": "Contextual Menus: Delivering Relevant Tools for Tasks"
+        },
+        {
+          "ref": "scott-neil-2009",
+          "where": "Contextual Tools"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Menus & Menu Buttons"
+        }
+      ],
+      "alternatives": [
+        "button-group",
+        "hover-row-actions",
+        "split-button",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "id": "bulk-action-bar",
+      "name": "Bulk action bar",
+      "aka": [
+        "batch actions",
+        "selection toolbar",
+        "multi-select actions"
+      ],
+      "what": "A bar that appears when rows are selected, showing how many are selected and the actions that apply to all of them.",
+      "useWhen": [
+        "People often do the same thing to many items: delete, move, label, export",
+        "The list has checkboxes for selection"
+      ],
+      "avoidWhen": [
+        "Actions apply to one item at a time",
+        "The list is short and rarely edited"
+      ],
+      "rules": [
+        "Put a checkbox on each row and a tri-state \"select all\" in the header.",
+        "Show the bar only while something is selected, with the count (\"3 selected\") and a way to clear the selection.",
+        "Place the bar where the table toolbar is, or fix it to the bottom of the window, so it is visible wherever the user has scrolled.",
+        "When \"select all\" covers only the visible page, offer \"Select all 312 items\".",
+        "Confirm or offer undo for destructive bulk actions and report partial failures per item.",
+        "Announce the selection count to screen readers when it changes."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Data table: batch actions on selected rows",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/data-table/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Index table: checkboxes for bulk selection and bulk actions",
+          "url": "https://shopify.dev/docs/api/app-home/latest/patterns/compositions/index-table",
+          "verified": true
+        },
+        {
+          "who": "Gmail",
+          "where": "Inbox: select all messages on the page, then act on the selection",
+          "url": "https://support.google.com/mail/answer/7401?hl=en",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "scott-neil-2009",
+          "where": "Direct Selection"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Action Panel"
+        },
+        {
+          "ref": "carbon",
+          "where": "Data table"
+        }
+      ],
+      "alternatives": [
+        "hover-row-actions",
+        "overflow-menu"
+      ]
+    },
+    {
+      "id": "hover-row-actions",
+      "name": "Row actions on hover",
+      "aka": [
+        "hover-reveal tools",
+        "hover tools",
+        "quick actions"
+      ],
+      "what": "Action buttons that appear on a list row or card when the pointer is over it or it has keyboard focus.",
+      "useWhen": [
+        "Lists are long and showing actions on every row would be noise",
+        "Users are frequent and use a mouse",
+        "The actions are quick, such as archive, edit or copy link"
+      ],
+      "avoidWhen": [
+        "The product is used on touch screens, where there is no hover",
+        "The actions are the only way to do something important",
+        "New users must discover the actions without help"
+      ],
+      "rules": [
+        "Show the same actions on keyboard focus within the row, not on hover only.",
+        "On touch screens show them always, behind an overflow button, or through a swipe that also has a visible alternative.",
+        "Reserve the space so the row content does not move when the actions appear.",
+        "Limit to two or three icon buttons with tooltips; put the rest in an overflow menu.",
+        "Never hide the only route to an action: also offer it on the item's detail view."
+      ],
+      "examples": [
+        {
+          "who": "Shopify Polaris",
+          "where": "Index table: row actions revealed on hover",
+          "url": "https://shopify.dev/docs/api/app-home/latest/patterns/compositions/index-table",
+          "verified": true
+        },
+        {
+          "who": "Gmail",
+          "where": "Inbox rows: archive, delete and snooze appear at the end of the row under the pointer",
+          "verified": false
+        },
+        {
+          "who": "Notion",
+          "where": "Blocks: a drag handle and add button appear beside a block on hover",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Hover or Pop-Up Tools"
+        },
+        {
+          "ref": "scott-neil-2009",
+          "where": "Contextual Tools"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Content on Hover or Focus"
+        }
+      ],
+      "alternatives": [
+        "overflow-menu",
+        "bulk-action-bar"
+      ]
+    },
+    {
+      "id": "drag-and-drop",
+      "name": "Drag and drop",
+      "aka": [
+        "drag to reorder",
+        "direct manipulation"
+      ],
+      "what": "Moving something by pressing on it, dragging it to a new place and letting go.",
+      "useWhen": [
+        "Position is the point: reordering a list, moving cards between columns, arranging a layout",
+        "Files are added from the desktop"
+      ],
+      "avoidWhen": [
+        "Lists are long and the target is off screen",
+        "It would be the only way to do the task; WCAG 2.2 requires a way that needs no dragging"
+      ],
+      "rules": [
+        "Show a drag handle and change the cursor so the item looks movable.",
+        "While dragging, show a preview of the item, mark where it will land, and scroll the container near its edges.",
+        "Provide a non-drag way to do the same: \"Move up\" and \"Move down\" buttons or a \"Move to…\" menu.",
+        "Support the keyboard: Space picks up, arrow keys move, Space drops, Escape cancels; announce each step.",
+        "Make the result easy to undo.",
+        "Use large drop targets and accept drops slightly outside them."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Drag and drop: offer alternative ways to accomplish drag-and-drop actions",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/drag-and-drop",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Comment boxes: attach files by dragging them in, pasting or choosing",
+          "url": "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files",
+          "verified": true
+        },
+        {
+          "who": "Google Drive",
+          "where": "Upload by dragging files into a folder",
+          "url": "https://support.google.com/drive/answer/2424368?hl=en",
+          "verified": true
+        },
+        {
+          "who": "Trello",
+          "where": "Boards: cards dragged between lists",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-drag-drop-2020",
+          "where": "Drag–and–Drop: How to Design for Ease of Use"
+        },
+        {
+          "ref": "scott-neil-2009",
+          "where": "Drag and Drop"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Dragging Movements"
+        }
+      ],
+      "alternatives": [
+        "overflow-menu",
+        "file-upload"
+      ]
+    },
+    {
+      "id": "undo",
+      "name": "Undo instead of confirm",
+      "aka": [
+        "undo toast",
+        "undo send",
+        "soft delete"
+      ],
+      "what": "The action happens at once, and a message offers to reverse it for a short time.",
+      "useWhen": [
+        "The action is frequent and can be reversed or delayed: archive, delete to trash, send, move",
+        "Asking for confirmation every time would be clicked through without reading"
+      ],
+      "avoidWhen": [
+        "The action truly cannot be reversed or delayed",
+        "Other people or systems see the effect at once"
+      ],
+      "rules": [
+        "Do the action immediately and show a message that names it with an \"Undo\" button: \"Conversation archived. Undo\".",
+        "Keep the message for long enough to read and reach; if it disappears on its own, also offer undo elsewhere (a Trash, a history, Ctrl/Cmd+Z).",
+        "Implement by delaying the real effect or by soft-deleting, so that undo always works.",
+        "Undo restores the item to its place, with selection and scroll position.",
+        "Make the message a status region so it is announced, and make the Undo button reachable by keyboard without a race against the timer."
+      ],
+      "examples": [
+        {
+          "who": "Gmail",
+          "where": "After sending: \"Message sent\" with \"Undo\", for a period chosen in settings",
+          "url": "https://support.google.com/mail/answer/2819488?hl=en",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Undo and redo",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/undo-and-redo",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Snackbar: a brief message that can carry one action",
+          "url": "https://m3.material.io/components/snackbar/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "raskin-undo-2007",
+          "where": "Never Use a Warning When you Mean Undo"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Preventing Errors and Informing Decisions"
+        },
+        {
+          "ref": "nng-undo-2020",
+          "where": "User Control and Freedom (Usability Heuristic #3)"
+        }
+      ],
+      "alternatives": [
+        "confirmation-dialog",
+        "typed-confirmation",
+        "destructive-button"
+      ]
+    },
+    {
+      "id": "explicit-save",
+      "name": "Save button",
+      "aka": [
+        "explicit save",
+        "submit button",
+        "save changes"
+      ],
+      "what": "Changes on a page take effect only when the user presses a Save button at the end of the form.",
+      "useWhen": [
+        "Several fields change together and should be validated together",
+        "A change has consequences and the user should decide when it applies",
+        "The page is a classic form"
+      ],
+      "avoidWhen": [
+        "Each control is an independent setting that could apply at once (use switches with autosave)",
+        "The page is long and the button would be far from the change (use a sticky save bar)"
+      ],
+      "rules": [
+        "Put one \"Save changes\" button after the last field; add \"Cancel\" or \"Discard\" only if it is clear what it does.",
+        "Keep the button enabled and validate on press, rather than disabling it until the form is valid.",
+        "After saving, confirm with an inline message or a toast and keep the user where they were.",
+        "Warn before the user leaves with unsaved changes.",
+        "Do not mix this with instantly applied controls in the same form.",
+        "While saving, show progress on the button and prevent a second submission."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Primer",
+          "where": "Saving pattern: start with explicit saving and do not mix save patterns in one form",
+          "url": "https://primer.style/product/ui-patterns/saving/",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Saving and feedback",
+          "url": "https://design.gitlab.com/patterns/saving-and-feedback/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Button: default, secondary and warning buttons for form actions",
+          "url": "https://design-system.service.gov.uk/components/button/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "primer",
+          "where": "Saving"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Actions"
+        },
+        {
+          "ref": "silver-disabled-buttons-2023",
+          "where": "The problem with disabled buttons and what to do instead"
+        }
+      ],
+      "alternatives": [
+        "sticky-save-bar",
+        "autosave"
+      ]
+    },
+    {
+      "id": "sticky-save-bar",
+      "name": "Sticky save bar",
+      "aka": [
+        "contextual save bar",
+        "unsaved changes bar"
+      ],
+      "what": "A bar that appears as soon as something on the page is changed, stays in view, and offers Save and Discard.",
+      "useWhen": [
+        "The page is long and the changed field may be far from the end of the form",
+        "Users must be told clearly that there are unsaved changes",
+        "Several sections on the page are saved together"
+      ],
+      "avoidWhen": [
+        "Changes apply instantly",
+        "The form is short and its Save button is always visible"
+      ],
+      "rules": [
+        "Show the bar only when the form differs from its saved state, and remove it after save or discard.",
+        "Say \"Unsaved changes\" and offer two buttons: \"Save\" (primary) and \"Discard\".",
+        "Fix it to the top or bottom edge of the window and make sure it never covers the focused field.",
+        "Discard restores every field to the saved value; ask for confirmation if much would be lost.",
+        "Block navigation away while changes are unsaved, or ask first.",
+        "On save, validate; on error, keep the bar and move focus to the first problem."
+      ],
+      "examples": [
+        {
+          "who": "Shopify Polaris",
+          "where": "Save bar: appears when form data changes, prompting to save or discard",
+          "url": "https://shopify.dev/docs/api/app-home/latest/app-bridge-web-components/save-bar",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Save Bar API",
+          "url": "https://shopify.dev/docs/api/app-home/latest/apis/user-interface-and-interactions/save-bar-api",
+          "verified": true
+        },
+        {
+          "who": "Discord",
+          "where": "Settings: a bar warning of unsaved changes, with Reset and Save",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "polaris",
+          "where": "Save bar"
+        },
+        {
+          "ref": "primer",
+          "where": "Saving"
+        },
+        {
+          "ref": "nng-heuristics-1994",
+          "where": "Visibility of system status"
+        }
+      ],
+      "alternatives": [
+        "explicit-save",
+        "autosave",
+        "bottom-action-bar"
+      ]
+    },
+    {
+      "id": "autosave",
+      "name": "Autosave",
+      "aka": [
+        "automatic save",
+        "instant apply",
+        "save on change"
+      ],
+      "what": "Every change is stored as it is made, with no Save button.",
+      "useWhen": [
+        "The page is a document or a set of independent settings",
+        "Losing work would be costly and saving is cheap",
+        "Each change is valid on its own"
+      ],
+      "avoidWhen": [
+        "Fields depend on each other and half-saved states are invalid",
+        "A change has effects the user should confirm, such as sending, publishing or charging",
+        "Users expect to review before committing, as in a checkout"
+      ],
+      "rules": [
+        "Save on change for switches and selections, and on blur or after a short pause in typing for text.",
+        "Show the state near the content: \"Saving…\", then \"Saved\" with a time; never leave the user guessing.",
+        "On failure say so, keep the user's input, and retry or offer \"Try again\".",
+        "Provide undo or a version history, since there is no Cancel.",
+        "Do not show a Save button that does nothing; do not mix autosave and explicit save in one form.",
+        "Handle offline: queue changes and say that they are not yet saved."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Primer",
+          "where": "Saving pattern: explicit and automatic saving, and when each applies",
+          "url": "https://primer.style/product/ui-patterns/saving/",
+          "verified": true
+        },
+        {
+          "who": "Visual Studio Code",
+          "where": "Editor: an Auto Save setting that saves after a delay or on focus change",
+          "url": "https://code.visualstudio.com/docs/editing/codebasics",
+          "verified": true
+        },
+        {
+          "who": "Google Docs",
+          "where": "Version history: browse and restore earlier versions of a file",
+          "url": "https://support.google.com/docs/answer/190843?hl=en",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "cooper-2014",
+          "where": "Rethinking Data Entry, Storage, and Retrieval"
+        },
+        {
+          "ref": "primer",
+          "where": "Saving"
+        },
+        {
+          "ref": "nng-toggle-2018",
+          "where": "Toggle-Switch Guidelines"
+        }
+      ],
+      "alternatives": [
+        "explicit-save",
+        "sticky-save-bar"
+      ]
+    }
+  ]
+}

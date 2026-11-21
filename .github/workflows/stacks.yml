@@ -1,0 +1,41 @@
+name: Stacks
+
+# picky-eater against real development servers (tests/stacks). Each run installs the frameworks
+# afresh, so it is not part of the tests of every push: it runs once a week and on request.
+on:
+  workflow_dispatch:
+    inputs:
+      stacks:
+        description: 'Names of the stacks to run, separated by spaces (empty: all)'
+        required: false
+        default: ''
+  schedule:
+    - cron: '17 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  stacks:
+    name: Development servers of 14 stacks and the React example
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/stacks/run.mjs $STACKS
+        env:
+          STACKS: ${{ inputs.stacks }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stack-results
+          path: |
+            test-results/stack-logs/
+            test-results/stacks/
+          retention-days: 14

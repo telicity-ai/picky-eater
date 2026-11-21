@@ -1,0 +1,86 @@
+{
+  "schema": "picky-eater/board",
+  "schemaVersion": "2.0",
+  "title": "Workshop sign-up",
+  "base": { "kind": "sketch", "frame": "frame.html", "styles": ["styles.css"] },
+  "areas": [
+    {
+      "id": "nav",
+      "label": "Top bar",
+      "sketch": "areas/nav/sketch.html",
+      "options": [
+        { "id": "links", "label": "Logo, links and a sign-up button", "html": "areas/nav/links.html", "pattern": "top-nav", "suggested": true,
+          "build": "Sticky. Links scroll to their section. Shrinks from 72px to 56px once the page is scrolled." },
+        { "id": "minimal", "label": "Logo and a sign-up button only", "html": "areas/nav/minimal.html", "pattern": "top-nav",
+          "build": "Sticky. No section links; the only action is Sign up." }
+      ]
+    },
+    {
+      "id": "hero",
+      "label": "Top banner",
+      "sketch": "areas/hero/sketch.html",
+      "options": [
+        { "id": "split", "label": "Text on the left, picture on the right", "html": "areas/hero/split.html", "pattern": "hero-split", "suggested": true,
+          "build": "Two columns from 860px up, one column below. The button scrolls to the sign-up form." },
+        { "id": "centered", "label": "Centered text, no picture", "html": "areas/hero/centered.html", "pattern": "hero-centered",
+          "build": "One centered column, max 720px. Date and place as a line of facts under the button." },
+        { "id": "facts", "label": "Text with three key facts", "html": "areas/hero/facts.html", "pattern": "hero-split",
+          "build": "Headline left, a card with date, place and price right. Stacks below 860px." }
+      ]
+    },
+    {
+      "id": "schedule",
+      "label": "Schedule of the day",
+      "sketch": "areas/schedule/sketch.html",
+      "options": [
+        { "id": "timeline", "label": "A timeline from morning to evening", "html": "areas/schedule/timeline.html", "pattern": "timeline", "suggested": true,
+          "build": "Ordered list. Time in a fixed 88px column, a line connecting the entries." },
+        { "id": "cards", "label": "Three cards side by side", "html": "areas/schedule/cards.html", "pattern": "card-grid",
+          "build": "Three equal cards from 760px up, stacked below." },
+        { "id": "table", "label": "A plain table", "html": "areas/schedule/table.html", "pattern": "data-table",
+          "build": "A real table with a header row; scrolls sideways inside its own box on phones." }
+      ]
+    },
+    {
+      "id": "signup",
+      "label": "Sign-up form",
+      "sketch": "areas/signup/sketch.html",
+      "options": [
+        { "id": "stacked", "label": "Name and email, one under the other", "html": "areas/signup/stacked.html", "pattern": "label-top", "suggested": true,
+          "build": "Labels above fields. One primary button, left-aligned with the fields." },
+        { "id": "one-line", "label": "Only an email field, with the button beside it", "html": "areas/signup/one-line.html",
+          "build": "A single email field and the button in one row; wraps below 520px." }
+      ]
+    },
+    {
+      "id": "signup-error",
+      "label": "Message when the form is sent with a mistake",
+      "cuts": ["error"],
+      "options": [
+        { "id": "inline", "label": "Under the field that needs fixing", "html": "areas/signup-error/inline.html", "pattern": "inline-error", "suggested": true,
+          "build": "Message directly under the field, linked with aria-describedby; the field gets a red border." },
+        { "id": "summary", "label": "A box at the top of the form", "html": "areas/signup-error/summary.html", "pattern": "error-summary",
+          "build": "A summary box above the fields with role=alert that names the field and links to it." }
+      ]
+    },
+    {
+      "id": "signup-done",
+      "label": "What people see after signing up",
+      "cuts": ["sent"],
+      "options": [
+        { "id": "inline", "label": "A short thank-you in place of the form", "html": "areas/signup-done/inline.html", "pattern": "inline-confirmation", "suggested": true,
+          "build": "Replaces the form in place. Announced with role=status." },
+        { "id": "ticket", "label": "A ticket with the date and place", "html": "areas/signup-done/ticket.html",
+          "build": "A ticket-style card with date, place and an Add to calendar link." }
+      ]
+    }
+  ],
+  "cuts": [
+    { "id": "top", "label": "Top" },
+    { "id": "scrolled", "label": "Scrolled", "sameAs": "top", "at": "#schedule" },
+    { "id": "empty", "label": "Empty form", "sameAs": "top", "at": "#signup" },
+    { "id": "error", "label": "Sent blank: error", "at": "#signup" },
+    { "id": "filled", "label": "Filled in", "at": "#signup", "fill": { "#name": "Mina Park", "#email": "mina@example.com" } },
+    { "id": "sent", "label": "Sent", "at": "#signup", "fill": { "#name": "Mina Park", "#email": "mina@example.com" } }
+  ]
+}

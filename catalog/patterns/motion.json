@@ -1,0 +1,1497 @@
+{
+  "category": "motion",
+  "patterns": [
+    {
+      "id": "instant-change",
+      "name": "Instant change",
+      "aka": [
+        "no animation",
+        "cut"
+      ],
+      "what": "The change happens at once, with no animation.",
+      "useWhen": [
+        "The action is repeated a hundred times a day or more: a keyboard shortcut, the command palette, moving through a list",
+        "The action is started from the keyboard",
+        "The screen is dense with data that the person is reading or acting on",
+        "No purpose can be named for a motion: feedback, where something came from, what changed"
+      ],
+      "avoidWhen": [
+        "Content appears or disappears so abruptly that people lose track of what changed (bridge it with a short fade)",
+        "A press gets no visible answer at all (give it press feedback)"
+      ],
+      "rules": [
+        "Show the new state within 100 ms of the action; an instant change that arrives late is worse than an animated one.",
+        "Keep the feedback that does not move: hover, focus, pressed and selected styles still change, at once.",
+        "When the choice is between a subtle motion and none on something used all day, choose none."
+      ],
+      "examples": [
+        {
+          "who": "Emil Kowalski",
+          "where": "You Don't Need Animations: a menu and a list shown with and without animation, and why the one used hundreds of times a day should have none",
+          "url": "https://emilkowal.ski/ui/you-dont-need-animations",
+          "verified": true
+        },
+        {
+          "who": "Raycast",
+          "where": "The command window opens and closes with no animation",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "kowalski-no-animations",
+          "where": "Frequency of use"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        },
+        {
+          "ref": "nng-response-times-1993",
+          "where": "Response Time Limits"
+        }
+      ],
+      "alternatives": [
+        "fade-in",
+        "crossfade",
+        "press-scale"
+      ],
+      "motion": {
+        "trigger": [
+          "state",
+          "open",
+          "navigate"
+        ],
+        "upTo": "constant",
+        "intensity": "none",
+        "reduced": "Nothing to reduce: nothing moves."
+      }
+    },
+    {
+      "id": "press-scale",
+      "name": "Press feedback",
+      "aka": [
+        "press scale",
+        "tap feedback",
+        "active state"
+      ],
+      "what": "A button shrinks slightly while it is pressed and returns when it is released.",
+      "useWhen": [
+        "A press has no visible answer of its own",
+        "The control is a button, card or tile that is tapped or clicked, on touch screens above all"
+      ],
+      "avoidWhen": [
+        "The control is pressed many times in a row, such as a stepper or a key of a keypad (change its color instead)",
+        "The control is a text link inside a sentence",
+        "The element is large: scaling a whole row or panel by 3% moves its edges visibly"
+      ],
+      "rules": [
+        "Scale to between 0.96 and 0.98; below that it reads as a bounce, not a press.",
+        "Take 100–160 ms with an ease-out curve, so the answer starts with the press.",
+        "Animate transform only; never width, height or padding.",
+        "Keep the pressed color or shadow as well, so the state does not rest on movement alone.",
+        "Under reduced motion drop the scale and keep the color change."
+      ],
+      "examples": [
+        {
+          "who": "Emil Kowalski",
+          "where": "7 Practical Animation Tips: a button that scales to 0.97 while it is pressed",
+          "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "kowalski-animation-tips",
+          "where": "Scale your buttons"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        },
+        {
+          "ref": "saffer-2013",
+          "where": "ch. 4, Feedback"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "hold-to-confirm"
+      ],
+      "motion": {
+        "trigger": [
+          "press"
+        ],
+        "purpose": "feedback",
+        "upTo": "frequent",
+        "intensity": "subtle",
+        "duration": [
+          100,
+          160
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "transform"
+        ],
+        "reduced": "No scale; the pressed color still changes.",
+        "css": ".btn { transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1); }\n.btn:active { transform: scale(0.97); }\n@media (prefers-reduced-motion: reduce) {\n  .btn { transition: none; }\n  .btn:active { transform: none; }\n}"
+      }
+    },
+    {
+      "id": "hold-to-confirm",
+      "name": "Hold to confirm",
+      "aka": [
+        "press and hold",
+        "hold button"
+      ],
+      "what": "A button that must be held down while a fill runs across it; letting go early cancels.",
+      "useWhen": [
+        "The action cannot be undone and a slip would be costly: delete for good, publish, send to everyone",
+        "A confirmation dialog would interrupt a flow that people repeat"
+      ],
+      "avoidWhen": [
+        "The action can be undone (offer undo instead)",
+        "The action is frequent; holding slows people down on purpose",
+        "No other way is offered to people who use a keyboard, a switch or voice"
+      ],
+      "rules": [
+        "Fill from the leading edge at constant speed over 1 to 2 seconds, so the time left can be read from the fill.",
+        "On release before the end, run the fill back in about 200 ms and do nothing.",
+        "Say what to do in the label: \"Hold to delete\".",
+        "Give keyboard and assistive-technology users another way: Enter or Space opens a confirmation instead.",
+        "When the hold completes, show the result in the button: the label changes to what happened.",
+        "The fill stays under reduced motion: it is progress, not decoration."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Hold to publish: holding fills the pill from the left; letting go early sends the fill back",
+          "url": "https://designbookmark.com/motion#db-hold-button",
+          "verified": true
+        },
+        {
+          "who": "Kokonut UI",
+          "where": "Hold button",
+          "url": "https://kokonutui.com/docs/buttons/hold-button",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "raskin-undo-2007",
+          "where": "Never Use a Warning When you Mean Undo"
+        },
+        {
+          "ref": "nng-confirmation-2018",
+          "where": "Confirmation Dialogs Can Prevent User Errors"
+        },
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "Motion for Feedback"
+        }
+      ],
+      "alternatives": [
+        "confirmation-dialog",
+        "undo",
+        "typed-confirmation",
+        "press-scale"
+      ],
+      "motion": {
+        "trigger": [
+          "press"
+        ],
+        "purpose": "feedback",
+        "upTo": "occasional",
+        "intensity": "moderate",
+        "duration": [
+          1000,
+          2000
+        ],
+        "easing": "linear",
+        "properties": [
+          "clip-path"
+        ],
+        "reduced": "The fill while holding stays, because it shows how long to hold; it goes back at once instead of running back.",
+        "css": ".hold { position: relative; }\n.hold::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: currentColor; opacity: 0.18; clip-path: inset(0 100% 0 0); transition: clip-path 200ms cubic-bezier(0.22, 1, 0.36, 1); }\n.hold:active::after { clip-path: inset(0); transition: clip-path 1500ms linear; }\n@media (prefers-reduced-motion: reduce) {\n  .hold::after { transition: none; }\n}"
+      }
+    },
+    {
+      "id": "hover-lift",
+      "name": "Hover lift",
+      "aka": [
+        "card hover",
+        "raise on hover"
+      ],
+      "what": "A card or tile rises a few pixels and its shadow deepens while the pointer is over it.",
+      "useWhen": [
+        "The whole card is one link or button and little else says so",
+        "People browse a grid of cards on a marketing page, a catalog or a gallery"
+      ],
+      "avoidWhen": [
+        "Rows of a dense table or list that the pointer crosses all the time",
+        "The card is not clickable; a lift promises an action",
+        "It would be the only sign that the card can be clicked: touch screens have no hover"
+      ],
+      "rules": [
+        "Move 2–4 px up and deepen the shadow; do not scale the card, which blurs its text.",
+        "150–200 ms with an ease-out curve on the way in; the same or faster on the way out.",
+        "Apply it only where hover exists: @media (hover: hover) and (pointer: fine).",
+        "Show the same emphasis on keyboard focus, together with a visible focus ring.",
+        "Under reduced motion keep the shadow or border change and drop the movement."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Fan cards: each card lifts and grows a little while the pointer is over it",
+          "url": "https://designbookmark.com/motion#db-fan-cards",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Cards: an elevated card rises one level while hovered",
+          "url": "https://m3.material.io/components/cards/specs",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "kowalski-animation-tips",
+          "where": "Keep your animations fast"
+        },
+        {
+          "ref": "comeau-css-transitions-2021",
+          "where": "Action-driven motion"
+        },
+        {
+          "ref": "material-3",
+          "where": "Cards"
+        }
+      ],
+      "alternatives": [
+        "instant-change"
+      ],
+      "motion": {
+        "trigger": [
+          "hover"
+        ],
+        "purpose": "feedback",
+        "upTo": "occasional",
+        "intensity": "subtle",
+        "duration": [
+          150,
+          200
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "transform",
+          "box-shadow"
+        ],
+        "reduced": "The shadow still deepens; the card does not move.",
+        "css": "@media (hover: hover) and (pointer: fine) {\n  .card { transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms cubic-bezier(0.22, 1, 0.36, 1); }\n  .card:hover, .card:focus-within { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .card { transition: box-shadow 180ms; }\n  .card:hover, .card:focus-within { transform: none; }\n}"
+      }
+    },
+    {
+      "id": "icon-swap",
+      "name": "Icon swap",
+      "aka": [
+        "icon morph",
+        "copy to check"
+      ],
+      "what": "An icon changes into another at the moment its state changes: copy becomes a check, an outlined heart fills.",
+      "useWhen": [
+        "A small action finishes at once and the control itself can say so: copy, like, save, mute",
+        "A toast would be too much for the action"
+      ],
+      "avoidWhen": [
+        "The result needs words, a link or an undo (use an inline confirmation or a toast)",
+        "The action can fail; an icon alone cannot explain an error"
+      ],
+      "rules": [
+        "The old icon fades and shrinks out while the new one fades and grows in, in 150–200 ms; both sit in the same box, so the control keeps its size.",
+        "Start the new icon from a scale of 0.8 or more, never from 0.",
+        "Change the accessible name or announce the result in a live region as well; the icon alone is not a message.",
+        "Return to the first icon after about 2 seconds if the state is momentary, such as Copied.",
+        "Under reduced motion swap by opacity only."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Copy button: the copy icon shrinks away while a check pops in and the word changes to Copied",
+          "url": "https://designbookmark.com/motion#db-copy-button",
+          "verified": true
+        },
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Like burst: the heart squashes, bounces up and fills",
+          "url": "https://designbookmark.com/motion#db-like-burst",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "Motion for Feedback"
+        },
+        {
+          "ref": "kowalski-animation-tips",
+          "where": "Don't animate from scale(0)"
+        },
+        {
+          "ref": "saffer-2013",
+          "where": "ch. 4, Feedback"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "status-swap",
+        "inline-confirmation",
+        "toast"
+      ],
+      "motion": {
+        "trigger": [
+          "state"
+        ],
+        "purpose": "feedback",
+        "upTo": "frequent",
+        "intensity": "subtle",
+        "duration": [
+          150,
+          200
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "The icons swap with a fade and do not change size.",
+        "css": ".swap { display: inline-grid; }\n.swap > * { grid-area: 1 / 1; transition: opacity 160ms ease-out, transform 160ms cubic-bezier(0.22, 1, 0.36, 1); }\n.swap > .on, .swap[aria-pressed='true'] > .off { opacity: 0; transform: scale(0.8); }\n.swap[aria-pressed='true'] > .on { opacity: 1; transform: none; }\n@media (prefers-reduced-motion: reduce) {\n  .swap > * { transition: opacity 160ms ease-out; transform: none !important; }\n}"
+      }
+    },
+    {
+      "id": "status-swap",
+      "name": "Button status",
+      "aka": [
+        "loading button",
+        "loading to success",
+        "stateful button"
+      ],
+      "what": "A button shows the progress and the result of its own action in place: the label gives way to a spinner, then to a check and a word such as Sent.",
+      "useWhen": [
+        "The action takes between about one and ten seconds and the page stays where it is",
+        "The button is where people look while they wait: send, save, pay, subscribe"
+      ],
+      "avoidWhen": [
+        "The action finishes at once (use an icon swap, or nothing)",
+        "The result leads to another page (use a confirmation page)",
+        "An error needs explaining; put the message next to the field or in a summary"
+      ],
+      "rules": [
+        "Keep the button's width, or change it once and smoothly; a button that jumps under the pointer invites a second click.",
+        "Disable the button while it works and say so to assistive technology: aria-busy, and the result in a live region.",
+        "Swap label, spinner and check with a 150–200 ms crossfade and a move of a few pixels; nothing longer.",
+        "Show the result for about 2 seconds, then return to the label or to the next state.",
+        "On failure return to the label at once and show the error beside the form.",
+        "Under reduced motion crossfade only; the spinner may still turn, because it reports progress."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Loading to success: the label drops away, the button closes around a spinner, then opens with a check and the word Sent",
+          "url": "https://designbookmark.com/motion#db-loading-success",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-response-times-1993",
+          "where": "Response Time Limits"
+        },
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "Motion for Feedback"
+        },
+        {
+          "ref": "nng-indicators-2024",
+          "where": "Indicators, Validations, and Notifications"
+        }
+      ],
+      "alternatives": [
+        "icon-swap",
+        "inline-confirmation",
+        "spinner",
+        "optimistic-update",
+        "toast"
+      ],
+      "motion": {
+        "trigger": [
+          "state"
+        ],
+        "purpose": "state",
+        "upTo": "occasional",
+        "intensity": "moderate",
+        "duration": [
+          150,
+          200
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "Label, spinner and result swap with a fade and do not move.",
+        "css": ".send { display: inline-grid; place-items: center; }\n.send > * { grid-area: 1 / 1; transition: opacity 180ms ease-out, transform 180ms cubic-bezier(0.22, 1, 0.36, 1); }\n.send > .busy, .send > .done { opacity: 0; transform: translateY(6px); }\n.send[data-state='busy'] > .label, .send[data-state='done'] > .label { opacity: 0; transform: translateY(-6px); }\n.send[data-state='busy'] > .busy, .send[data-state='done'] > .done { opacity: 1; transform: none; }\n@media (prefers-reduced-motion: reduce) {\n  .send > * { transition: opacity 180ms ease-out; transform: none !important; }\n}"
+      }
+    },
+    {
+      "id": "sliding-indicator",
+      "name": "Sliding indicator",
+      "aka": [
+        "tab pill",
+        "animated tab highlight",
+        "moving underline"
+      ],
+      "what": "The highlight behind the selected tab or segment glides to the newly selected one instead of jumping.",
+      "useWhen": [
+        "Tabs, a segmented control or a navigation bar with one highlight that marks the current item",
+        "The items sit in one row or one column, so the highlight has a path to travel"
+      ],
+      "avoidWhen": [
+        "Selection is changed from the keyboard all day, as in a list of mail or files (move it at once)",
+        "The items wrap onto several lines; the highlight would fly across the text",
+        "Each tab loads a new page; the highlight would start over on arrival"
+      ],
+      "rules": [
+        "Move one highlight element with transform; do not fade one out and another in.",
+        "200–250 ms with an ease-in-out curve: it starts and ends on screen.",
+        "The content below may crossfade; it does not slide unless the tabs are pages that swipe.",
+        "The selected state is also carried by weight, color and aria-selected, never by the highlight alone.",
+        "When selection changes with the arrow keys, follow at once.",
+        "Under reduced motion the highlight jumps."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Tab pill: the highlight stretches toward the new tab and then pulls its tail in",
+          "url": "https://designbookmark.com/motion#db-tab-pill",
+          "verified": true
+        },
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Segmented control: the highlight rides to the chosen segment",
+          "url": "https://designbookmark.com/motion#db-segmented-control",
+          "verified": true
+        },
+        {
+          "who": "Kokonut UI",
+          "where": "Smooth tab",
+          "url": "https://kokonutui.com/docs/navigation/smooth-tab",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "The Role of Animation and Motion in UX"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        },
+        {
+          "ref": "kowalski-no-animations",
+          "where": "Frequency of use"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "crossfade"
+      ],
+      "motion": {
+        "trigger": [
+          "state"
+        ],
+        "purpose": "spatial",
+        "upTo": "frequent",
+        "intensity": "subtle",
+        "duration": [
+          200,
+          250
+        ],
+        "easing": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "properties": [
+          "transform"
+        ],
+        "reduced": "The highlight jumps to the new item.",
+        "css": ".tabs { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }\n.tabs .pill { position: absolute; inset-block: 0; left: 0; width: calc(100% / var(--count, 3)); transition: transform 220ms cubic-bezier(0.65, 0, 0.35, 1); }\n.tabs:has([role='tab']:nth-of-type(2)[aria-selected='true']) .pill { transform: translateX(100%); }\n.tabs:has([role='tab']:nth-of-type(3)[aria-selected='true']) .pill { transform: translateX(200%); }\n@media (prefers-reduced-motion: reduce) {\n  .tabs .pill { transition: none; }\n}"
+      }
+    },
+    {
+      "id": "crossfade",
+      "name": "Crossfade",
+      "aka": [
+        "fade through",
+        "dissolve"
+      ],
+      "what": "The old content fades out while the new content fades in, in the same place.",
+      "useWhen": [
+        "Content is replaced in place and both versions occupy the same box: a tab panel, a picture, a label",
+        "A hard cut makes people miss that something changed"
+      ],
+      "avoidWhen": [
+        "The two versions differ in size, so the box jumps under the fade (animate the size too, or cut)",
+        "The switch is made from the keyboard all the time",
+        "There is a place to show: where a panel came from or went to"
+      ],
+      "rules": [
+        "150–200 ms in total; longer reads as lag.",
+        "Change opacity only, and keep both versions in the same grid cell so the layout does not move.",
+        "Fade the old version out faster than the new one comes in, so both are never readable at once.",
+        "Take the old content out of the tab order and the accessibility tree as soon as it starts to fade.",
+        "A short fade is not movement: it may stay under reduced motion."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Transitions: between top-level destinations the outgoing screen fades out before the incoming one fades in",
+          "url": "https://m3.material.io/styles/motion/transitions/transition-patterns",
+          "verified": false
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Motion: top-level transitions",
+          "url": "https://fluent2.microsoft.design/motion",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Motion: transitions"
+        },
+        {
+          "ref": "fluent-2",
+          "where": "Motion"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "sliding-indicator",
+        "fade-in"
+      ],
+      "motion": {
+        "trigger": [
+          "state"
+        ],
+        "purpose": "continuity",
+        "upTo": "frequent",
+        "intensity": "subtle",
+        "duration": [
+          150,
+          200
+        ],
+        "easing": "ease-out",
+        "properties": [
+          "opacity"
+        ],
+        "reduced": "Stays as it is: a short fade is not movement.",
+        "css": ".panels { display: grid; }\n.panels > * { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity 100ms ease-out, visibility 0s 100ms; }\n.panels > .is-current { opacity: 1; visibility: visible; transition: opacity 180ms ease-out; }"
+      }
+    },
+    {
+      "id": "fade-in",
+      "name": "Fade in",
+      "aka": [
+        "fade",
+        "opacity transition"
+      ],
+      "what": "Something appears by going from transparent to opaque, without moving.",
+      "useWhen": [
+        "A small element appears near where the person is looking: a tooltip, a hint, an inline message",
+        "Movement would be too much for how often it appears",
+        "Reduced motion is asked for and an entrance still needs a bridge"
+      ],
+      "avoidWhen": [
+        "The element comes from somewhere worth showing: a menu from its button, a drawer from an edge",
+        "It appears on a keyboard shortcut used all day"
+      ],
+      "rules": [
+        "100–200 ms with an ease-out curve.",
+        "Fade out faster than in, or cut on the way out.",
+        "Do not delay it: the fade begins with the action.",
+        "Opacity is the only property that changes.",
+        "@starting-style gives an entrance to an element that was just added or just shown; where it is not supported the element simply appears."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Motion: fades are micro-interactions and get the 110 ms duration token",
+          "url": "https://carbondesignsystem.com/elements/motion/overview/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "carbon",
+          "where": "Motion"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        },
+        {
+          "ref": "mdn-starting-style",
+          "where": "@starting-style"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "origin-scale",
+        "rise-in",
+        "crossfade"
+      ],
+      "motion": {
+        "trigger": [
+          "open",
+          "enter"
+        ],
+        "purpose": "continuity",
+        "upTo": "frequent",
+        "intensity": "subtle",
+        "duration": [
+          100,
+          200
+        ],
+        "easing": "ease-out",
+        "properties": [
+          "opacity"
+        ],
+        "reduced": "Stays as it is: a short fade is not movement.",
+        "css": ".tip { transition: opacity 150ms ease-out; }\n@starting-style {\n  .tip { opacity: 0; }\n}"
+      }
+    },
+    {
+      "id": "origin-scale",
+      "name": "Grow from the trigger",
+      "aka": [
+        "origin-aware animation",
+        "pop in",
+        "scale in"
+      ],
+      "what": "A menu, popover or tooltip grows out of the control that opened it while it fades in.",
+      "useWhen": [
+        "A small overlay opens from a button, field or icon: a dropdown menu, a popover, a select, a tooltip",
+        "Showing where it came from helps people find the way back"
+      ],
+      "avoidWhen": [
+        "The overlay is centered on the screen, such as a dialog: it has no origin, so it fades and grows from its own center",
+        "It opens on a keyboard shortcut used constantly",
+        "It is a tooltip shown right after another one of the same group (show it at once)"
+      ],
+      "rules": [
+        "Set transform-origin to the side of the overlay that touches its trigger, not to the center.",
+        "Start from a scale of 0.95–0.97 and opacity 0; never from 0.",
+        "125–200 ms with an ease-out curve for small popovers, up to 250 ms for menus and selects.",
+        "Close faster than it opens, or at once.",
+        "Under reduced motion fade only."
+      ],
+      "examples": [
+        {
+          "who": "Emil Kowalski",
+          "where": "7 Practical Animation Tips: a popover that grows from the button that opened it, next to one that grows from its center",
+          "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
+          "verified": true
+        },
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Morph tooltip: the first hover pops the tooltip in at its tool",
+          "url": "https://designbookmark.com/motion#db-morph-tooltip",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "kowalski-animation-tips",
+          "where": "Make your animations origin-aware"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        },
+        {
+          "ref": "material-3",
+          "where": "Motion: easing and duration"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "fade-in",
+        "slide-in-panel"
+      ],
+      "motion": {
+        "trigger": [
+          "open"
+        ],
+        "purpose": "spatial",
+        "upTo": "occasional",
+        "intensity": "subtle",
+        "duration": [
+          125,
+          250
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "The overlay fades in and does not grow.",
+        "css": ".menu { transform-origin: top left; transition: opacity 150ms ease-out, transform 150ms cubic-bezier(0.22, 1, 0.36, 1); }\n@starting-style {\n  .menu { opacity: 0; transform: scale(0.96); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .menu { transition: opacity 150ms ease-out; }\n  @starting-style {\n    .menu { transform: none; }\n  }\n}"
+      }
+    },
+    {
+      "id": "slide-in-panel",
+      "name": "Slide in from the edge",
+      "aka": [
+        "drawer transition",
+        "sheet transition",
+        "toast entrance"
+      ],
+      "what": "A drawer, sheet or toast slides in from the edge it belongs to and leaves through the same edge.",
+      "useWhen": [
+        "A panel belongs to an edge of the window: a side sheet, a navigation drawer, a bottom sheet",
+        "A toast or notification arrives at the corner where toasts stack"
+      ],
+      "avoidWhen": [
+        "The surface is centered (fade it, and grow it from its center)",
+        "The panel is toggled all the time, like a sidebar collapsed with a shortcut (resize it at once)"
+      ],
+      "rules": [
+        "Enter and leave through the same edge; the direction tells people where it lives and how to dismiss it.",
+        "200–300 ms for sheets on desktop, up to 500 ms for full-height sheets on phones; ease-out on the way in, a little faster on the way out.",
+        "Move with transform, not with left, right or width.",
+        "Dim the page behind a modal sheet with a fade of the same duration.",
+        "Move focus into the panel when it has arrived, and back to the trigger when it has left.",
+        "Under reduced motion fade it in place."
+      ],
+      "examples": [
+        {
+          "who": "Nielsen Norman Group",
+          "where": "The Role of Animation and Motion in UX: a navigation menu that slides over the page when the menu icon is tapped",
+          "url": "https://www.nngroup.com/articles/animation-purpose-ux/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Motion: toasts and system communication get the 240 ms duration token",
+          "url": "https://carbondesignsystem.com/elements/motion/overview/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "Motion for Feedback"
+        },
+        {
+          "ref": "kowalski-no-animations",
+          "where": "Purposeful animations"
+        },
+        {
+          "ref": "carbon",
+          "where": "Motion"
+        },
+        {
+          "ref": "material-3",
+          "where": "Side sheets"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "fade-in",
+        "origin-scale"
+      ],
+      "motion": {
+        "trigger": [
+          "open",
+          "enter"
+        ],
+        "purpose": "spatial",
+        "upTo": "occasional",
+        "intensity": "moderate",
+        "duration": [
+          200,
+          500
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "transform"
+        ],
+        "reduced": "The panel fades in where it will stand.",
+        "css": ".sheet { transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1); }\n@starting-style {\n  .sheet { transform: translateX(100%); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .sheet { transition: opacity 150ms ease-out; }\n  @starting-style {\n    .sheet { transform: none; opacity: 0; }\n  }\n}"
+      }
+    },
+    {
+      "id": "expand-height",
+      "name": "Expand in place",
+      "aka": [
+        "accordion animation",
+        "height transition",
+        "collapse"
+      ],
+      "what": "A section opens by growing to the height of its content, pushing what is below it down smoothly.",
+      "useWhen": [
+        "An accordion, an FAQ answer, a details block or \"Show more\" opens in place",
+        "What is below would otherwise jump, and people would lose their place"
+      ],
+      "avoidWhen": [
+        "The content is very tall; a long travel is slow and the eye cannot follow it (open at once and keep the heading in view)",
+        "Many sections are opened in a row from the keyboard"
+      ],
+      "rules": [
+        "Animate between zero and the content's own height: grid-template-rows from 0fr to 1fr, or, on a native details element, interpolate-size with ::details-content where the browser supports them (elsewhere it opens at once). Never animate to a guessed max-height.",
+        "200–300 ms with an ease-out curve; fade the content in over the same time.",
+        "Close a little faster than it opens.",
+        "Turn the chevron, or change plus to minus, in the same time, as one movement.",
+        "The heading stays where it is; only what is below it moves.",
+        "Under reduced motion open at once; the content may fade in."
+      ],
+      "examples": [
+        {
+          "who": "Chrome for Developers",
+          "where": "Animate to height: auto: transitions between a fixed length and the content's own size",
+          "url": "https://developer.chrome.com/docs/css-ui/animate-to-height-auto",
+          "verified": true
+        },
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Expand card: the chosen row grows to its full height while the others give way",
+          "url": "https://designbookmark.com/motion#db-expand-card",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "chrome-height-auto-2024",
+          "where": "Animate to height: auto"
+        },
+        {
+          "ref": "carbon",
+          "where": "Motion"
+        },
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "The Role of Animation and Motion in UX"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "fade-in"
+      ],
+      "motion": {
+        "trigger": [
+          "open"
+        ],
+        "purpose": "continuity",
+        "upTo": "occasional",
+        "intensity": "subtle",
+        "duration": [
+          200,
+          300
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "grid-template-rows",
+          "block-size",
+          "opacity"
+        ],
+        "reduced": "The section opens at once; its content fades in.",
+        "css": ".panel { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 240ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease-out; }\n.panel > * { overflow: hidden; min-height: 0; }\n.is-open > .panel { grid-template-rows: 1fr; opacity: 1; }\n@supports (interpolate-size: allow-keywords) {\n  :root { interpolate-size: allow-keywords; }\n  details::details-content { block-size: 0; overflow: clip; opacity: 0; transition: block-size 240ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease-out, content-visibility 240ms allow-discrete; }\n  details[open]::details-content { block-size: auto; opacity: 1; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .panel { transition: opacity 150ms ease-out; }\n  details::details-content { transition: opacity 150ms ease-out; }\n}"
+      }
+    },
+    {
+      "id": "rise-in",
+      "name": "Rise in",
+      "aka": [
+        "fade up",
+        "slide up and fade"
+      ],
+      "what": "An element appears by fading in while it moves up a few pixels into its place.",
+      "useWhen": [
+        "A new item joins the page: a toast, a row added to a list, a message",
+        "A section or card appears on a page that people do not open all day"
+      ],
+      "avoidWhen": [
+        "Lists that update by themselves many times a minute",
+        "The element came from a particular place (grow it from its trigger, or slide it from its edge)",
+        "Text that people are already reading would move"
+      ],
+      "rules": [
+        "Travel 8–16 px; more reads as a slide and takes attention.",
+        "200–300 ms with an ease-out curve.",
+        "Animate opacity and transform only, so nothing around it is laid out again.",
+        "A new item in a list: make room first or at the same time, so its neighbours do not jump after the entrance.",
+        "Under reduced motion fade in place."
+      ],
+      "examples": [
+        {
+          "who": "Nielsen Norman Group",
+          "where": "The Role of Animation and Motion in UX: a shopping list in which the field for the next item fades in and slides into place",
+          "url": "https://www.nngroup.com/articles/animation-purpose-ux/",
+          "verified": true
+        },
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Dynamic menu: the links rise in when the menu opens",
+          "url": "https://designbookmark.com/motion#db-dynamic-menu",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "Motion for Feedback"
+        },
+        {
+          "ref": "nng-animation-duration-2020",
+          "where": "Executing UX Animations: Duration and Motion Characteristics"
+        },
+        {
+          "ref": "webdev-animations-guide",
+          "where": "How to create high-performance CSS animations"
+        },
+        {
+          "ref": "mdn-starting-style",
+          "where": "@starting-style"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "fade-in",
+        "stagger-in",
+        "slide-in-panel"
+      ],
+      "motion": {
+        "trigger": [
+          "enter"
+        ],
+        "purpose": "continuity",
+        "upTo": "occasional",
+        "intensity": "subtle",
+        "duration": [
+          200,
+          300
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "The element fades in where it stands.",
+        "css": ".item { transition: opacity 240ms ease-out, transform 240ms cubic-bezier(0.22, 1, 0.36, 1); }\n@starting-style {\n  .item { opacity: 0; transform: translateY(12px); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .item { transition: opacity 240ms ease-out; }\n  @starting-style {\n    .item { transform: none; }\n  }\n}"
+      }
+    },
+    {
+      "id": "stagger-in",
+      "name": "Staggered entrance",
+      "aka": [
+        "stagger",
+        "cascade",
+        "sequenced entrance"
+      ],
+      "what": "The items of a group appear one after another with a short delay between them, as a cascade.",
+      "useWhen": [
+        "A group of like items appears together on a page seen now and then: the cards of a landing page, the links of an opened menu",
+        "The order of appearance should lead the eye from the first item to the last"
+      ],
+      "avoidWhen": [
+        "Pages opened many times a day; the wait repeats every time",
+        "Long lists: the last item would arrive late",
+        "Items that people want to click at once; nothing may be unclickable while it waits"
+      ],
+      "rules": [
+        "30–80 ms between items and no more than about 500 ms from the first to the last; stop adding delay after the first six to eight items.",
+        "Every item uses the same short entrance: a fade and a rise of 8–12 px in 200–300 ms.",
+        "One cascade per view; several at once cancel each other.",
+        "Run it once, when the group first appears, not on every redraw or when it scrolls back into view.",
+        "The items are in the page and can be focused from the start; only their appearance waits.",
+        "Under reduced motion show all items at once, with a fade at most."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Sidebar collapse: when the sidebar opens, each label starts a little later down the list, so the names read in like a cascade",
+          "url": "https://designbookmark.com/motion#db-sidebar-collapse",
+          "verified": true
+        },
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Dynamic menu: the links rise in with a short stagger",
+          "url": "https://designbookmark.com/motion#db-dynamic-menu",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "thomas-johnston-1981",
+          "where": "The Principles of Animation"
+        },
+        {
+          "ref": "carbon",
+          "where": "Motion: choreography"
+        },
+        {
+          "ref": "nng-animation-attention-2014",
+          "where": "Animation for Attention and Comprehension"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "rise-in",
+        "scroll-reveal"
+      ],
+      "motion": {
+        "trigger": [
+          "enter"
+        ],
+        "purpose": "attention",
+        "upTo": "rare",
+        "intensity": "moderate",
+        "duration": [
+          200,
+          300
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "All items are shown at once.",
+        "css": ".group > * { animation: rise 260ms cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i, 0) * 50ms); }\n.group > :nth-child(2) { --i: 1; }\n.group > :nth-child(3) { --i: 2; }\n.group > :nth-child(4) { --i: 3; }\n.group > :nth-child(n + 5) { --i: 4; }\n@keyframes rise { from { opacity: 0; transform: translateY(10px); } }\n@media (prefers-reduced-motion: reduce) {\n  .group > * { animation: none; }\n}"
+      }
+    },
+    {
+      "id": "scroll-reveal",
+      "name": "Reveal on scroll",
+      "aka": [
+        "scroll animation",
+        "appear on scroll"
+      ],
+      "what": "Sections fade and rise into place as they are scrolled into view.",
+      "useWhen": [
+        "A long marketing or story page that is read once, from top to bottom",
+        "The reveal paces the story: one point per screen"
+      ],
+      "avoidWhen": [
+        "Product screens, documentation and anything that people scan or search",
+        "The page is visited again and again",
+        "Parallax or taking over the scroll would be needed to make it work"
+      ],
+      "rules": [
+        "Reveal each section once; do not hide it again when it leaves the screen.",
+        "A short travel (12–24 px) and a fade, finished by the time the section is well into view; reading must never wait for scrolling.",
+        "The content is in the document from the start and readable without the effect: where scroll-driven animation is not supported, or reduced motion is asked for, it is simply there.",
+        "No parallax and no scroll-jacking: the page scrolls at the speed of the person's hand.",
+        "At most one reveal per section, not one per paragraph."
+      ],
+      "examples": [
+        {
+          "who": "Apple",
+          "where": "Product pages: sections fade into place as the page is scrolled",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wcag-22",
+          "where": "SC 2.3.3 Animation from Interactions"
+        },
+        {
+          "ref": "nng-animation-attention-2014",
+          "where": "Animation for Attention and Comprehension"
+        },
+        {
+          "ref": "mdn-view-timeline",
+          "where": "animation-timeline: view()"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "stagger-in",
+        "rise-in"
+      ],
+      "motion": {
+        "trigger": [
+          "scroll"
+        ],
+        "purpose": "attention",
+        "upTo": "rare",
+        "intensity": "moderate",
+        "easing": "linear",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "Every section is simply there.",
+        "css": "@supports (animation-timeline: view()) {\n  @media (prefers-reduced-motion: no-preference) {\n    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }\n  }\n}\n@keyframes reveal { from { opacity: 0; transform: translateY(20px); } }"
+      }
+    },
+    {
+      "id": "attention-pulse",
+      "name": "Attention pulse",
+      "aka": [
+        "beacon",
+        "hotspot",
+        "pulsing dot"
+      ],
+      "what": "A ring around a small dot pulses a few times to draw the eye to something new.",
+      "useWhen": [
+        "Something changed outside the person's focus and they should notice it once: a new feature, a step that is waiting for them",
+        "A static badge would be missed"
+      ],
+      "avoidWhen": [
+        "More than one thing would pulse on the same screen",
+        "The thing is not new any more; a pulse that never stops is noise",
+        "Errors and warnings, which need words"
+      ],
+      "rules": [
+        "Pulse two or three times, then rest as a still dot; anything that moves for more than five seconds needs a way to stop it.",
+        "Animate the scale and opacity of a ring around a still dot, so the marker itself stays readable.",
+        "One pulsing element per view.",
+        "The news is also there as text: a label, a badge with a count, or an accessible name.",
+        "Under reduced motion show the still dot only."
+      ],
+      "examples": [
+        {
+          "who": "Intercom",
+          "where": "Product tours: a pulsing hotspot marks the element that a tip belongs to",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-animation-attention-2014",
+          "where": "Animation for Attention and Comprehension"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "SC 2.2.2 Pause, Stop, Hide"
+        }
+      ],
+      "alternatives": [
+        "status-badge",
+        "badge-counter",
+        "coach-mark"
+      ],
+      "motion": {
+        "trigger": [
+          "ambient"
+        ],
+        "purpose": "attention",
+        "upTo": "occasional",
+        "intensity": "moderate",
+        "duration": [
+          1200,
+          1800
+        ],
+        "easing": "ease-out",
+        "properties": [
+          "transform",
+          "opacity"
+        ],
+        "reduced": "A still dot.",
+        "css": ".dot { position: relative; }\n.dot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid currentColor; opacity: 0; animation: pulse 1.6s ease-out 3; }\n@keyframes pulse { from { transform: scale(0.6); opacity: 0.8; } to { transform: scale(1.6); opacity: 0; } }\n@media (prefers-reduced-motion: reduce) {\n  .dot::after { animation: none; }\n}"
+      }
+    },
+    {
+      "id": "rotating-words",
+      "name": "Rotating words",
+      "aka": [
+        "word roll",
+        "text rotator"
+      ],
+      "what": "One word of a headline is replaced by the next of a short list, one after another.",
+      "useWhen": [
+        "A landing-page headline has to name several audiences or uses, and one sentence fits them all",
+        "The page is visited rarely and the headline is its main message"
+      ],
+      "avoidWhen": [
+        "The headline must be understood at a glance: the word on screen may be the wrong one when people look",
+        "Product screens",
+        "The words differ much in length and the line would reflow"
+      ],
+      "rules": [
+        "Three to five words; each stays readable for at least two seconds.",
+        "Reserve the width of the longest word, so the rest of the line never moves.",
+        "Stop after one round and rest on the strongest word; it also pauses on hover and on keyboard focus, and movement that runs for more than five seconds needs a way to stop it.",
+        "Every word is in the page as text for search engines and assistive technology; the rotation is decoration.",
+        "Under reduced motion show the strongest word, still."
+      ],
+      "examples": [
+        {
+          "who": "DesignBookmark Motion",
+          "where": "Word roll: the last word of the line rolls up and out while the next one rolls in from below",
+          "url": "https://designbookmark.com/motion#db-word-roll",
+          "verified": true
+        },
+        {
+          "who": "Kokonut UI",
+          "where": "Dynamic text",
+          "url": "https://kokonutui.com/docs/texts/dynamic-text",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wcag-22",
+          "where": "SC 2.2.2 Pause, Stop, Hide"
+        },
+        {
+          "ref": "carbon",
+          "where": "Motion: productive and expressive motion"
+        },
+        {
+          "ref": "nng-animation-attention-2014",
+          "where": "Animation for Attention and Comprehension"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "marquee"
+      ],
+      "motion": {
+        "trigger": [
+          "ambient"
+        ],
+        "purpose": "delight",
+        "upTo": "rare",
+        "intensity": "expressive",
+        "duration": [
+          2000,
+          3000
+        ],
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "reduced": "The strongest word, still.",
+        "css": ".words { display: inline-grid; overflow: hidden; vertical-align: bottom; }\n.words > * { grid-area: 1 / 1; opacity: 0; animation: word-pass 2.4s cubic-bezier(0.22, 1, 0.36, 1) both; }\n.words > :nth-child(2) { animation-delay: 2.4s; }\n.words > :last-child { animation-name: word-stay; animation-delay: 4.8s; }\n.words:hover > *, .words:focus-within > * { animation-play-state: paused; }\n@keyframes word-pass {\n  0% { opacity: 0; transform: translateY(60%); }\n  12%, 88% { opacity: 1; transform: none; }\n  100% { opacity: 0; transform: translateY(-60%); }\n}\n@keyframes word-stay { from { opacity: 0; transform: translateY(60%); } 12%, to { opacity: 1; transform: none; } }\n@media (prefers-reduced-motion: reduce) {\n  .words > * { animation: none; }\n  .words > :last-child { opacity: 1; }\n}"
+      }
+    },
+    {
+      "id": "marquee",
+      "name": "Marquee",
+      "aka": [
+        "logo ticker",
+        "infinite scroller"
+      ],
+      "what": "A row of logos, quotes or tags moves sideways in a continuous loop.",
+      "useWhen": [
+        "A landing page shows more logos or short quotes than fit in one row, and none is more important than the others",
+        "The strip is decoration that says \"many\", not content to be read"
+      ],
+      "avoidWhen": [
+        "People need to read, compare or click an item (use a grid, or a carousel with controls)",
+        "The row fits without moving",
+        "Product screens, and pages with other movement near it"
+      ],
+      "rules": [
+        "Move slowly and evenly, about 30–60 px per second, with the list repeated once so that the loop has no seam.",
+        "Pause on hover and on keyboard focus, and give it a visible pause control: it runs for more than five seconds.",
+        "Fade the two ends into the background, so items do not pop in at the edge.",
+        "Hide the repeated copy from assistive technology and from the tab order.",
+        "Under reduced motion show a still row that wraps."
+      ],
+      "examples": [
+        {
+          "who": "Magic UI",
+          "where": "Marquee: rows of review cards that scroll in a loop and pause on hover",
+          "url": "https://magicui.design/docs/components/marquee",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wcag-22",
+          "where": "SC 2.2.2 Pause, Stop, Hide"
+        },
+        {
+          "ref": "nng-animation-attention-2014",
+          "where": "Animation for Attention and Comprehension"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "rotating-words",
+        "carousel",
+        "testimonial"
+      ],
+      "motion": {
+        "trigger": [
+          "ambient"
+        ],
+        "purpose": "delight",
+        "upTo": "rare",
+        "intensity": "expressive",
+        "duration": [
+          20000,
+          40000
+        ],
+        "easing": "linear",
+        "properties": [
+          "transform"
+        ],
+        "reduced": "A still row that wraps.",
+        "css": ".strip { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }\n.strip .track { display: flex; gap: 48px; width: max-content; animation: strip 30s linear infinite; }\n.strip:hover .track, .strip:focus-within .track { animation-play-state: paused; }\n@keyframes strip { to { transform: translateX(calc(-50% - 24px)); } }\n@media (prefers-reduced-motion: reduce) {\n  .strip .track { animation: none; flex-wrap: wrap; width: auto; }\n}"
+      }
+    },
+    {
+      "id": "page-crossfade",
+      "name": "Page crossfade",
+      "aka": [
+        "view transition",
+        "cross-document transition"
+      ],
+      "what": "Going from one page to the next, the old page fades into the new one instead of being replaced in a flash.",
+      "useWhen": [
+        "A site of separate pages where navigation should feel continuous: marketing sites, documentation, catalogs",
+        "Header and navigation are the same on both pages, so only the content appears to change"
+      ],
+      "avoidWhen": [
+        "Pages take long to load; a fade cannot hide a wait and makes it feel longer",
+        "Navigation is constant and done from the keyboard, as in a mail client or an editor"
+      ],
+      "rules": [
+        "150–250 ms: the browser's default crossfade or shorter. Do not slide whole pages on desktop.",
+        "Opt in on both pages with @view-transition { navigation: auto }; browsers without support navigate as before.",
+        "Parts that stay, such as the header or a sidebar, get their own view-transition-name so that they do not fade with the content.",
+        "Never hold the navigation back for the effect: the transition starts when the new page can be drawn.",
+        "Under reduced motion switch it off."
+      ],
+      "examples": [
+        {
+          "who": "Chrome for Developers",
+          "where": "Cross-document view transitions: two pages that opt in with the @view-transition rule",
+          "url": "https://developer.chrome.com/docs/web-platform/view-transitions/cross-document",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "chrome-view-transitions",
+          "where": "Cross-document view transitions for multi-page applications"
+        },
+        {
+          "ref": "nng-animation-purpose-2020",
+          "where": "The Role of Animation and Motion in UX"
+        },
+        {
+          "ref": "nng-response-times-1993",
+          "where": "Response Time Limits"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "shared-element-morph"
+      ],
+      "motion": {
+        "trigger": [
+          "navigate"
+        ],
+        "purpose": "continuity",
+        "upTo": "occasional",
+        "intensity": "subtle",
+        "duration": [
+          150,
+          250
+        ],
+        "easing": "ease",
+        "properties": [
+          "opacity"
+        ],
+        "reduced": "No transition: the page changes at once.",
+        "css": "@media (prefers-reduced-motion: no-preference) {\n  @view-transition { navigation: auto; }\n}\n::view-transition-old(root), ::view-transition-new(root) { animation-duration: 200ms; }\n.site-header { view-transition-name: site-header; }"
+      }
+    },
+    {
+      "id": "shared-element-morph",
+      "name": "Shared element",
+      "aka": [
+        "shared element transition",
+        "container transform",
+        "hero animation"
+      ],
+      "what": "An element that is on both pages, such as a thumbnail and its large picture, travels and resizes from its old place to its new one during navigation.",
+      "useWhen": [
+        "A list or grid opens into a detail page, and one visible element is the same thing on both: a picture, a card, a title",
+        "People go back and forth between list and detail and should keep their place"
+      ],
+      "avoidWhen": [
+        "The two elements differ so much in shape or content that the morph distorts them",
+        "More than one or two elements would travel at once",
+        "Details are opened all the time from the keyboard"
+      ],
+      "rules": [
+        "Give the element the same view-transition-name on both pages, and give that name to one element per page only: in a list, the item being opened.",
+        "250–400 ms with an ease-in-out curve: it starts and ends on screen and travels far.",
+        "Everything else crossfades underneath; only the shared element moves.",
+        "The same morph runs backwards on Back.",
+        "Under reduced motion the pages change at once or crossfade."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Transitions: container transform, in which a card grows into the screen it opens",
+          "url": "https://m3.material.io/styles/motion/transitions/transition-patterns",
+          "verified": false
+        },
+        {
+          "who": "Apple App Store",
+          "where": "Today: a card grows into the article it opens",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Motion: transitions"
+        },
+        {
+          "ref": "fluent-2",
+          "where": "Motion"
+        },
+        {
+          "ref": "chrome-view-transitions",
+          "where": "Cross-document view transitions for multi-page applications"
+        }
+      ],
+      "alternatives": [
+        "instant-change",
+        "page-crossfade"
+      ],
+      "motion": {
+        "trigger": [
+          "navigate"
+        ],
+        "purpose": "spatial",
+        "upTo": "occasional",
+        "intensity": "moderate",
+        "duration": [
+          250,
+          400
+        ],
+        "easing": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "properties": [
+          "transform",
+          "width",
+          "height"
+        ],
+        "reduced": "No morph: the page changes at once.",
+        "css": "@media (prefers-reduced-motion: no-preference) {\n  @view-transition { navigation: auto; }\n  .cover { view-transition-name: cover; }\n  ::view-transition-group(cover) { animation-duration: 320ms; animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }\n}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>picky-eater</title>
+    <link rel="stylesheet" href="/assets/app.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-title">
+        <h1 id="title"></h1>
+        <span class="chip" id="draft"></span>
+      </div>
+      <div class="seg" id="viewports" role="group" aria-label="Screen size"></div>
+      <div class="seg" id="motion" role="group" aria-label="Motion" hidden>
+        <button type="button" class="seg-btn" id="motion-replay" title="Play again what moves when it appears">Replay</button>
+        <button type="button" class="seg-btn" id="motion-slow" aria-pressed="false" title="Show motion at a quarter of its speed">Slow</button>
+        <button type="button" class="seg-btn" id="motion-reduced" aria-pressed="false" title="Show the options as people see them who asked for less motion">Reduced</button>
+      </div>
+      <div class="top-space"></div>
+      <button type="button" class="progress" id="progress">
+        <span class="pips" id="pips" aria-hidden="true"></span>
+        <span id="count"></span>
+      </button>
+      <span class="status" id="status" role="status" hidden></span>
+      <button type="button" class="btn" id="btn-built" hidden>Built page</button>
+      <button type="button" class="btn" id="btn-history">History</button>
+      <button type="button" class="btn" id="btn-ask">Ask for a change</button>
+      <button type="button" class="btn btn-primary" id="btn-approve">Approve</button>
+    </header>
+
+    <main class="work">
+      <nav class="sheet" aria-label="Areas of the page">
+        <p class="sheet-note" id="sheet-note" role="status" hidden>
+          <b>Sign in, in the preview.</b> This page is behind a sign-in. Its parts appear here once the page is open.
+        </p>
+        <p class="sheet-note" id="sheet-away" role="status" hidden>
+          <b>This is another page of the app.</b> Some parts of this board are not on it.
+          <button type="button" class="btn" id="btn-return">Open the page of this board</button>
+        </p>
+        <div class="sheet-page" id="sheet"></div>
+        <div class="sheet-more" id="sheet-more"></div>
+      </nav>
+      <section class="stage" id="stage" aria-label="The page"></section>
+      <aside class="panel" id="panel" hidden>
+        <div class="panel-head">
+          <h2 id="panel-title"></h2>
+          <button type="button" class="btn btn-icon" id="panel-close" aria-label="Close">
+            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+          </button>
+        </div>
+        <div class="panel-body" id="panel-body"></div>
+      </aside>
+    </main>
+
+    <footer class="strip" id="strip" aria-label="Moments of the page"></footer>
+
+    <dialog class="confirm" id="confirm" aria-labelledby="confirm-title">
+      <h2 id="confirm-title">Approve this page?</h2>
+      <p>Your coding agent will build exactly what you see here.</p>
+      <div class="confirm-actions">
+        <button type="button" class="btn" id="confirm-no">Not yet</button>
+        <button type="button" class="btn btn-primary" id="confirm-yes">Approve</button>
+      </div>
+    </dialog>
+
+    <div class="message" id="message" hidden>
+      <div>
+        <h2 id="message-title"></h2>
+        <p id="message-text"></p>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>

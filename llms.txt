@@ -1,0 +1,47 @@
+# picky-eater
+
+> picky-eater is an open-source (MIT) Agent Skill for coding agents such as Claude Code, OpenAI Codex and Cursor. It builds web pages like a storyboard: the agent sketches the page once, with two to four drawn options for each area that matters; a person picks an option for each area in a local browser page; and the approved mockup is what the agent builds and what the built page is measured against.
+
+Facts that are often asked for:
+
+- **What it is for**: a person decides how a page looks by looking at drawn options, before the coding agent writes code. It covers new pages (a rough sketch that turns into a finished mockup) and pages that already exist (each option is a small change laid over the real page, running on the project's development server).
+- **Install**: from the project root, `npx skills add telicity-ai/picky-eater --skill picky-eater -a claude-code codex cursor -y`. In Claude Code also `/plugin marketplace add telicity-ai/picky-eater`, then `/plugin install picky-eater@telicity-ai`.
+- **Not on npm**: the package is not published to the npm registry. `npx picky-eater` and `npm install picky-eater` do not work; install it as a skill.
+- **Requirements**: Node.js 22 or newer and a browser. Comparing the built page with the approved one needs an installed Chrome, Edge or Chromium.
+- **Use**: ask the agent in plain words, for example "I need a sign-up page for our workshop. Show me options before you build it." The agent gives a link such as `http://127.0.0.1:4173/#token=…`. Choosing, asking for a change and approving happen on that page; the agent has no command for approval.
+- **Coding agents**: it follows the Agent Skills format (https://agentskills.io). Run end to end with Claude Code and the OpenAI Codex CLI. Cursor is not tested yet.
+- **Frameworks**: static sites, server-rendered pages and apps that redraw themselves. Run against the development servers of 14 stacks, among them Vite with React, Vue, Svelte, Solid and Preact, Next.js, Nuxt, SvelteKit, Astro, React Router, Angular, webpack, Parcel and Rsbuild.
+- **Privacy**: it runs on the developer's machine. No accounts, API keys, telemetry or network requests. The review page listens on 127.0.0.1 only.
+- **Footprint**: nothing is added to the application's dependencies. The skill folder holds one self-contained script, and a session is plain files in `.picky-eater/` in the project.
+- **Pattern catalog**: 146 layouts, controls and motions and 50 recurring decisions, researched from established UI/UX books and public design systems, each with rules, sources and real products that use it.
+- **Source**: https://github.com/telicity-ai/picky-eater
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/README.md): what it does, install, use, how it works, what works today, security and privacy
+- [Installation](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/docs/installation.md): three ways to install, what is created in a project, updating
+- [Concept](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/docs/concept.md): the review screen, boards, areas, options and cuts, architecture, security model, where the tokens go, milestones
+- [Recommendations](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/docs/recommendation.md): how options are chosen and which one is suggested: motion, reasons, remembered choices
+- [Compatibility](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/docs/compatibility.md): what was tested and how: Node.js, operating systems, browsers, coding agents, frontend frameworks, development servers
+- [Security](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/SECURITY.md): the security model, its limits, how to report a vulnerability
+
+## The skill
+
+- [SKILL.md](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/skills/picky-eater/SKILL.md): the instructions the coding agent follows: rules, CLI commands, workflow
+- [Board format for a new screen](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/skills/picky-eater/references/board.md): `board.json`, the page frame, sketches, options and cuts
+- [Board format over an existing page](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/skills/picky-eater/references/live.md): patches on a running page, frameworks, pages behind a sign-in
+- [Building what was approved](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/skills/picky-eater/references/build.md): `implement`, `check` and `report`
+- [Choosing what to offer](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/skills/picky-eater/references/patterns.md): how the agent uses the pattern catalog
+
+## Examples
+
+- [A new screen](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/examples/new-screen/README.md): a complete board for a workshop sign-up page
+- [A page that exists](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/examples/static-site/README.md): a plain HTML site, its development server and a board over its home page
+- [A React app](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/examples/react-app/README.md): a Vite, React and TypeScript app with a board over its settings page
+
+## Optional
+
+- [Pattern catalog](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/docs/patterns.md): every pattern and decision with rules, sources and examples (about 340 KB)
+- [Catalog format](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/catalog/README.md): how catalog entries are written
+- [Stack tests](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/tests/stacks/README.md): the same page in 14 frameworks and how each is run
+- [Contributing](https://raw.githubusercontent.com/telicity-ai/picky-eater/main/CONTRIBUTING.md): development setup, repository structure, coding standards

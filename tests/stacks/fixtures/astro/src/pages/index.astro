@@ -1,0 +1,27 @@
+---
+import Crews from '../components/Crews.jsx';
+import Hero from '../components/Hero.astro';
+import Signup from '../components/Signup.jsx';
+import '../trailhead.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trailhead</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="top">
+        <strong class="brand">Trailhead</strong>
+        <span id="stack" class="stack">astro</span>
+      </header>
+      <main>
+        <Hero />
+        <Crews client:load />
+        <Signup client:load />
+      </main>
+    </div>
+  </body>
+</html>

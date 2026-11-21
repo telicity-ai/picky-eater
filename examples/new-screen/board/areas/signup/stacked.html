@@ -1,0 +1,13 @@
+<div class="wrap">
+  <div class="signup">
+    <h2>Save your seat</h2>
+    <p data-pe-not="sent">It is free. We only use your email to send the ticket.</p>
+    <form class="form" data-pe-not="sent">
+      <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+      <div data-pe-area="signup-error" data-pe-in="error"></div>
+      <button type="button" class="btn" data-pe-go="sent" data-pe-go-invalid="error">Save my seat</button>
+    </form>
+    <div data-pe-area="signup-done" data-pe-in="sent"></div>
+  </div>
+</div>

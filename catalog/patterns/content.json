@@ -1,0 +1,1159 @@
+{
+  "category": "content",
+  "patterns": [
+    {
+      "id": "card",
+      "name": "Card",
+      "aka": [
+        "tile",
+        "content card"
+      ],
+      "what": "A bordered or raised box that groups an image, a title, a few facts and actions about one item.",
+      "useWhen": [
+        "Items are browsed rather than searched and each has a picture or mixed content",
+        "Each item links to a detail page and may have one or two actions",
+        "Items are shown in a grid or a horizontal row"
+      ],
+      "avoidWhen": [
+        "Items are compared by attribute or sorted by column (use a table)",
+        "Items are text only and many (use list rows)",
+        "The box only decorates a section of a page that is not an item"
+      ],
+      "rules": [
+        "Put the image first, then the title, then supporting text, then actions; keep that order in every card.",
+        "Make the title the link (or stretch its click area over the card) and keep the heading as the first thing read by screen readers.",
+        "If the whole card is clickable, do not put other links inside it except clearly separate buttons.",
+        "Clamp text so cards in a row stay the same height.",
+        "Separate cards with space plus a border or shadow; do not use a shadow so strong that every card looks pressed.",
+        "Use the same card for the same kind of item everywhere in the product."
+      ],
+      "examples": [
+        {
+          "who": "Dribbble",
+          "where": "Shot listing: an image with the author and counts beneath it",
+          "url": "https://dribbble.com/shots/popular",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Cards: elevated, filled and outlined",
+          "url": "https://m3.material.io/components/cards/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Card: header, media, body and footer, with flag and media-first variants",
+          "url": "https://designsystem.digital.gov/components/card/",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Home page: product cards with a screenshot, title, one line of text and two buttons",
+          "url": "https://github.com/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-cards-2016",
+          "where": "Cards: UI-Component Definition"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Cards"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Cards"
+        }
+      ],
+      "alternatives": [
+        "list-row",
+        "data-table",
+        "thumbnail-grid"
+      ]
+    },
+    {
+      "id": "list-row",
+      "name": "List row",
+      "aka": [
+        "list item",
+        "row",
+        "cell"
+      ],
+      "what": "One line or short block per item in a vertical list: a title, a little supporting text and perhaps an icon or an action.",
+      "useWhen": [
+        "Items are identified by their text",
+        "There are many items and people scan down them",
+        "The list must work in a narrow column or on a phone"
+      ],
+      "avoidWhen": [
+        "Items are chosen by image (use cards or thumbnails)",
+        "Several attributes must line up for comparison (use a table)"
+      ],
+      "rules": [
+        "Put the identifying text first and make it the strongest; put secondary facts under or after it in a lighter style.",
+        "Keep one to three lines per row and align rows on the same left edge.",
+        "Make the whole row the click target when a row leads to a detail view, with a chevron at the end where that is the platform convention.",
+        "Keep at least 44 px row height on touch screens.",
+        "Separate rows with space or a hairline, not both heavy borders and backgrounds.",
+        "Mark up as ul or ol with li, or as a table when rows have columns."
+      ],
+      "examples": [
+        {
+          "who": "Hacker News",
+          "where": "Front page: numbered rows with a title line and a smaller line of metadata",
+          "url": "https://news.ycombinator.com/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Home page: topic rows with a linked title, a description and a chevron",
+          "url": "https://www.gov.uk/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Lists: items with label text and optional supporting text",
+          "url": "https://m3.material.io/components/lists/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Lists and tables",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/lists-and-tables",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-list-entries-2016",
+          "where": "The Anatomy of a List Entry"
+        },
+        {
+          "ref": "hoober-berkman-2011",
+          "where": "Vertical List"
+        },
+        {
+          "ref": "material-3",
+          "where": "Lists"
+        }
+      ],
+      "alternatives": [
+        "card",
+        "data-table"
+      ]
+    },
+    {
+      "id": "data-table",
+      "name": "Data table",
+      "aka": [
+        "table",
+        "data grid",
+        "index table"
+      ],
+      "what": "Rows of records and columns of attributes, so that values can be read across and compared down.",
+      "useWhen": [
+        "Each item has several attributes that people compare, sort or scan",
+        "People look up one record among many",
+        "The data is numeric or status-like"
+      ],
+      "avoidWhen": [
+        "Items have one or two attributes (use a list)",
+        "The screen is narrow and columns cannot be reduced",
+        "Content is mainly images or long text"
+      ],
+      "rules": [
+        "Left-align text, right-align numbers, and give numbers a consistent precision and tabular figures.",
+        "Put the identifying column first and keep it and the header visible while scrolling.",
+        "Make sortable headers buttons, show the sort direction with an arrow and set aria-sort.",
+        "Use real table markup with th and scope; add a caption that names the table.",
+        "Keep rows at least 40 px tall; separate them with light lines or zebra shading, not both.",
+        "On small screens hide lower-priority columns, allow horizontal scroll with the first column fixed, or turn each row into a card."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Data table: sorting, expansion, selection and batch actions",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/data-table/guidelines",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Table: captions, numeric columns, column widths",
+          "url": "https://design-system.service.gov.uk/components/table/",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "List of countries by population: a sortable table",
+          "url": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Index table: a scannable list with search, filtering, sorting and bulk actions",
+          "url": "https://shopify.dev/docs/api/app-home/latest/patterns/compositions/index-table",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-data-tables-2022",
+          "where": "Data Tables: Four Major User Tasks"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Data Tables"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Finishing Touches"
+        }
+      ],
+      "alternatives": [
+        "list-row",
+        "card",
+        "comparison-table"
+      ]
+    },
+    {
+      "id": "description-list",
+      "name": "Description list",
+      "aka": [
+        "key–value list",
+        "summary list",
+        "details list",
+        "property list"
+      ],
+      "what": "A list of label and value pairs that describes one thing, such as the details of an order or a profile.",
+      "useWhen": [
+        "One record has several named facts to show",
+        "The page is a summary or review of what was entered"
+      ],
+      "avoidWhen": [
+        "Several records must be compared (use a table)",
+        "The values are long prose"
+      ],
+      "rules": [
+        "Mark up as dl with dt and dd.",
+        "Put labels in one column and values in the next on wide screens; stack label over value on narrow ones.",
+        "Style the label lighter or smaller than the value; the value is what people read.",
+        "Show \"Not provided\" rather than an empty value.",
+        "Put row actions such as \"Change\" at the end of the row, with hidden text that names the row (\"Change date of birth\")."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Summary list: key, value and action per row",
+          "url": "https://design-system.service.gov.uk/components/summary-list/",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Biography article: an infobox of labelled facts beside the text",
+          "url": "https://en.wikipedia.org/wiki/Tim_Berners-Lee",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Structured list",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/structured-list/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Summary list"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Hierarchy is Everything"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Check answers"
+        }
+      ],
+      "alternatives": [
+        "data-table",
+        "card"
+      ]
+    },
+    {
+      "id": "disclosure",
+      "name": "Disclosure",
+      "aka": [
+        "details",
+        "expander",
+        "show more",
+        "collapsible",
+        "read more"
+      ],
+      "what": "A short label that the user can open to reveal more content in place, and close again.",
+      "useWhen": [
+        "Extra information helps some users and would slow down the rest",
+        "A long text or list can be cut after the part most people need",
+        "Advanced options should stay out of the way"
+      ],
+      "avoidWhen": [
+        "Everyone needs the content (show it)",
+        "The hidden content is an error or a warning",
+        "Several are stacked as page sections (that is an accordion)"
+      ],
+      "rules": [
+        "Use the native details and summary elements, or a button with aria-expanded that controls the region.",
+        "Write the label so it says what is inside: \"Help with nationality\", \"Show 12 more\".",
+        "Reveal the content directly under the label and push the rest down; do not open an overlay.",
+        "Change the label or icon when open (\"Show less\"), and keep the control in the same place.",
+        "Do not hide content that is needed to complete the task or that search engines and find-in-page should reach by default.",
+        "When truncating text, cut at a sentence or line boundary and show enough to judge whether to open it."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Details: make a page easier to scan by hiding information only some users need",
+          "url": "https://design-system.service.gov.uk/components/details/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Search results: a \"Filter and sort\" control that expands above the list",
+          "url": "https://www.gov.uk/search/all?keywords=passport",
+          "verified": true
+        },
+        {
+          "who": "Airbnb",
+          "where": "Home page: \"Show more\" at the end of a list of destinations",
+          "url": "https://www.airbnb.com/",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Disclosure (show/hide) pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-progressive-disclosure-2006",
+          "where": "Progressive Disclosure"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Collapsible Sections"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Disclosure pattern"
+        }
+      ],
+      "alternatives": [
+        "accordion-sections",
+        "tooltip",
+        "popover",
+        "modal-dialog"
+      ]
+    },
+    {
+      "id": "carousel",
+      "name": "Carousel",
+      "aka": [
+        "slider",
+        "slideshow",
+        "content slider",
+        "horizontal scroller"
+      ],
+      "what": "A row of items of which only some fit on screen; the rest are reached by buttons or by swiping sideways.",
+      "useWhen": [
+        "A set of similar items should take one row of height: related products, photos of one thing",
+        "People may browse it but nothing depends on their seeing every item"
+      ],
+      "avoidWhen": [
+        "It would hold the page's key messages; NN/g observed users ignoring a large auto-forwarding carousel as if it were an advertisement",
+        "It moves by itself and carries text that must be read",
+        "There are only two or three items (show them)"
+      ],
+      "rules": [
+        "Do not auto-advance; if you must, pause on hover and focus, provide a visible pause button, and stop after one cycle.",
+        "Show part of the next item at the edge so it is clear there is more.",
+        "Provide Previous and Next buttons with names, large enough to hit, and position dots or \"3 of 7\".",
+        "Let touch users swipe (CSS scroll-snap) and keyboard users reach every item in order.",
+        "Mark up as a region labelled as a carousel; each slide is a group labelled \"n of m\".",
+        "Never put the only link to something inside a later slide."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Carousel pattern: rotation control, previous and next, slide picker",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Carousel: a row of items that scrolls sideways",
+          "url": "https://m3.material.io/components/carousel/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple",
+          "where": "Home page: a moving media strip with a pause button at its corner",
+          "url": "https://www.apple.com/",
+          "verified": true
+        },
+        {
+          "who": "The Guardian",
+          "where": "Front page: a row of story cards with a next arrow at the end",
+          "url": "https://www.theguardian.com/international",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-carousels-2013",
+          "where": "Carousel Usability: Effective UI for Content Overload"
+        },
+        {
+          "ref": "nng-auto-forwarding-2013",
+          "where": "Auto-Forwarding Carousels, Accordions Annoy Users & Reduce Visibility"
+        },
+        {
+          "ref": "baymard-carousel-2019",
+          "where": "10 UX Requirements for Homepage Carousels"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "thumbnail-grid",
+        "featured-grid"
+      ]
+    },
+    {
+      "id": "thumbnail-grid",
+      "name": "Thumbnail grid",
+      "aka": [
+        "image grid",
+        "gallery grid",
+        "photo grid"
+      ],
+      "what": "Small images in rows and columns, each standing for an item that opens larger or in detail.",
+      "useWhen": [
+        "Items are recognized by how they look: photos, designs, products, videos",
+        "People scan many items quickly"
+      ],
+      "avoidWhen": [
+        "Items look alike and need text to tell apart (use cards or a list)",
+        "Images need their captions to be understood"
+      ],
+      "rules": [
+        "Give every thumbnail the same aspect ratio, cropped with object-fit: cover, and a small consistent gap.",
+        "Provide alt text that identifies each item, or a visible caption.",
+        "Make each thumbnail a link or button with a focus outline; show extra information on hover and on focus.",
+        "Load images lazily and reserve their space.",
+        "Let the column count follow the width; keep thumbnails large enough to recognize, about 120 px or more."
+      ],
+      "examples": [
+        {
+          "who": "Dribbble",
+          "where": "Shot listing: a grid of equal-ratio images",
+          "url": "https://dribbble.com/shots/popular",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Collections: image-based content in a grid",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/collections",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Thumbnail: a small preview image for an item",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/media-and-visuals/thumbnail",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Thumbnail Grid"
+        },
+        {
+          "ref": "baymard-thumbnails-2020",
+          "where": "Product Image UX: Always Use Thumbnails"
+        },
+        {
+          "ref": "hoober-berkman-2011",
+          "where": "Grid"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "masonry-grid",
+        "carousel",
+        "list-row"
+      ]
+    },
+    {
+      "id": "avatar",
+      "name": "Avatar",
+      "aka": [
+        "profile picture",
+        "user image",
+        "persona"
+      ],
+      "what": "A small round or square image, or initials, that stands for a person or an organization.",
+      "useWhen": [
+        "Content is attributed to people: comments, assignments, messages",
+        "People are recognized faster by face than by name"
+      ],
+      "avoidWhen": [
+        "The picture adds nothing because every item is from the same person",
+        "It would be the only way to tell who someone is"
+      ],
+      "rules": [
+        "Use fixed sizes from a small scale (for example 24, 32, 40, 64 px) and one shape for people.",
+        "Fall back to initials on a colored background, then to a generic icon; the initials color must pass contrast.",
+        "Show the name next to the avatar, or as a tooltip and accessible name when space is short.",
+        "For groups overlap a few avatars and end with \"+3\".",
+        "Give decorative avatars empty alt text when the name is printed beside them."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Primer",
+          "where": "Avatar",
+          "url": "https://primer.style/product/components/avatar/",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Avatar: images, initials and presence",
+          "url": "https://atlassian.design/components/avatar/usage",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Persona: an avatar with name and status",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/persona/usage",
+          "verified": true
+        },
+        {
+          "who": "Mastodon",
+          "where": "Posts: the author's avatar beside their name and handle",
+          "url": "https://mastodon.social/explore",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "atlassian-ds",
+          "where": "Avatar"
+        },
+        {
+          "ref": "fluent-2",
+          "where": "Persona"
+        }
+      ],
+      "alternatives": [
+        "list-row",
+        "tag"
+      ]
+    },
+    {
+      "id": "status-badge",
+      "name": "Status badge",
+      "aka": [
+        "status pill",
+        "lozenge",
+        "state label",
+        "status tag"
+      ],
+      "what": "A small colored label with one or two words that states the status of an item.",
+      "useWhen": [
+        "Items have a state from a short fixed set: Draft, Active, Paid, Failed",
+        "The state must be scanned down a list or table"
+      ],
+      "avoidWhen": [
+        "The label can be clicked or removed (that is a chip or a tag)",
+        "The text is a count (use a badge counter)",
+        "There are so many states that colors repeat"
+      ],
+      "rules": [
+        "Always include text; color only supports it.",
+        "Use one color per meaning across the product: for example grey neutral, blue in progress, green success, yellow attention, red problem.",
+        "Keep the label to one or two words in sentence case and do not truncate it.",
+        "Give it the same height as the text line it sits in and do not make it look like a button.",
+        "Put it in the same place in every row, usually a status column or next to the title."
+      ],
+      "examples": [
+        {
+          "who": "Atlassian Design System",
+          "where": "Lozenge: a visual indicator of status",
+          "url": "https://atlassian.design/components/lozenge/usage",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Tag: shows the status of something",
+          "url": "https://design-system.service.gov.uk/components/tag/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Badge: status and progress of an object",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/badge",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "StateLabel: the state of an issue or pull request",
+          "url": "https://primer.style/product/components/state-label/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "carbon",
+          "where": "Status indicators"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Tag"
+        },
+        {
+          "ref": "johnson-2020",
+          "where": "Our Color Vision is Limited"
+        }
+      ],
+      "alternatives": [
+        "tag",
+        "badge-counter"
+      ]
+    },
+    {
+      "id": "tag",
+      "name": "Tag",
+      "aka": [
+        "chip",
+        "label",
+        "token",
+        "pill"
+      ],
+      "what": "A small rounded label that marks an item with a category or keyword, and may be clicked to filter or removed.",
+      "useWhen": [
+        "Items carry free-form or user-defined categories",
+        "A filter that is switched on needs to be shown and removable",
+        "Several values chosen in a field need to be visible"
+      ],
+      "avoidWhen": [
+        "The label states a system status (use a status badge)",
+        "There are so many per item that they wrap over several lines"
+      ],
+      "rules": [
+        "Keep tag text short; cap the width and show the full text in a tooltip when cut.",
+        "If a tag filters, make it a link or button and show the selected state; if it can be removed, add an × button with a name such as \"Remove bug\".",
+        "Limit visible tags per item and collapse the rest into \"+4\".",
+        "Do not rely on tag color for meaning; when users pick colors, compute readable text color.",
+        "Keep at least 24×24 px targets and 8 px between interactive tags."
+      ],
+      "examples": [
+        {
+          "who": "GitHub",
+          "where": "Issues and pull requests: colored labels that categorize and filter",
+          "url": "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Tag: read-only, dismissible, selectable and operational",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/tag/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Chips: assist, filter, input and suggestion",
+          "url": "https://m3.material.io/components/chips/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Tag",
+          "url": "https://designsystem.digital.gov/components/tag/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Tags"
+        },
+        {
+          "ref": "material-3",
+          "where": "Chips"
+        },
+        {
+          "ref": "baymard-applied-filters-2020",
+          "where": "Filtering UX: Display \"Applied Filters\" in an Overview"
+        }
+      ],
+      "alternatives": [
+        "status-badge",
+        "tag-input"
+      ]
+    },
+    {
+      "id": "empty-state",
+      "name": "Empty state",
+      "aka": [
+        "blank slate",
+        "zero state",
+        "no results"
+      ],
+      "what": "What is shown in place of a list, table or panel when it has nothing in it, with an explanation and a next step.",
+      "useWhen": [
+        "A collection has no items yet",
+        "A search or filter returns nothing",
+        "A feature has not been set up"
+      ],
+      "avoidWhen": [
+        "The data is still loading (show a loading state)",
+        "Loading failed (show an error with a retry)"
+      ],
+      "rules": [
+        "Say what would be here and why it is empty: first use, no results or nothing left to do.",
+        "Offer one primary action that fills it (\"Create project\") or, for no results, ways out: clear filters, check spelling, broaden the search.",
+        "Keep the surrounding frame (title, toolbar, column headers) so the page is recognizable.",
+        "Use an illustration only if it is small and does not push the action below the fold.",
+        "Do not show an empty table with only headers and no message.",
+        "Write a different message for each cause; \"No data\" is not enough."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Empty states pattern",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/patterns/empty-states",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "Blankslate: a placeholder that explains why content is missing",
+          "url": "https://primer.style/product/components/blankslate/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Empty state",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/empty-state",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Empty state",
+          "url": "https://atlassian.design/components/empty-state/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-empty-states-2021",
+          "where": "Designing Empty States in Complex Applications: 3 Guidelines"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Finishing Touches"
+        },
+        {
+          "ref": "baymard-no-results-2019",
+          "where": "5 Proven UX Strategies For \"No Results\" Pages"
+        }
+      ],
+      "alternatives": [
+        "skeleton",
+        "banner",
+        "coach-mark"
+      ]
+    },
+    {
+      "id": "stat-tile",
+      "name": "Stat tile",
+      "aka": [
+        "KPI tile",
+        "metric card",
+        "big number",
+        "scorecard"
+      ],
+      "what": "A small panel showing one number with its label and, usually, how it changed.",
+      "useWhen": [
+        "A few key figures summarize the state of things",
+        "People check the same figures on every visit"
+      ],
+      "avoidWhen": [
+        "The trend or distribution matters more than the latest value (use a chart)",
+        "There are more than about six; they stop being key"
+      ],
+      "rules": [
+        "Make the value the largest text, the label small above or below it, and state the unit and the period.",
+        "Show change against a comparison (\"+12% vs last month\") with an arrow or sign as well as color.",
+        "Say whether up is good or bad through color only as a supplement to text.",
+        "Align tiles in one row of equal width; wrap to two columns on phones.",
+        "Abbreviate large numbers consistently (12.4k) and give the exact value on hover or focus.",
+        "If the tile links to detail, make the whole tile one link."
+      ],
+      "examples": [
+        {
+          "who": "Shopify Polaris",
+          "where": "Metrics card",
+          "url": "https://shopify.dev/docs/api/app-home/latest/patterns/compositions/metrics-card",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Home page: \"44M+ developers building on GitHub\" as a single large figure with a label",
+          "url": "https://github.com/",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Dashboards: key figures and charts",
+          "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Dashboard"
+        },
+        {
+          "ref": "nng-dashboards-2017",
+          "where": "Dashboards: Making Charts and Graphs Easier to Understand"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Hierarchy is Everything"
+        }
+      ],
+      "alternatives": [
+        "data-table",
+        "dashboard-grid"
+      ]
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "aka": [
+        "activity log",
+        "history",
+        "process list"
+      ],
+      "what": "Events or steps placed along a vertical line in order, each with a marker, a title and a time.",
+      "useWhen": [
+        "The order and timing of events is the point: history, activity, shipment tracking",
+        "A process has stages to explain in sequence"
+      ],
+      "avoidWhen": [
+        "Events need filtering, sorting or comparing (use a table)",
+        "The items are live posts to read and react to (use a feed)"
+      ],
+      "rules": [
+        "Run the line down the leading edge with a marker per event; put the newest first for logs and the first step first for processes.",
+        "Give each entry a short title, a timestamp and optional detail; group entries by day when there are many.",
+        "Distinguish kinds of events with icons, not only colors.",
+        "Mark up as an ordered list; the line and markers are decoration.",
+        "Mark the current stage in a process and expose it with aria-current=\"step\"."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Primer",
+          "where": "Timeline: a vertical list of events",
+          "url": "https://primer.style/product/components/timeline/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Process list: the steps of a process in order",
+          "url": "https://designsystem.digital.gov/components/process-list/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Step-by-step page: numbered steps joined by a vertical line",
+          "url": "https://www.gov.uk/learn-to-drive-a-car",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Changelog: product updates listed by date",
+          "url": "https://github.blog/changelog/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "primer",
+          "where": "Timeline"
+        },
+        {
+          "ref": "uswds",
+          "where": "Process list"
+        }
+      ],
+      "alternatives": [
+        "feed",
+        "data-table",
+        "step-indicator"
+      ]
+    },
+    {
+      "id": "pricing-table",
+      "name": "Pricing table",
+      "aka": [
+        "plan cards",
+        "pricing tiers"
+      ],
+      "what": "Plans shown side by side as columns, each with its name, price, main features and a button to choose it.",
+      "useWhen": [
+        "A product is sold in two to four plans",
+        "People choose mostly by price and a few headline differences"
+      ],
+      "avoidWhen": [
+        "There is one plan (state the price)",
+        "Plans differ in many small details (add a comparison table below)",
+        "Prices are quoted individually"
+      ],
+      "rules": [
+        "Show plans as equal-width columns in order of price; stack them on phones with the recommended plan first or clearly marked.",
+        "Give each plan a name, who it is for, the price with its unit (\"per user / month\"), a button and five to eight key features.",
+        "Mark at most one plan as recommended, with a label as well as a border or color.",
+        "If billing period changes the price, put a monthly/yearly segmented control above the plans and update all prices together.",
+        "Word feature lists so they can be compared across plans: same order, \"Everything in Pro, plus…\".",
+        "Link to a full comparison table for the details."
+      ],
+      "examples": [
+        {
+          "who": "GitHub",
+          "where": "Pricing page: Free, Team and Enterprise columns with \"Recommended\" on one",
+          "url": "https://github.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "Slack",
+          "where": "Pricing page: four plans with \"Best value\" on one and a feature table below",
+          "url": "https://slack.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "Stripe",
+          "where": "Embeddable pricing table for subscriptions",
+          "url": "https://docs.stripe.com/payments/checkout/pricing-table",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-comparison-tables-2024",
+          "where": "Comparison Tables for Products, Services, and Features"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Von Restorff Effect"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Hick's Law"
+        }
+      ],
+      "alternatives": [
+        "comparison-table",
+        "card-grid"
+      ]
+    },
+    {
+      "id": "testimonial",
+      "name": "Testimonial",
+      "aka": [
+        "customer quote",
+        "social proof",
+        "logo wall"
+      ],
+      "what": "A short statement from a named customer, or a row of customer logos, shown to support a claim.",
+      "useWhen": [
+        "Visitors do not know the product and trust is a barrier",
+        "Real, attributable customers have agreed to be quoted"
+      ],
+      "avoidWhen": [
+        "The quote is anonymous or invented; unattributed praise reads as advertising",
+        "It would interrupt a task such as checkout"
+      ],
+      "rules": [
+        "Attribute every quote: full name, role and company, with a photo or logo.",
+        "Keep the quote to one to three sentences about a concrete result.",
+        "Place it next to the claim it supports, not in a section of its own far from it.",
+        "Show logos in one muted row with equal optical size and alt text naming each company.",
+        "Mark up a quote as blockquote with the attribution in a footer or figcaption.",
+        "Do not rotate quotes in an auto-advancing carousel."
+      ],
+      "examples": [
+        {
+          "who": "Slack",
+          "where": "Pricing page: a row of customer logos under the heading",
+          "url": "https://slack.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "Stripe",
+          "where": "Home page: a strip of customer logos under the hero",
+          "url": "https://stripe.com/",
+          "verified": true
+        },
+        {
+          "who": "Vercel",
+          "where": "Home page: customer logos, then sections built around a named customer and a result",
+          "url": "https://vercel.com/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-social-proof-2014",
+          "where": "Social Proof in the User Experience"
+        },
+        {
+          "ref": "nng-homepage-2024",
+          "where": "Homepage Design: 5 Fundamental Principles"
+        }
+      ],
+      "alternatives": [
+        "stat-tile",
+        "card"
+      ]
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "aka": [
+        "frequently asked questions",
+        "questions and answers"
+      ],
+      "what": "A list of questions, each followed by a short answer, often shown as an accordion.",
+      "useWhen": [
+        "Real users keep asking the same questions and the answers are short",
+        "The questions do not belong to any one page or step, for example before buying"
+      ],
+      "avoidWhen": [
+        "The answer belongs in the page or step where the question arises; GOV.UK avoids FAQs for this reason",
+        "The list is invented by the team rather than taken from support or search data",
+        "It would grow into a dumping ground of dozens of items"
+      ],
+      "rules": [
+        "Use questions people actually ask, in their words, starting with the key term.",
+        "Answer in the first sentence; link to detail.",
+        "Group by topic under headings when there are more than about eight.",
+        "Show as an accordion only when the list is long; mark each question up as a heading containing a button.",
+        "Keep the content in the page so find-in-page and search engines reach it.",
+        "Review the list regularly and move answers into the product where they belong."
+      ],
+      "examples": [
+        {
+          "who": "GitHub",
+          "where": "Pricing page: a \"Frequently asked questions\" section after the plans",
+          "url": "https://github.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Accordion: for pages where users need only a few specific pieces of content",
+          "url": "https://designsystem.digital.gov/components/accordion/",
+          "verified": true
+        },
+        {
+          "who": "Slack",
+          "where": "Pricing page: questions and answers in an accordion after the plan comparison",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-faqs-2014",
+          "where": "FAQs Still Deliver Great Value"
+        },
+        {
+          "ref": "gds-faqs-2013",
+          "where": "FAQs: why we don't have them"
+        },
+        {
+          "ref": "nng-accordions-desktop-2023",
+          "where": "Accordions on Desktop: When and How to Use"
+        }
+      ],
+      "alternatives": [
+        "accordion-sections",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "figure",
+      "name": "Image with caption",
+      "aka": [
+        "figure",
+        "captioned image"
+      ],
+      "what": "An image with a line of text beneath it that says what it shows.",
+      "useWhen": [
+        "The image carries information that needs context: who, what, where, source",
+        "The image is referred to from the text"
+      ],
+      "avoidWhen": [
+        "The image is decoration",
+        "The caption would repeat the adjacent heading"
+      ],
+      "rules": [
+        "Mark up as figure with figcaption; write alt text that describes the image and a caption that adds context, not the same words twice.",
+        "Set the caption directly under the image in a smaller size, at the same width as the image.",
+        "Set width and height or aspect-ratio so the page does not shift when the image loads.",
+        "Let the image scale with max-width: 100% and serve sizes with srcset.",
+        "If the image opens larger, make it a link or button with a name."
+      ],
+      "examples": [
+        {
+          "who": "Wikipedia",
+          "where": "Articles: images in a side column, each with a caption beneath",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Image views",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/image-views",
+          "verified": true
+        },
+        {
+          "who": "W3C WAI tutorials",
+          "where": "Images tutorial: text alternatives for informative, decorative and complex images",
+          "url": "https://www.w3.org/WAI/tutorials/images/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wai-tutorials",
+          "where": "Images"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Working with Images"
+        },
+        {
+          "ref": "marcotte-2014",
+          "where": "Flexible Images"
+        }
+      ],
+      "alternatives": [
+        "thumbnail-grid",
+        "lightbox",
+        "card"
+      ]
+    }
+  ]
+}

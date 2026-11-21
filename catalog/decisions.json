@@ -1,0 +1,1574 @@
+[
+  {
+    "id": "on-off-setting",
+    "question": "Turn one thing on or off",
+    "candidates": [
+      {
+        "pattern": "switch",
+        "pick": "The change takes effect immediately, with no Save button"
+      },
+      {
+        "pattern": "checkbox",
+        "pick": "The change is saved together with a form"
+      },
+      {
+        "pattern": "toggle-button",
+        "pick": "The state belongs to the current item and sits in a toolbar, such as mute or favorite"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-toggle-2018",
+        "where": "Toggle-Switch Guidelines"
+      },
+      {
+        "ref": "apple-hig",
+        "where": "Toggles"
+      },
+      {
+        "ref": "pickering-2019",
+        "where": "Toggle Buttons"
+      }
+    ]
+  },
+  {
+    "id": "choose-one-of-few",
+    "question": "Choose one of a few options",
+    "candidates": [
+      {
+        "pattern": "radio-group",
+        "pick": "There are two to about five options inside a form and each should be read before choosing"
+      },
+      {
+        "pattern": "segmented-control",
+        "pick": "There are two to five short options and the choice applies at once, such as a view or unit"
+      },
+      {
+        "pattern": "select",
+        "pick": "Space is too tight to show the options and a default suits most people"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-checkbox-radio-2004",
+        "where": "Checkboxes vs. Radio Buttons"
+      },
+      {
+        "ref": "nng-listbox-dropdown-2020",
+        "where": "Listboxes vs. Dropdown Lists"
+      },
+      {
+        "ref": "apple-hig",
+        "where": "Segmented controls"
+      }
+    ]
+  },
+  {
+    "id": "choose-one-of-many",
+    "question": "Choose one of many options",
+    "candidates": [
+      {
+        "pattern": "select",
+        "pick": "There are roughly 5 to 15 familiar options"
+      },
+      {
+        "pattern": "combobox",
+        "pick": "There are more than about 15 options, or users know the name of what they want"
+      },
+      {
+        "pattern": "radio-group",
+        "pick": "Every option must be visible and compared, and there is room for all of them"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-listbox-dropdown-2020",
+        "where": "Listboxes vs. Dropdown Lists"
+      },
+      {
+        "ref": "baymard-dropdown-2018",
+        "where": "Drop-Down Usability"
+      },
+      {
+        "ref": "uswds",
+        "where": "Combo box"
+      }
+    ]
+  },
+  {
+    "id": "choose-several",
+    "question": "Choose several options",
+    "candidates": [
+      {
+        "pattern": "checkbox-group",
+        "pick": "There are up to about ten options and all can be shown"
+      },
+      {
+        "pattern": "tag-input",
+        "pick": "The list is long or users can add their own values"
+      },
+      {
+        "pattern": "combobox",
+        "pick": "Only one value is needed after all, from a long list"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-checkbox-radio-2004",
+        "where": "Checkboxes vs. Radio Buttons"
+      },
+      {
+        "ref": "tidwell-2020",
+        "where": "List Builder"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Checkboxes"
+      }
+    ]
+  },
+  {
+    "id": "enter-date",
+    "question": "Enter a date",
+    "candidates": [
+      {
+        "pattern": "date-text-input",
+        "pick": "The user knows the date by heart or reads it from a document, such as a date of birth"
+      },
+      {
+        "pattern": "date-picker",
+        "pick": "The date is chosen in relation to today, a weekday or availability, or it is a range"
+      },
+      {
+        "pattern": "select",
+        "pick": "Only a handful of dates are possible, such as delivery slots"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-date-input-2017",
+        "where": "Date-Input Form Fields: UX Design Guidelines"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Ask users for dates"
+      }
+    ]
+  },
+  {
+    "id": "enter-number",
+    "question": "Enter a number",
+    "candidates": [
+      {
+        "pattern": "text-field",
+        "pick": "The value is exact, large or not a quantity, such as an amount or a reference number"
+      },
+      {
+        "pattern": "number-stepper",
+        "pick": "The value is a small count that is nudged up or down from a default"
+      },
+      {
+        "pattern": "slider",
+        "pick": "An approximate value in a bounded range is enough and its effect is visible while dragging"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-input-steppers-2018",
+        "where": "Design Guidelines for Input Steppers"
+      },
+      {
+        "ref": "nng-slider-2015",
+        "where": "Slider Design: Rules of Thumb"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Text input"
+      }
+    ]
+  },
+  {
+    "id": "confirm-destructive-action",
+    "question": "Guard a destructive action",
+    "candidates": [
+      {
+        "pattern": "undo",
+        "pick": "The action can be reversed or delayed, and happens often"
+      },
+      {
+        "pattern": "confirmation-dialog",
+        "pick": "The action cannot be undone and is rare enough for the question to be read"
+      },
+      {
+        "pattern": "typed-confirmation",
+        "pick": "The action destroys something large or shared and a mistake would be very costly"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "raskin-undo-2007",
+        "where": "Never Use a Warning When you Mean Undo"
+      },
+      {
+        "ref": "nng-confirmation-2018",
+        "where": "Confirmation Dialogs Can Prevent User Errors"
+      },
+      {
+        "ref": "pajamas",
+        "where": "Destructive actions"
+      }
+    ]
+  },
+  {
+    "id": "report-success",
+    "question": "Tell the user that something succeeded",
+    "candidates": [
+      {
+        "pattern": "inline-confirmation",
+        "pick": "One field or setting was saved in place and the user is looking at it"
+      },
+      {
+        "pattern": "toast",
+        "pick": "A routine action succeeded, nothing more is needed and the result is also visible in the page"
+      },
+      {
+        "pattern": "banner",
+        "pick": "The page reloaded or the result needs to stay visible, for example \"Your changes are published\""
+      },
+      {
+        "pattern": "confirmation-page",
+        "pick": "A transaction ended and the user needs a reference and next steps"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-indicators-2024",
+        "where": "Indicators, Validations, and Notifications"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Confirmation pages"
+      },
+      {
+        "ref": "silver-toast-2020",
+        "where": "The problem with toast messages and what to do instead"
+      }
+    ]
+  },
+  {
+    "id": "show-form-error",
+    "question": "Show a form error",
+    "candidates": [
+      {
+        "pattern": "inline-error",
+        "pick": "The problem belongs to one field; always show it there"
+      },
+      {
+        "pattern": "error-summary",
+        "pick": "The form was submitted with errors that may be off screen; show it in addition to inline errors"
+      },
+      {
+        "pattern": "banner",
+        "pick": "The problem is not about a field, such as a failed payment or a lost connection"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-errors-forms-2019",
+        "where": "10 Design Guidelines for Reporting Errors in Forms"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Error summary"
+      },
+      {
+        "ref": "wcag-22",
+        "where": "Error Identification"
+      }
+    ]
+  },
+  {
+    "id": "validation-timing",
+    "question": "Decide when to validate a form",
+    "candidates": [
+      {
+        "pattern": "validate-on-blur",
+        "pick": "The form is long and on one page, and fields have rules that can be checked on their own"
+      },
+      {
+        "pattern": "validate-on-submit",
+        "pick": "The form is short, asks one thing per page, or its fields depend on each other"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "baymard-inline-validation-2024",
+        "where": "Usability Testing of Inline Form Validation"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Recover from validation errors"
+      },
+      {
+        "ref": "silver-live-validation-2017",
+        "where": "The problem with live validation and what to do instead"
+      }
+    ]
+  },
+  {
+    "id": "label-placement",
+    "question": "Place labels in a form",
+    "candidates": [
+      {
+        "pattern": "label-top",
+        "pick": "Default: any form, any width, labels of any length"
+      },
+      {
+        "pattern": "label-left",
+        "pick": "A dense settings form on wide screens where users scan the labels and height is scarce"
+      },
+      {
+        "pattern": "label-floating",
+        "pick": "A very short form in a design system that already provides floating labels, with no hint text needed"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "wroblewski-2008",
+        "where": "Labels"
+      },
+      {
+        "ref": "wroblewski-labels-2007",
+        "where": "Top, Right or Left Aligned Form Labels"
+      },
+      {
+        "ref": "nng-placeholders-2014",
+        "where": "Placeholders in Form Fields Are Harmful"
+      }
+    ]
+  },
+  {
+    "id": "required-marking",
+    "question": "Mark required and optional fields",
+    "candidates": [
+      {
+        "pattern": "mark-required",
+        "pick": "The form mixes required and optional fields and users expect the asterisk"
+      },
+      {
+        "pattern": "mark-optional",
+        "pick": "Nearly all fields are required, or the service follows GOV.UK style"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-required-fields-2019",
+        "where": "Marking Required Fields in Forms"
+      },
+      {
+        "ref": "baymard-required-optional-2018",
+        "where": "E-Commerce Checkouts Need to Mark Both Required Fields and Optional Fields Explicitly"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Question pages"
+      }
+    ]
+  },
+  {
+    "id": "explain-a-field",
+    "question": "Explain what a field needs",
+    "candidates": [
+      {
+        "pattern": "help-text",
+        "pick": "Most users need the explanation; keep it visible under the label"
+      },
+      {
+        "pattern": "disclosure",
+        "pick": "Only some users need it and it runs to several lines"
+      },
+      {
+        "pattern": "tooltip",
+        "pick": "It only names an icon or shows a full value; never for instructions"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "wroblewski-2008",
+        "where": "Help Text"
+      },
+      {
+        "ref": "nng-tooltips-2019",
+        "where": "Tooltip Guidelines"
+      },
+      {
+        "ref": "silver-tooltips-2019",
+        "where": "The problem with tooltips and what to do instead"
+      }
+    ]
+  },
+  {
+    "id": "form-primary-action",
+    "question": "Place the primary action of a form",
+    "candidates": [
+      {
+        "pattern": "explicit-save",
+        "pick": "The form fits a page: put the button after the last field, aligned with the fields"
+      },
+      {
+        "pattern": "bottom-action-bar",
+        "pick": "The screen is a phone or the page is long and the action must stay in reach"
+      },
+      {
+        "pattern": "sticky-save-bar",
+        "pick": "An existing record is edited on a long page and the user must see that changes are unsaved"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "wroblewski-2008",
+        "where": "Actions"
+      },
+      {
+        "ref": "wroblewski-2011",
+        "where": "Actions"
+      },
+      {
+        "ref": "polaris",
+        "where": "Save bar"
+      }
+    ]
+  },
+  {
+    "id": "save-settings",
+    "question": "Save a settings page",
+    "candidates": [
+      {
+        "pattern": "autosave",
+        "pick": "Each setting is independent and can apply at once"
+      },
+      {
+        "pattern": "explicit-save",
+        "pick": "Settings are validated together or have consequences, and the page is short"
+      },
+      {
+        "pattern": "sticky-save-bar",
+        "pick": "Settings are saved together and the page is long"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "primer",
+        "where": "Saving"
+      },
+      {
+        "ref": "nng-toggle-2018",
+        "where": "Toggle-Switch Guidelines"
+      },
+      {
+        "ref": "polaris",
+        "where": "Save bar"
+      }
+    ]
+  },
+  {
+    "id": "organize-settings",
+    "question": "Organize a long settings page",
+    "candidates": [
+      {
+        "pattern": "sidebar-content",
+        "pick": "There are many groups of settings, each worth its own page"
+      },
+      {
+        "pattern": "tabbed-sections",
+        "pick": "There are two to about seven groups with short names that fit one row"
+      },
+      {
+        "pattern": "section-nav-page",
+        "pick": "People search the page or move between nearby groups; keep everything on one page"
+      },
+      {
+        "pattern": "accordion-sections",
+        "pick": "The screen is a phone, or most people change only one group per visit"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "tidwell-2020",
+        "where": "Settings Editor"
+      },
+      {
+        "ref": "nng-tabs-2024",
+        "where": "Tabs, Used Right"
+      },
+      {
+        "ref": "nng-accordions-desktop-2023",
+        "where": "Accordions on Desktop: When and How to Use"
+      }
+    ]
+  },
+  {
+    "id": "organize-long-content",
+    "question": "Organize a long content page",
+    "candidates": [
+      {
+        "pattern": "table-of-contents",
+        "pick": "The page has a few sections and a list of links at the top is enough"
+      },
+      {
+        "pattern": "section-nav-page",
+        "pick": "The page is many screens long and people move between sections"
+      },
+      {
+        "pattern": "accordion-sections",
+        "pick": "People need only one or two sections and the headings tell them which"
+      },
+      {
+        "pattern": "tabbed-sections",
+        "pick": "The sections are parallel views that are never read together"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-toc-2023",
+        "where": "Table of Contents: The Ultimate Design Guide"
+      },
+      {
+        "ref": "nng-accordions-desktop-2023",
+        "where": "Accordions on Desktop: When and How to Use"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Accordion"
+      }
+    ]
+  },
+  {
+    "id": "landing-hero",
+    "question": "Lay out a landing page hero",
+    "candidates": [
+      {
+        "pattern": "hero-centered",
+        "pick": "The headline is short and any visual is wide and can sit below the text"
+      },
+      {
+        "pattern": "hero-split",
+        "pick": "A product image or a form deserves its own side, or the headline is long and reads better left-aligned"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-homepage-2024",
+        "where": "Homepage Design: 5 Fundamental Principles"
+      },
+      {
+        "ref": "wathan-schoger-2018",
+        "where": "Designing Text"
+      },
+      {
+        "ref": "krug-2014",
+        "where": "The Big Bang Theory of Web Design"
+      }
+    ]
+  },
+  {
+    "id": "feature-section",
+    "question": "Present product features on a landing page",
+    "candidates": [
+      {
+        "pattern": "card-grid",
+        "pick": "There are three to nine features of equal importance, each a title and a line or two"
+      },
+      {
+        "pattern": "bento-grid",
+        "pick": "Features differ in importance and each has a small visual"
+      },
+      {
+        "pattern": "zigzag-rows",
+        "pick": "There are three to five features, each needing a paragraph and an informative image"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "tidwell-2020",
+        "where": "Grid of Equals"
+      },
+      {
+        "ref": "nng-zigzag-2017",
+        "where": "Zigzag Image–Text Layouts Make Scanning Less Efficient"
+      },
+      {
+        "ref": "wathan-schoger-2018",
+        "where": "Hierarchy is Everything"
+      }
+    ]
+  },
+  {
+    "id": "show-a-collection",
+    "question": "Show a collection of items",
+    "candidates": [
+      {
+        "pattern": "data-table",
+        "pick": "Items have several attributes that are compared, sorted or scanned"
+      },
+      {
+        "pattern": "list-row",
+        "pick": "Items are known by their text and there are many of them"
+      },
+      {
+        "pattern": "card-grid",
+        "pick": "Items are browsed and each has an image or mixed content"
+      },
+      {
+        "pattern": "thumbnail-grid",
+        "pick": "Items are recognized by how they look"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-data-tables-2022",
+        "where": "Data Tables: Four Major User Tasks"
+      },
+      {
+        "ref": "nng-cards-2016",
+        "where": "Cards: UI-Component Definition"
+      },
+      {
+        "ref": "tidwell-2020",
+        "where": "Thumbnail Grid"
+      }
+    ]
+  },
+  {
+    "id": "desktop-navigation",
+    "question": "Navigate a site on desktop",
+    "candidates": [
+      {
+        "pattern": "top-nav",
+        "pick": "There are about two to seven top-level sections with short names"
+      },
+      {
+        "pattern": "sidebar-nav",
+        "pick": "There are many sections or more than one level, as in applications and documentation"
+      },
+      {
+        "pattern": "mega-menu",
+        "pick": "A large site has many categories on two levels that are easier to choose from when seen together"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-hamburger-2016",
+        "where": "Hamburger Menus and Hidden Navigation Hurt UX Metrics"
+      },
+      {
+        "ref": "nng-vertical-nav-2021",
+        "where": "Left-Side Vertical Navigation on Desktop"
+      },
+      {
+        "ref": "nng-mega-menus-2017",
+        "where": "Mega Menus Work Well for Site Navigation"
+      }
+    ]
+  },
+  {
+    "id": "phone-navigation",
+    "question": "Primary navigation on phones",
+    "candidates": [
+      {
+        "pattern": "bottom-tab-bar",
+        "pick": "There are three to five main sections that people switch between often"
+      },
+      {
+        "pattern": "nav-drawer",
+        "pick": "There are more than five sections, or navigation is used rarely compared with content"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-mobile-nav-2015",
+        "where": "Basic Patterns for Mobile Navigation"
+      },
+      {
+        "ref": "material-3",
+        "where": "Navigation bar"
+      },
+      {
+        "ref": "apple-hig",
+        "where": "Tab bars"
+      }
+    ]
+  },
+  {
+    "id": "page-through-list",
+    "question": "Page through a long list",
+    "candidates": [
+      {
+        "pattern": "pagination",
+        "pick": "People look for specific items, need to return to a position or need the footer"
+      },
+      {
+        "pattern": "load-more",
+        "pick": "People browse, and the footer and scroll position should stay under their control"
+      },
+      {
+        "pattern": "infinite-scroll",
+        "pick": "The content is an endless stream skimmed without a target, mostly on phones"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-infinite-scroll-2022",
+        "where": "Infinite Scrolling: When to Use It, When to Avoid It"
+      },
+      {
+        "ref": "nng-pagination-2013",
+        "where": "Users' Pagination Preferences and \"View All\""
+      },
+      {
+        "ref": "smashing-infinite-2022",
+        "where": "Infinite Scroll UX Done Right"
+      }
+    ]
+  },
+  {
+    "id": "more-detail-in-place",
+    "question": "Show more detail without leaving the page",
+    "candidates": [
+      {
+        "pattern": "disclosure",
+        "pick": "The detail is text that belongs in the flow of the page"
+      },
+      {
+        "pattern": "popover",
+        "pick": "The detail is small and belongs to one control or word"
+      },
+      {
+        "pattern": "side-sheet",
+        "pick": "The detail is a whole item, viewed while its list stays visible"
+      },
+      {
+        "pattern": "modal-dialog",
+        "pick": "The detail needs a decision or a short form before anything else can happen"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-progressive-disclosure-2006",
+        "where": "Progressive Disclosure"
+      },
+      {
+        "ref": "nng-modal-2017",
+        "where": "Modal & Nonmodal Dialogs: When (& When Not) to Use Them"
+      },
+      {
+        "ref": "scott-neil-2009",
+        "where": "Overlays"
+      }
+    ]
+  },
+  {
+    "id": "open-an-item",
+    "question": "Open an item from a list",
+    "candidates": [
+      {
+        "pattern": "list-detail",
+        "pick": "People go through many items in a row on a wide screen"
+      },
+      {
+        "pattern": "side-sheet",
+        "pick": "People glance at or tweak an item and return to the list"
+      },
+      {
+        "pattern": "single-column",
+        "pick": "The item needs full width or its own URL: open it as a page"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "tidwell-2020",
+        "where": "Two-Panel Selector or Split View"
+      },
+      {
+        "ref": "tidwell-2020",
+        "where": "One-Window Drilldown"
+      },
+      {
+        "ref": "windows-design",
+        "where": "List/details"
+      }
+    ]
+  },
+  {
+    "id": "edit-a-value",
+    "question": "Edit a value in place or on a separate screen",
+    "candidates": [
+      {
+        "pattern": "inline-edit",
+        "pick": "One short value is changed at a time and can be validated alone"
+      },
+      {
+        "pattern": "modal-dialog",
+        "pick": "A few related fields change together and the page behind gives context"
+      },
+      {
+        "pattern": "side-sheet",
+        "pick": "The form is longer and the list should stay visible"
+      },
+      {
+        "pattern": "single-column",
+        "pick": "The edit is long, risky or needs its own URL: use a separate page"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "scott-neil-2009",
+        "where": "In-Page Editing"
+      },
+      {
+        "ref": "nng-modal-2017",
+        "where": "Modal & Nonmodal Dialogs: When (& When Not) to Use Them"
+      },
+      {
+        "ref": "atlassian-ds",
+        "where": "Inline edit"
+      }
+    ]
+  },
+  {
+    "id": "multi-step-process",
+    "question": "Structure a multi-step process",
+    "candidates": [
+      {
+        "pattern": "wizard",
+        "pick": "Steps come in a fixed order, or later steps depend on earlier answers"
+      },
+      {
+        "pattern": "task-list",
+        "pick": "Parts are independent, take more than one sitting or are done by different people"
+      },
+      {
+        "pattern": "section-nav-page",
+        "pick": "Experts fill it in often and want everything on one page"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-wizards-2017",
+        "where": "Wizards: Definition and Design Recommendations"
+      },
+      {
+        "ref": "govuk-ds",
+        "where": "Complete multiple tasks"
+      },
+      {
+        "ref": "tidwell-2020",
+        "where": "Wizard"
+      }
+    ]
+  },
+  {
+    "id": "show-loading",
+    "question": "Show that something is loading",
+    "candidates": [
+      {
+        "pattern": "skeleton",
+        "pick": "A page or panel of known layout loads within a few seconds"
+      },
+      {
+        "pattern": "spinner",
+        "pick": "A small area or a button waits between about 1 and 10 seconds"
+      },
+      {
+        "pattern": "progress-bar",
+        "pick": "The work takes longer than about 10 seconds and can be measured"
+      },
+      {
+        "pattern": "optimistic-update",
+        "pick": "The action almost always succeeds and its result can be shown at once"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-progress-2014",
+        "where": "Progress Indicators Make a Slow System Less Insufferable"
+      },
+      {
+        "ref": "nng-skeleton-2023",
+        "where": "Skeleton Screens 101"
+      },
+      {
+        "ref": "nng-response-times-1993",
+        "where": "Response Time Limits"
+      }
+    ]
+  },
+  {
+    "id": "nothing-to-show",
+    "question": "Handle a list with nothing to show",
+    "candidates": [
+      {
+        "pattern": "empty-state",
+        "pick": "Loading finished and there are no items: explain why and offer the next step"
+      },
+      {
+        "pattern": "skeleton",
+        "pick": "The items are still loading"
+      },
+      {
+        "pattern": "banner",
+        "pick": "Loading failed: say so and offer a retry"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-empty-states-2021",
+        "where": "Designing Empty States in Complex Applications: 3 Guidelines"
+      },
+      {
+        "ref": "carbon",
+        "where": "Empty states"
+      },
+      {
+        "ref": "nng-skeleton-2023",
+        "where": "Skeleton Screens 101"
+      }
+    ]
+  },
+  {
+    "id": "compare-plans",
+    "question": "Present plans and prices",
+    "candidates": [
+      {
+        "pattern": "pricing-table",
+        "pick": "There are two to four plans chosen mainly by price and a few headline features"
+      },
+      {
+        "pattern": "comparison-table",
+        "pick": "Plans differ in many details that buyers check row by row"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-comparison-tables-2024",
+        "where": "Comparison Tables for Products, Services, and Features"
+      },
+      {
+        "ref": "smashing-comparison-2017",
+        "where": "Designing The Perfect Feature Comparison Table"
+      }
+    ]
+  },
+  {
+    "id": "filter-a-list",
+    "question": "Filter a list",
+    "candidates": [
+      {
+        "pattern": "search-field",
+        "pick": "People know words that identify the item"
+      },
+      {
+        "pattern": "tag",
+        "pick": "A few common filters can be offered as chips above the list and shown when active"
+      },
+      {
+        "pattern": "checkbox-group",
+        "pick": "There are several attributes with several values each: show them as facets beside the list"
+      },
+      {
+        "pattern": "side-sheet",
+        "pick": "There are many filters and the screen is small: open them in a panel with an Apply button"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-filters-2018",
+        "where": "Helpful Filter Categories and Values for Better UX"
+      },
+      {
+        "ref": "baymard-applied-filters-2020",
+        "where": "Filtering UX: Display \"Applied Filters\" in an Overview"
+      },
+      {
+        "ref": "carbon",
+        "where": "Filtering"
+      }
+    ]
+  },
+  {
+    "id": "too-many-actions",
+    "question": "Fit more actions than there is room for",
+    "candidates": [
+      {
+        "pattern": "button-group",
+        "pick": "There are up to about three actions and all are used often"
+      },
+      {
+        "pattern": "overflow-menu",
+        "pick": "One or two actions are common and the rest are rare"
+      },
+      {
+        "pattern": "split-button",
+        "pick": "One action dominates and the others are variants of it"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "tidwell-2020",
+        "where": "Button Groups"
+      },
+      {
+        "ref": "nng-contextual-menus-2019",
+        "where": "Contextual Menus: Delivering Relevant Tools for Tasks"
+      },
+      {
+        "ref": "nng-split-buttons-2019",
+        "where": "Split Buttons: Definition"
+      }
+    ]
+  },
+  {
+    "id": "row-actions",
+    "question": "Offer actions on rows of a list",
+    "candidates": [
+      {
+        "pattern": "overflow-menu",
+        "pick": "Each row has several actions and the product is used on touch screens too"
+      },
+      {
+        "pattern": "hover-row-actions",
+        "pick": "Frequent mouse users need one or two quick actions per row"
+      },
+      {
+        "pattern": "bulk-action-bar",
+        "pick": "The same action is often applied to many rows"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "scott-neil-2009",
+        "where": "Contextual Tools"
+      },
+      {
+        "ref": "tidwell-2020",
+        "where": "Hover or Pop-Up Tools"
+      },
+      {
+        "ref": "carbon",
+        "where": "Data table"
+      }
+    ]
+  },
+  {
+    "id": "link-or-button",
+    "question": "Choose between a link and a button",
+    "candidates": [
+      {
+        "pattern": "text-link",
+        "pick": "Activating it goes somewhere: another page, section or file"
+      },
+      {
+        "pattern": "button",
+        "pick": "Activating it does something: saves, sends, opens a dialog, changes state"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-command-links-2007",
+        "where": "Command Links"
+      },
+      {
+        "ref": "wai-aria-apg",
+        "where": "Button pattern"
+      },
+      {
+        "ref": "wai-aria-apg",
+        "where": "Link pattern"
+      }
+    ]
+  },
+  {
+    "id": "main-action-on-phone",
+    "question": "Place the main action of a phone screen",
+    "candidates": [
+      {
+        "pattern": "bottom-action-bar",
+        "pick": "The action completes the screen's task, such as Continue or Add to cart"
+      },
+      {
+        "pattern": "floating-action-button",
+        "pick": "The action starts something new from a scrolling list, such as Compose"
+      },
+      {
+        "pattern": "button",
+        "pick": "The screen is short and the action follows the content in the flow"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "wroblewski-2011",
+        "where": "Actions"
+      },
+      {
+        "ref": "material-3",
+        "where": "Floating action buttons"
+      },
+      {
+        "ref": "yablonski-2024",
+        "where": "Fitts's Law"
+      }
+    ]
+  },
+  {
+    "id": "system-message",
+    "question": "Tell the user something they did not ask about",
+    "candidates": [
+      {
+        "pattern": "banner",
+        "pick": "It concerns the whole page or account and should stay until resolved"
+      },
+      {
+        "pattern": "badge-counter",
+        "pick": "New items are waiting in another section"
+      },
+      {
+        "pattern": "toast",
+        "pick": "It is a brief, low-stakes update that can be missed"
+      },
+      {
+        "pattern": "modal-dialog",
+        "pick": "Nothing can continue until the user decides; use rarely"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-indicators-2024",
+        "where": "Indicators, Validations, and Notifications"
+      },
+      {
+        "ref": "nng-modal-2017",
+        "where": "Modal & Nonmodal Dialogs: When (& When Not) to Use Them"
+      },
+      {
+        "ref": "carbon",
+        "where": "Notification"
+      }
+    ]
+  },
+  {
+    "id": "switch-views",
+    "question": "Switch between views of the same thing",
+    "candidates": [
+      {
+        "pattern": "view-switcher",
+        "pick": "The same items are shown in another arrangement: list, grid, board, calendar"
+      },
+      {
+        "pattern": "nav-tabs",
+        "pick": "Each view is a sub-page of one object with its own URL"
+      },
+      {
+        "pattern": "tabbed-sections",
+        "pick": "Each view is a panel of related content inside one page"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "tidwell-2020",
+        "where": "Alternative Views"
+      },
+      {
+        "ref": "nng-tabs-2024",
+        "where": "Tabs, Used Right"
+      }
+    ]
+  },
+  {
+    "id": "phone-secondary-surface",
+    "question": "Open a secondary surface on a phone",
+    "candidates": [
+      {
+        "pattern": "bottom-sheet",
+        "pick": "A few options or a short form relate to what is on screen"
+      },
+      {
+        "pattern": "full-screen-takeover",
+        "pick": "The task has many fields or steps and needs the whole screen"
+      },
+      {
+        "pattern": "dropdown-menu",
+        "pick": "There are a handful of commands attached to one button"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-bottom-sheet-2023",
+        "where": "Bottom Sheets: Definition and UX Guidelines"
+      },
+      {
+        "ref": "material-3",
+        "where": "Dialogs"
+      },
+      {
+        "ref": "apple-hig",
+        "where": "Sheets"
+      }
+    ]
+  },
+  {
+    "id": "onboard-new-users",
+    "question": "Help new users get started",
+    "candidates": [
+      {
+        "pattern": "empty-state",
+        "pick": "The first screen is empty: explain it and offer the first action there"
+      },
+      {
+        "pattern": "task-list",
+        "pick": "Setup has several steps that can be done over time: show a checklist"
+      },
+      {
+        "pattern": "coach-mark",
+        "pick": "One feature is easy to miss: point to it once, in context"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-onboarding-2023",
+        "where": "Onboarding Tutorials vs. Contextual Help"
+      },
+      {
+        "ref": "nng-empty-states-2021",
+        "where": "Designing Empty States in Complex Applications: 3 Guidelines"
+      },
+      {
+        "ref": "apple-hig",
+        "where": "Onboarding"
+      }
+    ]
+  },
+  {
+    "id": "page-width",
+    "question": "Choose the page width",
+    "candidates": [
+      {
+        "pattern": "contained-width",
+        "pick": "The page is text, forms or marketing content"
+      },
+      {
+        "pattern": "full-bleed",
+        "pick": "The page is a workspace such as a table, board, map or dashboard"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "wathan-schoger-2018",
+        "where": "Layout and Spacing"
+      },
+      {
+        "ref": "marcotte-2014",
+        "where": "The Flexible Grid"
+      }
+    ]
+  },
+  {
+    "id": "press-feedback",
+    "question": "Answer a press on a button",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "The control is pressed many times in a row, or its color already changes on press"
+      },
+      {
+        "pattern": "press-scale",
+        "pick": "The press has no visible answer and the control is a button, card or tile"
+      },
+      {
+        "pattern": "hold-to-confirm",
+        "pick": "The action cannot be undone and a slip would be costly"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "kowalski-animation-tips",
+        "where": "Scale your buttons"
+      },
+      {
+        "ref": "nng-animation-purpose-2020",
+        "where": "Motion for Feedback"
+      }
+    ]
+  },
+  {
+    "id": "card-pointer-feedback",
+    "question": "Answer the pointer on a card",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "Dense lists and tables that the pointer crosses all the time"
+      },
+      {
+        "pattern": "hover-lift",
+        "pick": "A grid of clickable cards that people browse"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "kowalski-animation-tips",
+        "where": "Keep your animations fast"
+      },
+      {
+        "ref": "comeau-css-transitions-2021",
+        "where": "Action-driven motion"
+      }
+    ]
+  },
+  {
+    "id": "acknowledge-small-action",
+    "question": "Show on the control itself that a small action worked",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "The result shows elsewhere at once, such as a row that appears"
+      },
+      {
+        "pattern": "icon-swap",
+        "pick": "The action finishes at once: copy, like, save"
+      },
+      {
+        "pattern": "status-swap",
+        "pick": "The action takes a second or more and the button is where people look"
+      },
+      {
+        "pattern": "inline-confirmation",
+        "pick": "The result needs a word next to the control and should stay for a while"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-animation-purpose-2020",
+        "where": "Motion for Feedback"
+      },
+      {
+        "ref": "nng-indicators-2024",
+        "where": "Indicators, Validations, and Notifications"
+      }
+    ]
+  },
+  {
+    "id": "move-selection",
+    "question": "Move the highlight when another tab or segment is chosen",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "Selection is changed from the keyboard all day, or the items wrap onto several lines"
+      },
+      {
+        "pattern": "sliding-indicator",
+        "pick": "The items sit in one row or column and share one highlight"
+      },
+      {
+        "pattern": "crossfade",
+        "pick": "The items differ much in size or position and a jump is too hard"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-animation-purpose-2020",
+        "where": "The Role of Animation and Motion in UX"
+      },
+      {
+        "ref": "kowalski-no-animations",
+        "where": "Frequency of use"
+      }
+    ]
+  },
+  {
+    "id": "open-in-place",
+    "question": "Open a section in place",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "The content is tall, or sections are opened one after another from the keyboard"
+      },
+      {
+        "pattern": "expand-height",
+        "pick": "What is below would jump and people would lose their place"
+      },
+      {
+        "pattern": "fade-in",
+        "pick": "The height cannot be animated cheaply; the content fades in after the jump"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "chrome-height-auto-2024",
+        "where": "Animate to height: auto"
+      },
+      {
+        "ref": "nng-animation-duration-2020",
+        "where": "Executing UX Animations: Duration and Motion Characteristics"
+      }
+    ]
+  },
+  {
+    "id": "overlay-entrance",
+    "question": "Bring a menu, popover or panel onto the screen",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "It opens on a keyboard shortcut, or many times a minute"
+      },
+      {
+        "pattern": "fade-in",
+        "pick": "A small hint near the pointer, such as a tooltip"
+      },
+      {
+        "pattern": "origin-scale",
+        "pick": "It opens from a control: a menu, a popover, a select"
+      },
+      {
+        "pattern": "slide-in-panel",
+        "pick": "It belongs to an edge of the window: a drawer, a sheet, a toast"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "kowalski-animation-tips",
+        "where": "Make your animations origin-aware"
+      },
+      {
+        "ref": "nng-animation-duration-2020",
+        "where": "Executing UX Animations: Duration and Motion Characteristics"
+      },
+      {
+        "ref": "carbon",
+        "where": "Motion"
+      }
+    ]
+  },
+  {
+    "id": "content-entrance",
+    "question": "Bring content onto a page as it loads or is added",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "Product screens that are opened many times a day"
+      },
+      {
+        "pattern": "rise-in",
+        "pick": "A single new item: a toast, a message, a row"
+      },
+      {
+        "pattern": "stagger-in",
+        "pick": "A group of like items on a page seen now and then"
+      },
+      {
+        "pattern": "scroll-reveal",
+        "pick": "A long story page read once, from top to bottom"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-animation-attention-2014",
+        "where": "Animation for Attention and Comprehension"
+      },
+      {
+        "ref": "kowalski-great-animations",
+        "where": "Great animations have a purpose"
+      },
+      {
+        "ref": "wcag-22",
+        "where": "SC 2.3.3 Animation from Interactions"
+      }
+    ]
+  },
+  {
+    "id": "page-change",
+    "question": "Change from one page to the next",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "An app whose navigation is constant, or pages that load slowly"
+      },
+      {
+        "pattern": "page-crossfade",
+        "pick": "A site of separate pages with the same header on each"
+      },
+      {
+        "pattern": "shared-element-morph",
+        "pick": "A list that opens into a detail page showing the same picture or card"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "chrome-view-transitions",
+        "where": "Cross-document view transitions for multi-page applications"
+      },
+      {
+        "ref": "material-3",
+        "where": "Motion: transitions"
+      }
+    ]
+  },
+  {
+    "id": "hero-ambient-motion",
+    "question": "Decide whether the top of a landing page moves by itself",
+    "candidates": [
+      {
+        "pattern": "instant-change",
+        "pick": "The headline must be understood at a glance, which is most pages"
+      },
+      {
+        "pattern": "rotating-words",
+        "pick": "One sentence has to name several audiences or uses"
+      },
+      {
+        "pattern": "marquee",
+        "pick": "There are more logos or quotes than fit in a row, and none is more important than the others"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "wcag-22",
+        "where": "SC 2.2.2 Pause, Stop, Hide"
+      },
+      {
+        "ref": "nng-animation-attention-2014",
+        "where": "Animation for Attention and Comprehension"
+      }
+    ]
+  },
+  {
+    "id": "mark-something-new",
+    "question": "Point out something new",
+    "candidates": [
+      {
+        "pattern": "status-badge",
+        "pick": "It is enough that people find it when they look"
+      },
+      {
+        "pattern": "badge-counter",
+        "pick": "The number of new things matters"
+      },
+      {
+        "pattern": "attention-pulse",
+        "pick": "It must be noticed once, and nothing else on the screen moves"
+      },
+      {
+        "pattern": "coach-mark",
+        "pick": "It needs a sentence of explanation"
+      }
+    ],
+    "sources": [
+      {
+        "ref": "nng-animation-attention-2014",
+        "where": "Animation for Attention and Comprehension"
+      },
+      {
+        "ref": "nng-indicators-2024",
+        "where": "Indicators, Validations, and Notifications"
+      }
+    ]
+  }
+]

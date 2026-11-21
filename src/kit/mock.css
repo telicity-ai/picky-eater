@@ -1,0 +1,113 @@
+/*
+ * Added to every page of a sketch board.
+ * 1. How an area looks before it is chosen, and while an option is being previewed.
+ * 2. The sketch kit: grey building blocks for rough drawings (pe-*).
+ */
+
+:where(a[data-pe-link]) {
+  color: LinkText;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[data-pe-state='sketch'] {
+  box-sizing: border-box;
+  min-height: 72px;
+  margin: 0 !important;
+  padding: 20px !important;
+  border-radius: 8px;
+  outline: 2px dashed #9aa3af;
+  outline-offset: -5px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font: 15px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  text-align: left;
+}
+[data-pe-state='preview'] {
+  outline: 2px solid #2f6fed;
+  outline-offset: -2px;
+}
+
+.pe-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.pe-col {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.pe-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(var(--pe-cols, 3), minmax(0, 1fr));
+}
+.pe-block {
+  min-height: 40px;
+  border-radius: 6px;
+  background: #d5d9df;
+}
+.pe-line {
+  height: 10px;
+  border-radius: 5px;
+  background: #d5d9df;
+}
+.pe-line.pe-short {
+  width: 40%;
+}
+.pe-text {
+  margin: 0;
+  color: #4b5563;
+  font-size: 17px;
+  font-weight: 600;
+}
+.pe-note {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+.pe-image {
+  flex: 1;
+  min-height: 80px;
+  border-radius: 6px;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), #b6bcc6 calc(50% - 1px), #b6bcc6 calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom right, transparent calc(50% - 1px), #b6bcc6 calc(50% - 1px), #b6bcc6 calc(50% + 1px), transparent calc(50% + 1px)), #e5e7eb;
+}
+.pe-button {
+  flex: none;
+  width: 104px;
+  height: 34px;
+  border-radius: 17px;
+  background: #9ca3af;
+}
+.pe-field {
+  flex: 1;
+  height: 38px;
+  box-sizing: border-box;
+  border: 2px solid #c4c9d1;
+  border-radius: 6px;
+  background: #fff;
+}
+.pe-circle {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #d5d9df;
+}
+.pe-space {
+  flex: 1;
+}
+@media (max-width: 600px) {
+  .pe-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pe-grid {
+    grid-template-columns: 1fr;
+  }
+}

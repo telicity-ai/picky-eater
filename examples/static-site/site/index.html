@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harbor Bikes</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Harbor Bikes</a>
+      <nav aria-label="Sections">
+        <a href="#plans">Plans</a>
+        <a href="#how">How it works</a>
+        <a href="#signup">Reserve</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>See the harbor on two wheels</h1>
+        <p class="lead">City bikes by the day, the week or the month. Pick one up at Pier 4 and bring it back whenever you are done.</p>
+        <a class="cta" href="#plans">See plans</a>
+        <p class="offer" id="offer">Free helmet with every rental.</p>
+      </section>
+
+      <section class="plans" id="plans" aria-labelledby="plans-title">
+        <h2 id="plans-title">Plans</h2>
+        <div class="plan-row">
+          <article class="plan plan--day" data-plan="Day">
+            <h3>Day</h3>
+            <p class="price"><b>12</b> per day</p>
+            <p>For an afternoon along the water.</p>
+            <button type="button">Choose</button>
+          </article>
+          <article class="plan plan--week" data-plan="Week">
+            <h3>Week</h3>
+            <p class="price"><b>49</b> per week</p>
+            <p>For a visit that is longer than a weekend.</p>
+            <button type="button">Choose</button>
+          </article>
+          <article class="plan plan--month" data-plan="Month">
+            <h3>Month</h3>
+            <p class="price"><b>120</b> per month</p>
+            <p>For people who live here now.</p>
+            <button type="button">Choose</button>
+          </article>
+        </div>
+        <p class="picked" id="picked" aria-live="polite">No plan chosen yet.</p>
+      </section>
+
+      <section class="how" id="how" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <ol class="steps">
+          <li class="reveal"><b>Reserve</b><span>Tell us your name and when you arrive.</span></li>
+          <li class="reveal"><b>Pick up</b><span>Your bike waits at Pier 4, lock and lights included.</span></li>
+          <li class="reveal"><b>Ride</b><span>Bring it back to any of our three docks.</span></li>
+        </ol>
+      </section>
+
+      <section class="signup" id="signup" aria-labelledby="signup-title">
+        <h2 id="signup-title">Reserve a bike</h2>
+        <form novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" autocomplete="name" />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+          <p class="form-error" role="alert" hidden></p>
+          <button type="submit">Reserve</button>
+        </form>
+        <p class="form-done" role="status" hidden>Reserved. We sent the details to your email.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Harbor Bikes · Pier 4</span>
+      <span class="dev" id="dev">Development server: connecting…</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+node_modules
+dist
+*.local
+coverage
+
+# Sessions of the picky-eater example (see README.md)
+.picky-eater/

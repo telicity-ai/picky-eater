@@ -1,0 +1,77 @@
+{
+  "schema": "picky-eater/board",
+  "schemaVersion": "2.0",
+  "title": "Trailhead",
+  "base": { "kind": "live", "url": "http://localhost:5173/" },
+  "areas": [
+    {
+      "id": "hero",
+      "label": "Top banner",
+      "anchor": "#hero",
+      "options": [
+        { "id": "keep", "label": "As it is now", "keep": true },
+        { "id": "cta", "label": "A larger button that says what happens", "pattern": "button", "suggested": true,
+          "patch": [
+            { "set": "#join", "text": "Pick a crew", "addClass": ["big"] },
+            { "set": "#hero h1", "attr": { "data-tone": "loud" } },
+            { "css": "#hero .btn.big{padding:14px 28px;font-size:18px}#hero h1[data-tone='loud']{font-size:44px}" }
+          ],
+          "focus": "#join",
+          "build": "The button reads \"Pick a crew\" and is larger; the headline is 44px." }
+      ]
+    },
+    {
+      "id": "crews",
+      "label": "List of crews",
+      "anchor": "#crews",
+      "options": [
+        { "id": "keep", "label": "A list, the count below it", "keep": true },
+        { "id": "count-first", "label": "The count first, crews side by side", "pattern": "card-grid", "suggested": true,
+          "patch": [
+            { "wrap": "#count", "in": "<div class=\"count-box\"></div>" },
+            { "move": ".count-box", "after": "#crews h2" },
+            { "set": ".crew-list", "addClass": ["two-up"] },
+            { "set": "#crews h2", "text": "Crews with places" },
+            { "css": "#crews .count-box{margin:4px 0 12px;font-weight:700}#crews .crew-list.two-up{display:grid;grid-template-columns:1fr 1fr;gap:12px}" }
+          ],
+          "build": "Show the count right under the heading, in bold, and the crews in two columns." }
+      ]
+    },
+    {
+      "id": "note",
+      "label": "The note about crews that need people",
+      "anchor": "#note",
+      "options": [
+        { "id": "keep", "label": "Under the list", "keep": true },
+        { "id": "in-hero", "label": "Up in the top banner", "pattern": "banner", "page": true, "suggested": true,
+          "patch": [
+            { "move": "#note", "into": "#hero" },
+            { "css": "#hero #note{margin:16px 0 0;padding:8px 12px;border-radius:8px;background:#fff4d6}" }
+          ],
+          "focus": "#note",
+          "build": "Show the note at the end of the top banner, on a pale yellow strip." }
+      ]
+    },
+    {
+      "id": "signup",
+      "label": "Reminder form",
+      "anchor": "#signup",
+      "options": [
+        { "id": "keep", "label": "A plain field", "keep": true },
+        { "id": "framed", "label": "The field in a box, with a line of explanation", "pattern": "help-text", "suggested": true,
+          "patch": [
+            { "wrap": "#name", "in": "<div class=\"field-box\"></div>" },
+            { "insert": "<p class=\"hint\">We only use it to greet you.</p>", "after": "#hello" },
+            { "set": "#name", "attr": { "placeholder": "Mina" } },
+            { "css": "#signup .field-box{padding:10px;border:1px solid #c9c2b5;border-radius:10px;background:#fff}#signup .hint{margin:6px 0 0;font-size:13px;color:#6b6457}" }
+          ],
+          "build": "Put the field in a bordered box and add one line under the greeting: \"We only use it to greet you.\"" }
+      ]
+    }
+  ],
+  "cuts": [
+    { "id": "top", "label": "Top" },
+    { "id": "crews", "label": "Crews in view", "sameAs": "top", "at": "#crews" },
+    { "id": "more", "label": "All crews shown", "at": "#crews", "steps": [{ "click": "#more" }], "seen": ".crew-list.all" }
+  ]
+}

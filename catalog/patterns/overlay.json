@@ -1,0 +1,852 @@
+{
+  "category": "overlay",
+  "patterns": [
+    {
+      "id": "modal-dialog",
+      "name": "Modal dialog",
+      "aka": [
+        "modal",
+        "dialog box",
+        "modal window"
+      ],
+      "what": "A window that opens over the page and must be completed or closed before the page can be used again.",
+      "useWhen": [
+        "A short, self-contained task must be finished or abandoned before continuing: a small form, a required choice",
+        "The user started it on purpose",
+        "Keeping the page visible behind it gives useful context"
+      ],
+      "avoidWhen": [
+        "The user needs to look at or copy from the page while answering",
+        "The content is long or has several steps (use a page or a full-screen takeover)",
+        "The system opens it uninvited: sign-up prompts, surveys, announcements"
+      ],
+      "rules": [
+        "Use the dialog element with showModal(), or role=\"dialog\" with aria-modal=\"true\" and a name from the title.",
+        "Move focus into the dialog on open, keep Tab inside it, and return focus to the trigger on close.",
+        "Close on Escape and with a visible close button; close on a click outside only when nothing typed would be lost.",
+        "Give it a title that says what it is for, the body, and actions at the bottom with one primary button.",
+        "Dim the page behind it and stop it from scrolling.",
+        "On phones make it full width or full screen; never open a dialog from a dialog."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Dialog (modal) pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+          "verified": true
+        },
+        {
+          "who": "MDN Web Docs",
+          "where": "Reference page for the dialog element and showModal()",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Dialogs: basic and full-screen",
+          "url": "https://m3.material.io/components/dialogs/guidelines",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Modal: passive, transactional, danger and acknowledgment variants",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/modal/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-modal-2017",
+          "where": "Modal & Nonmodal Dialogs: When (& When Not) to Use Them"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Dialog (modal) pattern"
+        }
+      ],
+      "alternatives": [
+        "side-sheet",
+        "popover",
+        "full-screen-takeover",
+        "inline-edit",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "confirmation-dialog",
+      "name": "Confirmation dialog",
+      "aka": [
+        "alert dialog",
+        "confirm prompt",
+        "are-you-sure dialog"
+      ],
+      "what": "A small modal that asks the user to confirm or cancel an action before it happens.",
+      "useWhen": [
+        "The action cannot be undone and has real consequences",
+        "The action is rare enough that the question will be read"
+      ],
+      "avoidWhen": [
+        "The action can be undone (do it and offer undo)",
+        "The action is routine; a dialog shown every time is confirmed without reading",
+        "It asks \"Are you sure?\" without saying what will happen"
+      ],
+      "rules": [
+        "Title it with the action as a question: \"Delete 3 files?\"; say in the body what will be lost and that it cannot be undone.",
+        "Label the buttons with the outcomes: \"Delete files\" and \"Cancel\", never \"Yes\" and \"No\" or \"OK\".",
+        "Put initial focus on the safe choice and let Escape cancel.",
+        "Style the confirming button as destructive when it destroys something.",
+        "Use role=\"alertdialog\" with the title and description linked.",
+        "Use it sparingly so that it keeps its force."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Alert and message dialogs pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Alerts: for example warning when an action might destroy data",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/alerts",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "ConfirmationDialog",
+          "url": "https://primer.style/product/components/confirmation-dialog/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Windows confirmation guidelines",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/mess-confirm",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-confirmation-2018",
+          "where": "Confirmation Dialogs Can Prevent User Errors"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Preventing Errors and Informing Decisions"
+        },
+        {
+          "ref": "norman-2013",
+          "where": "Human Error? No, Bad Design"
+        }
+      ],
+      "alternatives": [
+        "undo",
+        "typed-confirmation",
+        "destructive-button"
+      ]
+    },
+    {
+      "id": "typed-confirmation",
+      "name": "Typed confirmation",
+      "aka": [
+        "type to confirm",
+        "confirmation phrase"
+      ],
+      "what": "A confirmation dialog whose confirm button works only after the user types the name of the thing being destroyed.",
+      "useWhen": [
+        "The action destroys something large or shared and cannot be reversed: a repository, a database, an account",
+        "A mistaken click would be very costly",
+        "The action is rare"
+      ],
+      "avoidWhen": [
+        "The action is reversible or small; the friction is out of proportion",
+        "The action is done in bulk or often"
+      ],
+      "rules": [
+        "State exactly what will be deleted and what else goes with it.",
+        "Ask the user to type the item's own name (not a generic word like \"DELETE\"), shown in the dialog so it can be read, in a labelled text field.",
+        "Enable the destructive button only when the text matches; compare exactly but ignore leading and trailing spaces.",
+        "Allow paste, so people who copy the name are not blocked.",
+        "Keep Cancel available and make it the default."
+      ],
+      "examples": [
+        {
+          "who": "GitHub",
+          "where": "Deleting a repository: type the name of the repository to confirm",
+          "url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Destructive actions: more friction for higher severity",
+          "url": "https://design.gitlab.com/patterns/destructive-actions/",
+          "verified": true
+        },
+        {
+          "who": "Amazon Web Services",
+          "where": "Deleting an S3 bucket: type the bucket name to confirm",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "norman-2013",
+          "where": "Human Error? No, Bad Design"
+        },
+        {
+          "ref": "pajamas",
+          "where": "Destructive actions"
+        },
+        {
+          "ref": "nng-confirmation-2018",
+          "where": "Confirmation Dialogs Can Prevent User Errors"
+        }
+      ],
+      "alternatives": [
+        "confirmation-dialog",
+        "undo"
+      ]
+    },
+    {
+      "id": "side-sheet",
+      "name": "Side sheet",
+      "aka": [
+        "drawer",
+        "side panel",
+        "slide-over"
+      ],
+      "what": "A panel that slides in from the side of the window, over or beside the page, to show details or a form.",
+      "useWhen": [
+        "The user looks at or edits the details of an item while keeping the list in view",
+        "The content is taller than a dialog comfortably holds",
+        "Supplementary tools such as filters need space without leaving the page"
+      ],
+      "avoidWhen": [
+        "The task needs full attention and width (use a page)",
+        "The content is a couple of lines (use a popover)",
+        "The screen is a phone (use a bottom sheet or a full-screen view)"
+      ],
+      "rules": [
+        "Slide it in from the trailing edge, about 320–480 px wide, full height, with a title and a close button at the top.",
+        "Decide whether it blocks the page: if it does, treat it as a modal dialog (focus trap, Escape, dimmed page); if not, let the page stay usable and scrollable.",
+        "Keep actions in a footer that stays visible while the body scrolls.",
+        "Changing the selected row updates the open sheet instead of stacking another.",
+        "Return focus to the trigger when it closes."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Side sheets: secondary content anchored to the side of the screen",
+          "url": "https://m3.material.io/components/side-sheets/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Drawer",
+          "url": "https://atlassian.design/components/drawer/usage",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Drawer",
+          "url": "https://design.gitlab.com/components/drawer/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Drawer: overlay and inline",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/drawer/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Side sheets"
+        },
+        {
+          "ref": "nng-modal-2017",
+          "where": "Modal & Nonmodal Dialogs: When (& When Not) to Use Them"
+        },
+        {
+          "ref": "scott-neil-2009",
+          "where": "Overlays"
+        }
+      ],
+      "alternatives": [
+        "modal-dialog",
+        "list-detail",
+        "bottom-sheet",
+        "popover"
+      ]
+    },
+    {
+      "id": "bottom-sheet",
+      "name": "Bottom sheet",
+      "aka": [
+        "action sheet",
+        "sheet"
+      ],
+      "what": "A panel that slides up from the bottom of a phone screen and covers part of it, holding options or details.",
+      "useWhen": [
+        "On a phone, a few actions or a short form relate to what is on screen",
+        "The content behind should stay partly visible",
+        "Reaching the controls with a thumb matters"
+      ],
+      "avoidWhen": [
+        "The screen is a desktop (use a dialog, popover or side sheet)",
+        "The content is long or multi-step (use a full page)",
+        "Several sheets would stack"
+      ],
+      "rules": [
+        "Show a title, a visible close button and, if draggable, a grab handle; do not rely on swipe alone to close.",
+        "For a modal sheet dim the page and close on a tap outside; the system Back gesture should close the sheet, not leave the page.",
+        "Size it to its content up to about half the screen; let it expand to full height only when the user drags it.",
+        "Keep the main action at the bottom of the sheet above the safe area.",
+        "Treat it as a dialog for assistive technology: role, name, focus moved in and returned."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Bottom sheets: standard and modal",
+          "url": "https://m3.material.io/components/bottom-sheets/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Sheets: a scoped task closely related to the current context",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets",
+          "verified": true
+        },
+        {
+          "who": "Android",
+          "where": "Bottom sheets in Compose",
+          "url": "https://developer.android.com/develop/ui/compose/components/bottom-sheets?auto_signin=false",
+          "verified": true
+        },
+        {
+          "who": "shadcn/ui",
+          "where": "Drawer: a bottom sheet component",
+          "url": "https://ui.shadcn.com/docs/components/base/drawer",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-bottom-sheet-2023",
+          "where": "Bottom Sheets: Definition and UX Guidelines"
+        },
+        {
+          "ref": "material-3",
+          "where": "Bottom sheets"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Sheets"
+        }
+      ],
+      "alternatives": [
+        "modal-dialog",
+        "side-sheet",
+        "dropdown-menu"
+      ]
+    },
+    {
+      "id": "popover",
+      "name": "Popover",
+      "aka": [
+        "popup",
+        "flyout",
+        "inline dialog",
+        "toggletip"
+      ],
+      "what": "A small panel that opens next to the control that triggered it and closes when the user clicks elsewhere.",
+      "useWhen": [
+        "A little extra content or a few controls relate to one element: a color picker, a share box, a short explanation",
+        "The user should keep their place on the page"
+      ],
+      "avoidWhen": [
+        "The content is long or has several steps",
+        "It opens on hover and contains controls (hover content is hard to reach)",
+        "The message is critical and must not be dismissed by accident"
+      ],
+      "rules": [
+        "Open it on click or Enter from a button with aria-expanded; never on hover alone.",
+        "Anchor it to the trigger with a small gap, flip it when there is no room, and keep it inside the window.",
+        "Close on Escape, on a click outside and on the trigger; return focus to the trigger.",
+        "Move focus into it when it contains controls; otherwise leave focus on the trigger and link the content with aria-describedby.",
+        "Keep it small: a title, a few lines, one or two actions.",
+        "The HTML popover attribute gives light dismiss and top-layer placement without script."
+      ],
+      "examples": [
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Popovers: a small amount of information or functionality",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/popovers",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Popover",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/popover/guidelines",
+          "verified": true
+        },
+        {
+          "who": "MDN Web Docs",
+          "where": "Popover API reference",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Toggletip: interactive content shown on click",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/toggletip/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "apple-hig",
+          "where": "Popovers"
+        },
+        {
+          "ref": "scott-neil-2009",
+          "where": "Overlays"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Tooltips & Toggletips"
+        }
+      ],
+      "alternatives": [
+        "tooltip",
+        "modal-dialog",
+        "dropdown-menu",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "tooltip",
+      "name": "Tooltip",
+      "aka": [
+        "hover hint",
+        "info tip"
+      ],
+      "what": "A short text label that appears when the pointer rests on, or keyboard focus reaches, a control.",
+      "useWhen": [
+        "An icon-only button needs its name shown",
+        "A truncated value needs its full text",
+        "A brief supplement helps but is not needed to use the control"
+      ],
+      "avoidWhen": [
+        "The information is needed to complete the task; NN/g advises against putting vital information in tooltips",
+        "The product is used on touch screens, where hover does not exist",
+        "The content has links, formatting or more than a short sentence (use a popover)"
+      ],
+      "rules": [
+        "Show on hover after a short delay and on keyboard focus; hide on Escape, blur and pointer leave.",
+        "Keep it to a few words of plain text with no interactive content.",
+        "Let the pointer move onto the tooltip without it closing, and keep it until dismissed.",
+        "Link it with aria-describedby, or aria-labelledby when it is the control's name; give the tip role=\"tooltip\".",
+        "Place it close to the control without covering it, and keep it inside the window.",
+        "Do not put a tooltip on a disabled or non-focusable element."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Tooltip pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Tooltips: plain and rich",
+          "url": "https://m3.material.io/components/tooltips/guidelines",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Tooltip",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/tooltip/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Tooltip",
+          "url": "https://designsystem.digital.gov/components/tooltip/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-tooltips-2019",
+          "where": "Tooltip Guidelines"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Tooltips & Toggletips"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Content on Hover or Focus"
+        }
+      ],
+      "alternatives": [
+        "popover",
+        "help-text",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "dropdown-menu",
+      "name": "Dropdown menu",
+      "aka": [
+        "menu button",
+        "action menu",
+        "context menu",
+        "pull-down menu"
+      ],
+      "what": "A button that opens a short list of commands or links directly below it.",
+      "useWhen": [
+        "Several related actions share one button's space",
+        "The actions are secondary to what is visible on the page",
+        "A navigation item has a few sub-pages"
+      ],
+      "avoidWhen": [
+        "It hides the main action of the screen",
+        "The list is a choice of values in a form (use a select)",
+        "There are so many items that the list scrolls (use a mega menu, a page or search)"
+      ],
+      "rules": [
+        "Make the trigger a button whose label names the group, with an arrow, aria-haspopup=\"menu\" and aria-expanded.",
+        "Open on click; Down arrow, Enter or Space opens and focuses the first item; arrows move, Escape closes and returns focus, typing a letter jumps to an item.",
+        "Use role=\"menu\" and menuitem for commands; for site navigation use a plain list of links in a disclosure instead.",
+        "Keep it to about seven items or group with separators; put destructive items last.",
+        "Give items at least 44 px height on touch screens and never make submenus open on hover only.",
+        "Close after an item is chosen."
+      ],
+      "examples": [
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Menu button pattern",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Menus: a list of choices on a temporary surface",
+          "url": "https://m3.material.io/components/menus/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Menus",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/menus",
+          "verified": true
+        },
+        {
+          "who": "Slack",
+          "where": "Site header: \"Product\", \"Solutions\" and \"Resources\" open menus from the navigation bar",
+          "url": "https://slack.com/pricing",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "pickering-2019",
+          "where": "Menus & Menu Buttons"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Menu button pattern"
+        },
+        {
+          "ref": "cooper-2014",
+          "where": "Design Details: Controls and Dialogs"
+        }
+      ],
+      "alternatives": [
+        "overflow-menu",
+        "select",
+        "popover",
+        "mega-menu"
+      ]
+    },
+    {
+      "id": "lightbox",
+      "name": "Lightbox",
+      "aka": [
+        "image viewer",
+        "media viewer",
+        "zoom overlay"
+      ],
+      "what": "An overlay that dims the page and shows an image or video large, usually with controls to move to the next one.",
+      "useWhen": [
+        "Images are shown small in the page and people want to inspect them",
+        "A set of images is viewed in sequence without leaving the page"
+      ],
+      "avoidWhen": [
+        "The overlay would show a promotion or sign-up form the user did not ask for; NN/g describes this as a common misuse of overlays",
+        "The image is the main content of the page (show it large in place)"
+      ],
+      "rules": [
+        "Open only from a user action on the thumbnail; make the thumbnail a link to the full image so it works without script.",
+        "Treat it as a modal dialog: focus moves in, Tab stays in, Escape and a visible close button close it, focus returns to the thumbnail.",
+        "Provide Previous and Next buttons and Left and Right arrow keys; show \"3 of 12\" and the caption.",
+        "Fit the image to the window and allow zoom and pinch on touch screens.",
+        "Update the URL per image so a view can be shared and Back closes the lightbox.",
+        "Carry the alt text over to the large image."
+      ],
+      "examples": [
+        {
+          "who": "Wikipedia",
+          "where": "Media Viewer: clicking a thumbnail opens the image large over the article",
+          "url": "https://www.mediawiki.org/wiki/Help:Extension:Media_Viewer",
+          "verified": true
+        },
+        {
+          "who": "Apple macOS",
+          "where": "Quick Look: a large preview of a file over the current window",
+          "url": "https://support.apple.com/guide/mac-help/preview-a-file-mh14119/mac",
+          "verified": true
+        },
+        {
+          "who": "Amazon",
+          "where": "Product pages: clicking the main image opens a large viewer over the page",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-overlays-2015",
+          "where": "Overuse of Overlays: How to Avoid Misusing Lightboxes"
+        },
+        {
+          "ref": "scott-neil-2009",
+          "where": "Overlays"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Dialog (modal) pattern"
+        }
+      ],
+      "alternatives": [
+        "modal-dialog",
+        "carousel",
+        "figure"
+      ]
+    },
+    {
+      "id": "full-screen-takeover",
+      "name": "Full-screen takeover",
+      "aka": [
+        "full-screen dialog",
+        "full-screen modal",
+        "focus mode"
+      ],
+      "what": "A view that covers the whole window for one task and returns to the previous screen when the task is finished or closed.",
+      "useWhen": [
+        "A task needs many fields or several steps and should not be mixed with the page behind it: compose, create, edit",
+        "The screen is a phone, where a dialog has no room",
+        "Leaving half-way should be a deliberate act"
+      ],
+      "avoidWhen": [
+        "The task is a quick question (use a dialog)",
+        "Users need to refer to the page behind",
+        "The destination deserves its own URL and place in navigation (make it a page)"
+      ],
+      "rules": [
+        "Put a close or back control at the top leading corner, the task title in the middle and the confirming action at the top trailing corner or at the bottom.",
+        "Ask before discarding when the user closes with unsaved input.",
+        "Make the system Back gesture close the takeover.",
+        "Hide the app's main navigation while it is open and bring it back unchanged afterwards.",
+        "Treat it as a modal dialog for focus and screen readers."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Dialogs: full-screen dialogs for tasks with several inputs",
+          "url": "https://m3.material.io/components/dialogs/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Sheets: full-screen presentation for immersive or multi-step tasks",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets",
+          "verified": true
+        },
+        {
+          "who": "Gmail on phones",
+          "where": "Composing a message covers the screen, with close and send in the top bar",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Dialogs"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Modality"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Modal Panel"
+        }
+      ],
+      "alternatives": [
+        "modal-dialog",
+        "wizard",
+        "side-sheet"
+      ]
+    },
+    {
+      "id": "coach-mark",
+      "name": "Coach mark",
+      "aka": [
+        "onboarding tour",
+        "product tour",
+        "teaching tip",
+        "spotlight",
+        "feature callout"
+      ],
+      "what": "A small callout attached to a control that explains it, shown on first use or when a feature is new.",
+      "useWhen": [
+        "A feature is new or easy to miss and matters to the user's current task",
+        "One tip in context is enough"
+      ],
+      "avoidWhen": [
+        "A chain of tips stands between a new user and the product; NN/g reports that tutorials interrupt users and are quickly forgotten",
+        "The control could be made clear with a label instead",
+        "It would appear on every visit"
+      ],
+      "rules": [
+        "Show one tip at a time, next to the control it is about, when the user reaches that part of the product.",
+        "Keep it to a title and one or two sentences, with \"Got it\" and, in a sequence, \"Skip\".",
+        "Do not block the control it points at; let the user try it straight away.",
+        "Show each tip once per user and never bring back a dismissed tip.",
+        "Make the tip reachable and dismissible by keyboard and announce it without stealing focus from typing.",
+        "Keep the same help available later in a help menu."
+      ],
+      "examples": [
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Teaching tip: a notification about new or important features, attached to an element",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/dialogs-and-flyouts/teaching-tip",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Spotlight: introduces features through focused messages",
+          "url": "https://atlassian.design/components/spotlight/usage",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "Feature onboarding pattern",
+          "url": "https://primer.style/product/ui-patterns/feature-onboarding/",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Feature discovery",
+          "url": "https://design.gitlab.com/patterns/feature-discovery/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-coach-marks-2014",
+          "where": "Instructional Overlays and Coach Marks for Mobile Apps"
+        },
+        {
+          "ref": "nng-onboarding-2023",
+          "where": "Onboarding Tutorials vs. Contextual Help"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Onboarding"
+        }
+      ],
+      "alternatives": [
+        "empty-state",
+        "tooltip",
+        "banner"
+      ]
+    },
+    {
+      "id": "cookie-banner",
+      "name": "Cookie banner",
+      "aka": [
+        "consent banner",
+        "cookie notice",
+        "privacy prompt"
+      ],
+      "what": "A notice shown on first visit that asks whether non-essential cookies may be set.",
+      "useWhen": [
+        "The site sets cookies or similar storage that are not strictly necessary",
+        "The law that applies to the audience requires consent before they are set"
+      ],
+      "avoidWhen": [
+        "The site sets only essential cookies (a cookies page is enough)",
+        "It would be used to push acceptance with a hidden or missing reject option"
+      ],
+      "rules": [
+        "Offer \"Accept\" and \"Reject\" as buttons of equal size and weight, plus a link to settings or details.",
+        "Say in one or two sentences what the cookies are for.",
+        "Set no non-essential cookies until the user accepts, and remember either answer.",
+        "Place it at the top or bottom of the page without covering content the user needs; do not block the page with a modal unless the law requires an answer first.",
+        "Render it without shifting the page layout and keep it early in the focus order.",
+        "After a choice, confirm it and say where it can be changed."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Cookie banner: accept or reject non-essential cookies, with a link to view cookies",
+          "url": "https://design-system.service.gov.uk/components/cookie-banner/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Top of the page: \"Accept additional cookies\" and \"Reject additional cookies\" as equal buttons",
+          "url": "https://www.gov.uk/learn-to-drive-a-car",
+          "verified": true
+        },
+        {
+          "who": "Stripe",
+          "where": "Bottom corner: a small box with \"Accept all\" and \"Reject all\"",
+          "url": "https://stripe.com/",
+          "verified": true
+        },
+        {
+          "who": "The Guardian",
+          "where": "Bottom of the page: a panel with \"Yes, I accept\", \"No, thank you\" and \"Manage cookies\"",
+          "url": "https://www.theguardian.com/international",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-cookies-2023",
+          "where": "Cookie Permissions 101"
+        },
+        {
+          "ref": "webdev-cookie-2021",
+          "where": "Best practices for cookie notices"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Cookie banner"
+        }
+      ],
+      "alternatives": [
+        "banner",
+        "modal-dialog"
+      ]
+    }
+  ]
+}

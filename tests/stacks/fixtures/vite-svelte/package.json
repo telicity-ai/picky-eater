@@ -1,0 +1,7 @@
+{
+  "name": "picky-eater-stack-vite-svelte",
+  "private": true,
+  "type": "module",
+  "dependencies": { "svelte": "5.57.3" },
+  "devDependencies": { "@sveltejs/vite-plugin-svelte": "7.3.1", "vite": "8.3.8" }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "picky-eater-stack-nuxt",
+  "private": true,
+  "type": "module",
+  "dependencies": { "nuxt": "4.6.4", "vue": "3.5.45" }
+}

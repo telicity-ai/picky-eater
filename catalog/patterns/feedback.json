@@ -1,0 +1,886 @@
+{
+  "category": "feedback",
+  "patterns": [
+    {
+      "id": "inline-error",
+      "name": "Inline error message",
+      "aka": [
+        "field error",
+        "validation message"
+      ],
+      "what": "A message next to a form field that says what is wrong with the value and how to fix it.",
+      "useWhen": [
+        "A field's value is missing or cannot be used",
+        "The user must be able to see the problem and the field together"
+      ],
+      "avoidWhen": [
+        "The problem is not tied to one field, such as a failed payment (use a banner or error summary)",
+        "The message would only say \"Invalid\""
+      ],
+      "rules": [
+        "Place the message between the label and the field, or directly under the field, in the same place for every field.",
+        "Say what happened and what to do in the words of the label: \"Enter an email address in the format name@example.com\".",
+        "Mark the field with a red border and an icon or the word \"Error\"; never color alone.",
+        "Set aria-invalid=\"true\" on the field and link the message with aria-describedby.",
+        "Keep the user's input in the field so they can correct it.",
+        "Remove the message as soon as the value becomes valid."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Error message: shown next to the field, with a visually hidden \"Error:\" prefix",
+          "url": "https://design-system.service.gov.uk/components/error-message/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Text field: an error message displayed below the field and announced to screen readers",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/forms/text-field",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Text input: the invalid state with an error message",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/text-input/guidelines",
+          "verified": true
+        },
+        {
+          "who": "W3C WAI tutorials",
+          "where": "Forms tutorial: user notifications",
+          "url": "https://www.w3.org/WAI/tutorials/forms/notifications/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-errors-forms-2019",
+          "where": "10 Design Guidelines for Reporting Errors in Forms"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Errors and Success"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Error Identification"
+        }
+      ],
+      "alternatives": [
+        "error-summary",
+        "banner",
+        "toast"
+      ]
+    },
+    {
+      "id": "error-summary",
+      "name": "Error summary",
+      "aka": [
+        "error list",
+        "form-level error"
+      ],
+      "what": "A box at the top of a form that lists every problem found on submit, each linking to its field.",
+      "useWhen": [
+        "The form is validated when submitted and may have several errors",
+        "Errors may be off screen after submit",
+        "The page reloads on submit"
+      ],
+      "avoidWhen": [
+        "The form has one or two fields that are all in view",
+        "It would replace messages next to the fields; use both"
+      ],
+      "rules": [
+        "Put it at the top of the main content, above the page heading, and move keyboard focus to it when the page loads with errors.",
+        "Give it a heading such as \"There is a problem\" and list each error as a link that moves focus to the field.",
+        "Use the same wording in the summary and next to the field.",
+        "Give the container role=\"alert\" or focus it so screen readers announce it.",
+        "Add \"Error: \" to the start of the page title.",
+        "Show it together with inline messages, never instead of them."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Error summary: at the top of the page, with an error message next to each field",
+          "url": "https://design-system.service.gov.uk/components/error-summary/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Recover from validation errors pattern",
+          "url": "https://design-system.service.gov.uk/patterns/validation/",
+          "verified": true
+        },
+        {
+          "who": "W3C WAI tutorials",
+          "where": "Forms tutorial: listing errors at the top of the form",
+          "url": "https://www.w3.org/WAI/tutorials/forms/notifications/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Error summary"
+        },
+        {
+          "ref": "nng-errors-forms-2019",
+          "where": "10 Design Guidelines for Reporting Errors in Forms"
+        },
+        {
+          "ref": "silver-2018",
+          "where": "A Registration Form"
+        }
+      ],
+      "alternatives": [
+        "inline-error",
+        "banner"
+      ]
+    },
+    {
+      "id": "toast",
+      "name": "Toast",
+      "aka": [
+        "snackbar",
+        "flag",
+        "transient notification"
+      ],
+      "what": "A small message that appears at the edge of the screen for a few seconds to confirm something, and then goes away.",
+      "useWhen": [
+        "An action the user just took has succeeded and nothing more is needed",
+        "The message can be missed without harm",
+        "An \"Undo\" should be offered briefly"
+      ],
+      "avoidWhen": [
+        "The message is an error or needs a decision",
+        "The user must read it to continue",
+        "It reports something the user did not just do"
+      ],
+      "rules": [
+        "Keep it to one short sentence and at most one action.",
+        "Show one at a time, at a fixed position that does not cover navigation or the main action.",
+        "Leave it up long enough to read (Material suggests 4–10 seconds), pause the timer on hover and focus, and do not auto-dismiss toasts that carry an action unless the action is available elsewhere.",
+        "Announce it with role=\"status\" (polite); do not move focus to it.",
+        "Do not rely on it alone on the web: also show the result in the page, such as the saved value or the new row."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Snackbar: brief updates about app processes at the bottom of the screen",
+          "url": "https://m3.material.io/components/snackbar/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Toast API: a short non-disruptive message",
+          "url": "https://shopify.dev/docs/api/app-home/latest/apis/user-interface-and-interactions/toast-api",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Flag: confirmations, alerts and acknowledgments at the edge of the screen",
+          "url": "https://atlassian.design/components/flag/usage",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Toast",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/toast/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Snackbar"
+        },
+        {
+          "ref": "silver-toast-2020",
+          "where": "The problem with toast messages and what to do instead"
+        },
+        {
+          "ref": "nng-indicators-2024",
+          "where": "Indicators, Validations, and Notifications"
+        }
+      ],
+      "alternatives": [
+        "inline-confirmation",
+        "banner",
+        "confirmation-page",
+        "undo"
+      ]
+    },
+    {
+      "id": "banner",
+      "name": "Banner",
+      "aka": [
+        "alert",
+        "notification banner",
+        "message bar",
+        "callout",
+        "system message"
+      ],
+      "what": "A full-width strip or box at the top of the page or section with a message that stays until it is dealt with or dismissed.",
+      "useWhen": [
+        "The message is about the whole page or account: an outage, an expiring trial, a failed sync",
+        "The message should persist until resolved",
+        "A result needs to be confirmed after a page reload"
+      ],
+      "avoidWhen": [
+        "The message belongs to one field (use an inline error)",
+        "It is a brief success that needs no follow-up (use a toast)",
+        "It must block everything until answered (use a dialog)"
+      ],
+      "rules": [
+        "Place it under the header, above the page content it concerns, at the width of that content.",
+        "Use four meanings at most (information, success, warning, error), each with its own icon as well as color.",
+        "Write a short heading and one sentence, with at most one or two actions as links or buttons.",
+        "Let users dismiss it when it is informational; keep it while a problem still exists.",
+        "Use role=\"alert\" only for urgent messages that appear without a reload; otherwise role=\"status\" or a labelled region.",
+        "Do not stack several banners; combine or prioritize them."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Notification banner: something the user needs to know that is not directly part of the page content",
+          "url": "https://design-system.service.gov.uk/components/notification-banner/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Banner",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/banner",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Alert: info, warning, success, error and emergency",
+          "url": "https://designsystem.digital.gov/components/alert/",
+          "verified": true
+        },
+        {
+          "who": "Stripe",
+          "where": "Home page: a dismissible announcement strip above the header",
+          "url": "https://stripe.com/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-indicators-2024",
+          "where": "Indicators, Validations, and Notifications"
+        },
+        {
+          "ref": "carbon",
+          "where": "Notification"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Status Messages"
+        }
+      ],
+      "alternatives": [
+        "toast",
+        "inline-error",
+        "modal-dialog"
+      ]
+    },
+    {
+      "id": "progress-bar",
+      "name": "Progress bar",
+      "aka": [
+        "determinate progress",
+        "percent-done indicator"
+      ],
+      "what": "A bar that fills from empty to full to show how much of a known amount of work is done.",
+      "useWhen": [
+        "The work takes more than about 10 seconds",
+        "Progress can be measured: bytes, items, steps",
+        "The user may want to wait, leave or cancel"
+      ],
+      "avoidWhen": [
+        "The wait is short (use a spinner or nothing)",
+        "Progress cannot be estimated (use an indeterminate indicator and say what is happening)"
+      ],
+      "rules": [
+        "Move only forward and reflect real progress; do not jump back or stall at 99%.",
+        "Label what is happening and how far: \"Uploading 3 of 12 files\".",
+        "Offer Cancel for long operations and let the user keep working if they can.",
+        "Use the progress element or role=\"progressbar\" with aria-valuenow, aria-valuemin, aria-valuemax and a name.",
+        "Say when it is finished; do not just remove the bar."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Progress bar",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/progress-bar/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Progress indicators: determinate and indeterminate, linear and circular",
+          "url": "https://m3.material.io/components/progress-indicators/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Progress indicators",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/progress-indicators",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "ProgressBar",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/progressbar/usage",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-progress-2014",
+          "where": "Progress Indicators Make a Slow System Less Insufferable"
+        },
+        {
+          "ref": "nng-response-times-1993",
+          "where": "Response Time Limits"
+        },
+        {
+          "ref": "johnson-2020",
+          "where": "We Have Time Requirements"
+        }
+      ],
+      "alternatives": [
+        "spinner",
+        "skeleton",
+        "step-indicator"
+      ]
+    },
+    {
+      "id": "spinner",
+      "name": "Spinner",
+      "aka": [
+        "loading indicator",
+        "activity indicator",
+        "indeterminate progress"
+      ],
+      "what": "A small looping animation that shows that something is in progress without saying how long it will take.",
+      "useWhen": [
+        "The wait is between about 1 and 10 seconds",
+        "The work cannot be measured",
+        "Only part of the screen is waiting: a button, a panel, a list"
+      ],
+      "avoidWhen": [
+        "The wait is under about a second (show nothing; a flash of spinner is distracting)",
+        "The wait is long (use a progress bar)",
+        "A whole page of known structure is loading (use a skeleton)"
+      ],
+      "rules": [
+        "Put it where the result will appear, or inside the button that started the action.",
+        "Delay showing it for a few hundred milliseconds so fast responses show none.",
+        "Add text for waits over a few seconds: \"Saving…\", \"Loading results…\".",
+        "Disable the trigger while waiting, but keep it focusable and keep its width.",
+        "Announce the state with role=\"status\" or aria-busy on the region; respect prefers-reduced-motion.",
+        "Time out with an error and a retry instead of spinning forever."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Loading",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/loading/guidelines",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Inline loading: feedback for an action in progress, next to its trigger",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/inline-loading/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Spinner",
+          "url": "https://atlassian.design/components/spinner/usage",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Spinner",
+          "url": "https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/spinner",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-progress-2014",
+          "where": "Progress Indicators Make a Slow System Less Insufferable"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Spinners and Loading Indicators"
+        },
+        {
+          "ref": "nng-response-times-1993",
+          "where": "Response Time Limits"
+        }
+      ],
+      "alternatives": [
+        "skeleton",
+        "progress-bar",
+        "optimistic-update"
+      ]
+    },
+    {
+      "id": "skeleton",
+      "name": "Skeleton screen",
+      "aka": [
+        "skeleton loader",
+        "placeholder",
+        "content placeholder",
+        "shimmer"
+      ],
+      "what": "Grey shapes in the layout of the content that is about to appear, shown while it loads.",
+      "useWhen": [
+        "A page or panel with a known layout is loading",
+        "Content arrives within a few seconds",
+        "The layout should not jump when data arrives"
+      ],
+      "avoidWhen": [
+        "The wait is very short or the layout is not known in advance",
+        "The operation is long and measurable (use a progress bar)",
+        "It would be a single grey block, which is no better than a spinner"
+      ],
+      "rules": [
+        "Match the real layout: same number of rows, same image boxes, same heights, so nothing moves when content replaces it.",
+        "Show real static parts (header, navigation, titles) at once and skeletons only for what is loading.",
+        "Use a slow, subtle pulse or sheen and switch it off under prefers-reduced-motion.",
+        "Set aria-busy=\"true\" on the loading region and hide the placeholder shapes from assistive technology.",
+        "Replace it with an empty state or an error when there is nothing to show; never leave it up."
+      ],
+      "examples": [
+        {
+          "who": "Atlassian Design System",
+          "where": "Skeleton",
+          "url": "https://atlassian.design/components/skeleton/usage",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Skeleton",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/skeleton/usage",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "SkeletonBox",
+          "url": "https://primer.style/product/components/skeleton-box/",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Skeleton loader",
+          "url": "https://design.gitlab.com/components/skeleton-loader/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-skeleton-2023",
+          "where": "Skeleton Screens 101"
+        },
+        {
+          "ref": "primer",
+          "where": "Loading"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Doherty Threshold"
+        }
+      ],
+      "alternatives": [
+        "spinner",
+        "progress-bar",
+        "empty-state"
+      ]
+    },
+    {
+      "id": "confirmation-page",
+      "name": "Confirmation page",
+      "aka": [
+        "success page",
+        "thank-you page",
+        "receipt"
+      ],
+      "what": "A separate page shown after a transaction is completed that says it worked, gives a reference and explains what happens next.",
+      "useWhen": [
+        "A multi-step transaction has ended: an order, an application, a booking, a payment",
+        "The user needs a reference number or a record",
+        "There are next steps or waiting times to explain"
+      ],
+      "avoidWhen": [
+        "The action was a small in-page change (use an inline confirmation or a toast)",
+        "The user will carry on working in the same screen"
+      ],
+      "rules": [
+        "Say what was completed in the heading, in the past tense: \"Application complete\".",
+        "Show the reference number prominently and say that a confirmation was sent, and where.",
+        "Explain what happens next and when, and give a contact for problems.",
+        "Offer a way to keep a record: print, download or email.",
+        "Do not let Back or reload submit the transaction again.",
+        "Offer one next action, not a dead end."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Confirmation pages: reference number, confirmation email, \"What happens next\"",
+          "url": "https://design-system.service.gov.uk/patterns/confirmation-pages/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Panel: the highlighted box at the top of a confirmation page",
+          "url": "https://design-system.service.gov.uk/components/panel/",
+          "verified": true
+        },
+        {
+          "who": "Amazon",
+          "where": "After checkout: an order-placed page with the order number and delivery estimate",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Confirmation pages"
+        },
+        {
+          "ref": "wroblewski-2008",
+          "where": "Errors and Success"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Peak-End Rule"
+        }
+      ],
+      "alternatives": [
+        "toast",
+        "inline-confirmation",
+        "banner"
+      ]
+    },
+    {
+      "id": "inline-confirmation",
+      "name": "Inline confirmation",
+      "aka": [
+        "inline success message",
+        "saved indicator",
+        "inline status"
+      ],
+      "what": "A short success message or tick that appears next to the control the user just used.",
+      "useWhen": [
+        "A single field or setting was saved in place",
+        "The user's eyes are already on the control",
+        "Autosave needs to show its state"
+      ],
+      "avoidWhen": [
+        "The result affects the whole page or another page",
+        "The confirmation must be kept as a record"
+      ],
+      "rules": [
+        "Show it right next to the control or in place of the button label: \"Saved\", with a tick.",
+        "Show \"Saving…\" first when the save is not instant, then replace it with the result.",
+        "Keep it for a few seconds or until the next change; a persistent \"Last saved 10:42\" is better for documents.",
+        "Put it in a role=\"status\" region so it is announced without moving focus.",
+        "On failure show the error in the same place, in words, with a way to retry."
+      ],
+      "examples": [
+        {
+          "who": "IBM Carbon",
+          "where": "Inline loading: active, finished and error states beside the control",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/inline-loading/guidelines",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "InlineMessage: feedback about an action, placed near it",
+          "url": "https://primer.style/product/components/inline-message/",
+          "verified": true
+        },
+        {
+          "who": "GitLab Pajamas",
+          "where": "Saving and feedback",
+          "url": "https://design.gitlab.com/patterns/saving-and-feedback/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-indicators-2024",
+          "where": "Indicators, Validations, and Notifications"
+        },
+        {
+          "ref": "primer",
+          "where": "Saving"
+        },
+        {
+          "ref": "norman-2013",
+          "where": "The Psychopathology of Everyday Things"
+        }
+      ],
+      "alternatives": [
+        "toast",
+        "banner",
+        "confirmation-page"
+      ]
+    },
+    {
+      "id": "badge-counter",
+      "name": "Badge counter",
+      "aka": [
+        "notification badge",
+        "count badge",
+        "unread dot"
+      ],
+      "what": "A small dot or number on an icon or menu item that shows that there is something new, and how much.",
+      "useWhen": [
+        "A destination has new or unread items the user may want to see",
+        "A count helps decide whether to look"
+      ],
+      "avoidWhen": [
+        "The number is not about new items (show it as text)",
+        "Every item would have one; the signal is lost",
+        "It is used to draw attention to promotions"
+      ],
+      "rules": [
+        "Place it at the top trailing corner of the icon, overlapping it slightly.",
+        "Use a dot for \"something new\" and a number for a count; cap the number (\"99+\").",
+        "Clear it when the user has seen the items, and only then.",
+        "Use one strong color with sufficient contrast for both the badge and its text.",
+        "Include the count in the control's accessible name: \"Inbox, 3 unread\"."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Badges: small for a dot, large for a count of up to four characters",
+          "url": "https://m3.material.io/components/badges/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Atlassian Design System",
+          "where": "Badge: a numeric count",
+          "url": "https://atlassian.design/components/badge/usage",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "CounterLabel",
+          "url": "https://primer.style/product/components/counter-label/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Info badge",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/info-badge",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "material-3",
+          "where": "Badges"
+        },
+        {
+          "ref": "nng-indicators-2024",
+          "where": "Indicators, Validations, and Notifications"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Notifications"
+        }
+      ],
+      "alternatives": [
+        "status-badge",
+        "banner"
+      ]
+    },
+    {
+      "id": "optimistic-update",
+      "name": "Optimistic update",
+      "aka": [
+        "optimistic UI",
+        "instant feedback"
+      ],
+      "what": "The interface shows the result of an action at once, before the server has confirmed it, and corrects itself if the request fails.",
+      "useWhen": [
+        "The action almost always succeeds: like, star, rename, reorder, send a message",
+        "The server response is slow enough to notice",
+        "The action is easy to reverse"
+      ],
+      "avoidWhen": [
+        "Failure is common or costly: payments, bookings, anything irreversible",
+        "The server computes the result, so the client cannot predict it"
+      ],
+      "rules": [
+        "Update the interface in the same frame as the click and send the request in the background.",
+        "On failure restore the previous state and say what happened next to the item, with \"Try again\".",
+        "Show pending items subtly (lighter text, a small clock) when later actions depend on them.",
+        "Keep the order of rapid actions; do not let a slow early response overwrite a later one.",
+        "Never show an optimistic success message for something that must be recorded, such as an order."
+      ],
+      "examples": [
+        {
+          "who": "React",
+          "where": "useOptimistic: show a different state while an async action is under way",
+          "url": "https://react.dev/reference/react/useOptimistic",
+          "verified": true
+        },
+        {
+          "who": "TanStack Query",
+          "where": "Optimistic updates guide",
+          "url": "https://tanstack.com/query/latest/docs/framework/react/guides/optimistic-updates",
+          "verified": true
+        },
+        {
+          "who": "X",
+          "where": "The like button fills and the count changes at once when tapped",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "smashing-optimistic-2016",
+          "where": "True Lies Of Optimistic User Interfaces"
+        },
+        {
+          "ref": "nng-response-times-1993",
+          "where": "Response Time Limits"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Doherty Threshold"
+        }
+      ],
+      "alternatives": [
+        "spinner",
+        "inline-confirmation"
+      ]
+    },
+    {
+      "id": "validate-on-blur",
+      "name": "Validate on leaving a field",
+      "aka": [
+        "inline validation",
+        "live validation",
+        "on-blur validation"
+      ],
+      "what": "Each field is checked when the user moves on from it, and the result is shown next to it.",
+      "useWhen": [
+        "The form is long, or errors are common and costly to find late",
+        "A field has a rule the user can fix on the spot: format, length, availability",
+        "The form is one page"
+      ],
+      "avoidWhen": [
+        "The form has one field per page (validating on submit is the same moment)",
+        "Checking needs the whole form, such as \"enter a phone number or an email address\"",
+        "Messages would appear while the user is still typing"
+      ],
+      "rules": [
+        "Validate when the field loses focus, not on every keystroke; Baymard reports that premature messages are a common fault.",
+        "Once a field is in error, re-check it as the user types and remove the message the moment it is fixed.",
+        "Do not flag empty required fields until the user tries to submit.",
+        "Use success ticks only where confirmation helps, such as username availability or password rules.",
+        "Still validate everything on submit and then show an error summary.",
+        "Announce new messages through aria-describedby and a polite live region."
+      ],
+      "examples": [
+        {
+          "who": "Atlassian Design System",
+          "where": "Form: validate inline, and never disable the submit button",
+          "url": "https://atlassian.design/components/form/usage",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Fluent 2",
+          "where": "Field: inline feedback after validation, with a message under the field",
+          "url": "https://fluent2.microsoft.design/components/web/react/core/field/usage",
+          "verified": true
+        },
+        {
+          "who": "Stripe Checkout",
+          "where": "Card fields show a message when an incomplete number is left",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "baymard-inline-validation-2024",
+          "where": "Usability Testing of Inline Form Validation"
+        },
+        {
+          "ref": "wroblewski-inline-validation-2009",
+          "where": "Inline Validation in Web Forms"
+        },
+        {
+          "ref": "smashing-live-validation-2022",
+          "where": "A Complete Guide To Live Validation UX"
+        }
+      ],
+      "alternatives": [
+        "validate-on-submit"
+      ]
+    },
+    {
+      "id": "validate-on-submit",
+      "name": "Validate on submit",
+      "aka": [
+        "submit validation",
+        "form-level validation"
+      ],
+      "what": "Nothing is checked until the user presses the submit button; then all problems are shown together.",
+      "useWhen": [
+        "The form is short or asks one thing per page",
+        "Fields depend on each other",
+        "The service must work without JavaScript"
+      ],
+      "avoidWhen": [
+        "The form is long and a late error means scrolling back through many fields",
+        "A rule can only be met by trial and error, such as an available username"
+      ],
+      "rules": [
+        "Keep the submit button enabled; disabling it hides what is wrong.",
+        "On submit show an error summary at the top and a message at each field, and move focus to the summary.",
+        "Keep all entered values.",
+        "Turn off the browser's own validation bubbles (novalidate) so messages are consistent and accessible.",
+        "Validate on the server as well; client checks are a convenience.",
+        "After the first failed submit, switch that field to live re-checking so messages clear as the user fixes them."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Recover from validation errors: validate on submit and turn off HTML5 validation",
+          "url": "https://design-system.service.gov.uk/patterns/validation/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Error summary shown after submitting",
+          "url": "https://design-system.service.gov.uk/components/error-summary/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Recover from validation errors"
+        },
+        {
+          "ref": "silver-live-validation-2017",
+          "where": "The problem with live validation and what to do instead"
+        },
+        {
+          "ref": "silver-disabled-buttons-2023",
+          "where": "The problem with disabled buttons and what to do instead"
+        }
+      ],
+      "alternatives": [
+        "validate-on-blur"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+/*
+ * Switchback design tokens.
+ *
+ * Components should read colors, type, spacing and radii from these custom
+ * properties instead of hard-coding values.
+ */
+:root {
+  /* Brand: forest green */
+  --color-brand-50: #eef5f1;
+  --color-brand-600: #2f6b4f;
+  --color-brand-700: #24543e;
+
+  /* Warm neutrals */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #faf8f5;
+  --color-neutral-100: #f2eee8;
+  --color-neutral-300: #d6cfc4;
+  --color-neutral-500: #756c61;
+  --color-neutral-700: #4f4840;
+  --color-neutral-900: #24201b;
+
+  /* Feedback */
+  --color-danger-600: #b42318;
+
+  /* Focus */
+  --color-focus-ring: var(--color-brand-600);
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+
+  /* Spacing: 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+
+  /* Shape and depth */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-sm: 0 1px 2px rgba(36, 32, 27, 0.08);
+}

@@ -1,0 +1,18 @@
+# Everything the runner or a framework leaves in a fixture
+node_modules/
+package-lock.json
+trailhead.css
+!/trailhead.css
+.picky-eater/
+.next/
+.nuxt/
+.output/
+.svelte-kit/
+.astro/
+.angular/
+.react-router/
+.parcel-cache/
+dist/
+next-env.d.ts
+# Next.js writes this into the project when its development server starts
+fixtures/next/AGENTS.md

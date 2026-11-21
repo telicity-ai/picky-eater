@@ -1,0 +1,1553 @@
+{
+  "category": "layout",
+  "patterns": [
+    {
+      "id": "single-column",
+      "name": "Single-column page",
+      "aka": [
+        "center stage",
+        "centered stage",
+        "vertical stack",
+        "one-column layout"
+      ],
+      "what": "One column of content, centered on wide screens, that the reader moves through from top to bottom.",
+      "useWhen": [
+        "The page has one main task or one piece of content: an article, a form, a question, a checkout step",
+        "The page must work on phones without a separate design",
+        "Reading order matters more than seeing several things at once"
+      ],
+      "avoidWhen": [
+        "People need to compare or switch between many items on the same screen (use list-detail or sidebar-content)",
+        "The page is a dense tool where wide screens should show more, not just more margin"
+      ],
+      "rules": [
+        "Limit the text column to about 60–75 characters per line; center it and let the margins grow on wide screens.",
+        "Stack every block in source order with one consistent vertical gap; do not float side blocks next to body text.",
+        "Put the page title first and the primary action at the end of the column, aligned with the left edge of the content.",
+        "Put forms in one column too: one field per row, except short related fields such as city and postcode.",
+        "At 320 CSS px width the page must not scroll sideways."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Layout guidance: a two-thirds-width column so lines stay under about 75 characters",
+          "url": "https://design-system.service.gov.uk/styles/layout/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Question page: heading, one field and one button in a single column",
+          "url": "https://www.gov.uk/check-uk-visa/y",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia (mobile site)",
+          "where": "Article on a phone: header, title and body stacked in one column",
+          "url": "https://en.m.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "Every Layout",
+          "where": "The Stack: elements in one column separated by a single spacing rule",
+          "url": "https://every-layout.dev/layouts/stack/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Center Stage"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Vertical Stack"
+        },
+        {
+          "ref": "wroblewski-2011",
+          "where": "Layout"
+        }
+      ],
+      "alternatives": [
+        "sidebar-content",
+        "split-screen",
+        "list-detail"
+      ]
+    },
+    {
+      "id": "sidebar-content",
+      "name": "Sidebar and content",
+      "aka": [
+        "two-column layout",
+        "side navigation layout",
+        "app shell with sidebar"
+      ],
+      "what": "A narrow column of navigation or tools beside a wide column that holds the page content.",
+      "useWhen": [
+        "The product has many sections or documents and people move between them often",
+        "The side column holds navigation, filters or a table of contents that should stay visible while the content scrolls",
+        "Most use is on screens wide enough for two columns"
+      ],
+      "avoidWhen": [
+        "There are only a few destinations (a top navigation bar is enough)",
+        "The side column would hold content that competes with the main column for attention"
+      ],
+      "rules": [
+        "Give the sidebar a fixed width of about 240–320 px and let the content column take the rest.",
+        "Make the sidebar scroll independently and keep it in view while the content scrolls.",
+        "Mark the current item in the sidebar with more than color, and expose it with aria-current=\"page\".",
+        "Below the width where the content column gets too narrow, collapse the sidebar into a drawer or move it above the content.",
+        "Keep the content column readable: cap text width even when the window is very wide.",
+        "Wrap the sidebar in a nav element with a label and add a skip link to the main content."
+      ],
+      "examples": [
+        {
+          "who": "GitHub Docs",
+          "where": "Documentation pages: collapsible section tree on the left, article on the right",
+          "url": "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          "verified": true
+        },
+        {
+          "who": "MDN Web Docs",
+          "where": "Reference pages: element list on the left, article in the middle, page outline on the right",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+          "verified": true
+        },
+        {
+          "who": "Apple macOS",
+          "where": "System Settings: categories in a sidebar, the chosen settings on the right",
+          "url": "https://support.apple.com/guide/mac-help/change-system-settings-mh15217/mac",
+          "verified": true
+        },
+        {
+          "who": "GitHub Primer",
+          "where": "SplitPageLayout: a side pane next to a content region",
+          "url": "https://primer.style/product/components/split-page-layout/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-vertical-nav-2021",
+          "where": "Left-Side Vertical Navigation on Desktop"
+        },
+        {
+          "ref": "pickering-bell-2019",
+          "where": "The Sidebar"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Sidebars"
+        }
+      ],
+      "alternatives": [
+        "single-column",
+        "list-detail",
+        "tabbed-sections"
+      ]
+    },
+    {
+      "id": "split-screen",
+      "name": "Split screen",
+      "aka": [
+        "two halves",
+        "50/50 layout"
+      ],
+      "what": "A page divided into two halves of similar weight, usually a task on one side and supporting material on the other.",
+      "useWhen": [
+        "A short task such as sign-in or checkout sits next to a summary, an illustration or a reason to continue",
+        "Two things must stay visible together: a form and its live preview, a map and its result list"
+      ],
+      "avoidWhen": [
+        "One half would be decoration that pushes the task below the fold on small screens",
+        "Both halves contain long scrolling content that fights for attention"
+      ],
+      "rules": [
+        "Give the task half the stronger contrast and the only primary button.",
+        "Stack the halves below about 768 px, with the task first.",
+        "Scroll the halves independently only when both hold long content; otherwise pin the shorter one.",
+        "Keep the reading order in the markup the same as the visual order so keyboard focus does not jump between halves."
+      ],
+      "examples": [
+        {
+          "who": "Salesforce",
+          "where": "Sign-in page: login form on the left half, promotional panel on the right half",
+          "url": "https://login.salesforce.com/",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Split views: two or three panes shown side by side",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/split-views",
+          "verified": true
+        },
+        {
+          "who": "Stripe Checkout",
+          "where": "Hosted payment page: order summary on one half, payment form on the other",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Two-Panel Selector or Split View"
+        },
+        {
+          "ref": "apple-hig",
+          "where": "Split views"
+        }
+      ],
+      "alternatives": [
+        "single-column",
+        "sidebar-content"
+      ]
+    },
+    {
+      "id": "card-grid",
+      "name": "Card grid",
+      "aka": [
+        "grid of equals",
+        "tile grid",
+        "gallery"
+      ],
+      "what": "Items of the same kind shown as equal-sized cards in rows and columns.",
+      "useWhen": [
+        "The items are peers and none should stand out by default",
+        "Each item is recognized by an image or a few short facts",
+        "People browse rather than look for one known item"
+      ],
+      "avoidWhen": [
+        "People need to compare many attributes across items (use a data table)",
+        "Items are mostly text and are scanned by title (use list rows)",
+        "One item is clearly more important (use featured-grid)"
+      ],
+      "rules": [
+        "Give every card the same width and the same internal structure; let rows share the height of their tallest card.",
+        "Let the column count follow the available width, for example grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)).",
+        "Keep the gap between cards smaller than the page margin and larger than the padding inside a card.",
+        "Keep the markup order equal to the visual order and mark the set up as a list so screen readers announce the count.",
+        "Clamp titles to two or three lines so one long title does not stretch a row."
+      ],
+      "examples": [
+        {
+          "who": "Dribbble",
+          "where": "Popular shots: three equal columns of image cards with author and counts beneath",
+          "url": "https://dribbble.com/shots/popular",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Collections: ordered sets of items in a grid",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/collections",
+          "verified": true
+        },
+        {
+          "who": "Material Design 3",
+          "where": "Cards arranged in grids and lists",
+          "url": "https://m3.material.io/components/cards/guidelines",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Card groups laid out in a responsive grid",
+          "url": "https://designsystem.digital.gov/components/card/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Grid of Equals"
+        },
+        {
+          "ref": "nng-cards-2016",
+          "where": "Cards: UI-Component Definition"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Layout and Spacing"
+        }
+      ],
+      "alternatives": [
+        "featured-grid",
+        "bento-grid",
+        "masonry-grid",
+        "list-row",
+        "data-table"
+      ]
+    },
+    {
+      "id": "featured-grid",
+      "name": "Featured item with grid",
+      "aka": [
+        "lead story layout",
+        "magazine layout",
+        "hero card plus grid"
+      ],
+      "what": "One item shown large, followed by the remaining items in a smaller grid or list.",
+      "useWhen": [
+        "One item is newer or more important than the rest and the page owner decides which",
+        "The page is an editorial front page, a blog index or a catalog with a current highlight"
+      ],
+      "avoidWhen": [
+        "All items are equal (use card-grid)",
+        "The featured slot would be filled automatically with whatever comes first"
+      ],
+      "rules": [
+        "Make the featured item at least twice the area of a regular item and place it first in the source order.",
+        "Use the same card parts (image, title, summary) for the featured item, only larger, so it reads as the same kind of thing.",
+        "On narrow screens show the featured item full width, then the rest in one column.",
+        "Feature one item, or at most one per section; several featured items cancel each other out."
+      ],
+      "examples": [
+        {
+          "who": "The Guardian",
+          "where": "Front page: lead story with a large image above rows of smaller stories",
+          "url": "https://www.theguardian.com/international",
+          "verified": true
+        },
+        {
+          "who": "Apple",
+          "where": "Home page: one full-width promotion on top, further products in sections below",
+          "url": "https://www.apple.com/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Home page: a short \"Popular\" block and a \"Featured\" column beside the full list of topics",
+          "url": "https://www.gov.uk/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Feature, Search, and Browse"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Hierarchy is Everything"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Von Restorff Effect"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "bento-grid",
+        "feed"
+      ]
+    },
+    {
+      "id": "bento-grid",
+      "name": "Bento grid",
+      "aka": [
+        "bento box layout",
+        "mixed-size tile grid",
+        "asymmetric grid"
+      ],
+      "what": "A grid of tiles in a few different sizes that fit together into one rectangle, each tile showing one feature or fact.",
+      "useWhen": [
+        "A landing page has four to nine features of unequal importance to show in one view",
+        "Each feature can be said in a short title, one line of text and a small visual"
+      ],
+      "avoidWhen": [
+        "The items are records of the same kind that people scan or compare (use card-grid or a table)",
+        "Tiles would need long text; uneven tile sizes make uneven text lengths hard to read"
+      ],
+      "rules": [
+        "Build on one column grid (for example 6 or 12 columns) and let tiles span whole columns and rows; keep one gap size.",
+        "Give the largest tile to the most important feature and place it first in the markup.",
+        "Keep one corner radius, one padding and one title style across all tiles.",
+        "Collapse to a single column on phones in order of importance, not in visual reading order of the desktop grid.",
+        "Make a tile a link only if the whole tile goes to one place; otherwise put a visible link inside it."
+      ],
+      "examples": [
+        {
+          "who": "Supabase",
+          "where": "Home page: one wide database tile beside smaller tiles for authentication, storage, realtime and other products",
+          "url": "https://supabase.com/",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Widgets: small, medium and large tiles that share one Home Screen grid",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/widgets",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "apple-hig",
+          "where": "Widgets"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Layout and Spacing"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Grid of Equals"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "featured-grid",
+        "zigzag-rows"
+      ]
+    },
+    {
+      "id": "masonry-grid",
+      "name": "Masonry grid",
+      "aka": [
+        "waterfall layout",
+        "staggered grid"
+      ],
+      "what": "Columns of equal width in which items keep their own height, so rows do not line up.",
+      "useWhen": [
+        "Items are images or cards with very different aspect ratios and cropping them would lose content",
+        "People browse for inspiration and order matters little"
+      ],
+      "avoidWhen": [
+        "Reading order matters or people scan for one item: with ragged rows there is no clear order",
+        "Items carry text that must be compared across a row"
+      ],
+      "rules": [
+        "Keep column width equal and the gap constant; only height varies.",
+        "Reserve each image's space with width and height attributes or aspect-ratio so the layout does not jump while loading.",
+        "Keep keyboard and screen-reader order equal to the order items are placed in; do not use CSS columns if that sends focus down one column and back to the top of the next.",
+        "Reduce the column count with the width; use one or two columns on phones."
+      ],
+      "examples": [
+        {
+          "who": "MDN Web Docs",
+          "where": "Documentation of masonry layout in CSS grid, with examples",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Grid_lanes",
+          "verified": true
+        },
+        {
+          "who": "Pinterest",
+          "where": "Home feed: pins of varying height packed into equal-width columns",
+          "verified": false
+        },
+        {
+          "who": "Unsplash",
+          "where": "Photo listing: photographs of different proportions in three columns",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Thumbnail Grid"
+        },
+        {
+          "ref": "pickering-bell-2019",
+          "where": "The Grid"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "thumbnail-grid"
+      ]
+    },
+    {
+      "id": "dashboard-grid",
+      "name": "Dashboard",
+      "aka": [
+        "overview page",
+        "widget grid"
+      ],
+      "what": "A single screen of summary numbers, charts and short lists that answers \"how are things right now?\" at a glance.",
+      "useWhen": [
+        "People return often to check status and decide whether to act",
+        "The same handful of measures matters on every visit",
+        "Each panel can link to a detailed view"
+      ],
+      "avoidWhen": [
+        "The page is the place where work is done (show the work list instead)",
+        "Nobody has decided which few measures matter; a wall of charts is not a dashboard"
+      ],
+      "rules": [
+        "Put the few most important numbers in the top row as stat tiles; charts below, detail tables last.",
+        "Give every panel a title that says what is measured and for which period.",
+        "Show the comparison that gives a number meaning: previous period, target or threshold.",
+        "Align panels to a shared column grid; on phones stack them in order of importance.",
+        "Let each panel load, fail and be empty on its own; one failed panel must not blank the page.",
+        "Do not rely on color alone for good and bad; add an icon, sign or word."
+      ],
+      "examples": [
+        {
+          "who": "Grafana",
+          "where": "Grafana Play: panels of different kinds arranged on a grid beside a navigation sidebar",
+          "url": "https://play.grafana.org/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "App home page template: metrics and next steps",
+          "url": "https://shopify.dev/docs/api/app-home/latest/patterns/templates/homepage",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "Dashboard guidance for arranging data visualizations",
+          "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Dashboard"
+        },
+        {
+          "ref": "nng-dashboards-2017",
+          "where": "Dashboards: Making Charts and Graphs Easier to Understand"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "data-table",
+        "feed"
+      ]
+    },
+    {
+      "id": "list-detail",
+      "name": "List and detail",
+      "aka": [
+        "master–detail",
+        "two-panel selector",
+        "split view",
+        "list/details"
+      ],
+      "what": "A list of items on one side and the full content of the selected item on the other.",
+      "useWhen": [
+        "People go through many items one after another: messages, tickets, files, settings groups",
+        "Seeing the list while reading an item helps people keep their place"
+      ],
+      "avoidWhen": [
+        "Items need the full width to be read or edited",
+        "People rarely look at more than one item per visit (link to a separate page)"
+      ],
+      "rules": [
+        "Show the list in a column of about 280–400 px and the detail in the rest; highlight the selected row.",
+        "Selecting a row replaces the detail without a page reload, but updates the URL so the item can be linked and the Back button works.",
+        "On narrow screens show one pane at a time: the list first, then the detail with a Back control (Microsoft recommends stacking below about 640 px).",
+        "When nothing is selected, show an empty state in the detail pane or select the first item.",
+        "Up and Down arrows move through the list; focus moves to the detail only when the user asks for it."
+      ],
+      "examples": [
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "List/details pattern: side-by-side on wide windows, stacked on narrow ones",
+          "url": "https://learn.microsoft.com/en-us/windows/apps/develop/ui/controls/list-details",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Split views: Mail shows a message list and the selected message",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/split-views",
+          "verified": true
+        },
+        {
+          "who": "Android",
+          "where": "Canonical layouts: list-detail",
+          "url": "https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts?auto_signin=false",
+          "verified": true
+        },
+        {
+          "who": "Apple macOS",
+          "where": "System Settings: choose a category in the list, edit it on the right",
+          "url": "https://support.apple.com/guide/mac-help/change-system-settings-mh15217/mac",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Two-Panel Selector or Split View"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "One-Window Drilldown"
+        },
+        {
+          "ref": "windows-design",
+          "where": "List/details"
+        }
+      ],
+      "alternatives": [
+        "sidebar-content",
+        "data-table",
+        "side-sheet",
+        "accordion-sections"
+      ]
+    },
+    {
+      "id": "landing-sections",
+      "name": "Hero and stacked sections",
+      "aka": [
+        "landing page",
+        "long-scroll marketing page"
+      ],
+      "what": "A page that opens with one large statement and call to action, followed by full-width sections that each make one point.",
+      "useWhen": [
+        "The page introduces one product, service or offer to people who do not know it yet",
+        "There is one main action: sign up, buy, download, contact"
+      ],
+      "avoidWhen": [
+        "Visitors arrive to do a known task (put the task first, not the pitch)",
+        "The page is a home page for many unrelated audiences (use a menu of entry points)"
+      ],
+      "rules": [
+        "State what the product is and who it is for in the first screen, with one primary button.",
+        "Give each section one heading, one idea and at most one action; repeat the primary action after every few sections and at the end.",
+        "Order sections by the questions a visitor asks: what is it, how does it work, who uses it, what does it cost.",
+        "Vary section layout, but keep one content width and one spacing scale down the page.",
+        "Use real headings (one h1, then h2 per section) so the page can be navigated by heading."
+      ],
+      "examples": [
+        {
+          "who": "Stripe",
+          "where": "Home page: headline with two buttons, customer logos, then product sections",
+          "url": "https://stripe.com/",
+          "verified": true
+        },
+        {
+          "who": "Linear",
+          "where": "Home page: headline over a product screenshot, then feature sections",
+          "url": "https://linear.app/",
+          "verified": true
+        },
+        {
+          "who": "Supabase",
+          "where": "Home page: headline and buttons, product tiles, customer logos, feature sections",
+          "url": "https://supabase.com/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Landing page template: hero, tagline, graphic list, call to action",
+          "url": "https://designsystem.digital.gov/templates/landing-page/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "krug-2014",
+          "where": "The Big Bang Theory of Web Design"
+        },
+        {
+          "ref": "nng-homepage-2024",
+          "where": "Homepage Design: 5 Fundamental Principles"
+        },
+        {
+          "ref": "nng-scrolling-2018",
+          "where": "Scrolling and Attention"
+        }
+      ],
+      "alternatives": [
+        "section-nav-page",
+        "featured-grid"
+      ]
+    },
+    {
+      "id": "hero-centered",
+      "name": "Centered hero",
+      "aka": [
+        "centered headline hero"
+      ],
+      "what": "A page opening with headline, one or two lines of text and buttons centered in the column, with any image or product shot below.",
+      "useWhen": [
+        "The message is short and the headline can carry the page",
+        "The product visual is wide (a screenshot) and reads best under the text"
+      ],
+      "avoidWhen": [
+        "The headline is long or needs a paragraph of explanation; centered multi-line text is harder to read",
+        "A form must be filled in the hero (use hero-split)"
+      ],
+      "rules": [
+        "Keep the headline to about two lines and the supporting text under about 65 characters per line.",
+        "Show one primary button and at most one secondary button, side by side, stacked on phones.",
+        "Keep the primary button visible without scrolling at 1280×720 and at 390×844.",
+        "If a product image follows, let it start within the first screen so people see there is more below."
+      ],
+      "examples": [
+        {
+          "who": "Raycast",
+          "where": "Home page: centered headline, one line of text and one download button",
+          "url": "https://www.raycast.com/",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Pricing page: centered heading, short paragraph and two buttons above the plans",
+          "url": "https://github.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "Apple",
+          "where": "Product sections: centered product name, tagline and \"Learn more\" / \"Buy\" buttons above the image",
+          "url": "https://www.apple.com/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Designing Text"
+        },
+        {
+          "ref": "krug-2014",
+          "where": "Billboard Design 101"
+        },
+        {
+          "ref": "nng-homepage-2024",
+          "where": "Homepage Design: 5 Fundamental Principles"
+        }
+      ],
+      "alternatives": [
+        "hero-split"
+      ]
+    },
+    {
+      "id": "hero-split",
+      "name": "Split hero",
+      "aka": [
+        "text-and-media hero",
+        "two-column hero"
+      ],
+      "what": "A page opening with headline, text and buttons on one side and an image, product shot or form on the other.",
+      "useWhen": [
+        "The visual explains the product as much as the words do",
+        "The hero contains a sign-up form or search that deserves its own side",
+        "The headline is long and reads better left-aligned"
+      ],
+      "avoidWhen": [
+        "The image is decorative and would push the text column too narrow",
+        "The product shot needs the full width to be legible (use hero-centered with the shot below)"
+      ],
+      "rules": [
+        "Put the text first in the source order and, in left-to-right languages, on the left; people look at the left half of the page first.",
+        "Left-align the text block and align it vertically with the middle of the media.",
+        "Stack below about 768 px: text and buttons first, media after.",
+        "Give the media a fixed aspect ratio so the text does not move while it loads."
+      ],
+      "examples": [
+        {
+          "who": "Stripe",
+          "where": "Home page: headline and two buttons on the left, artwork filling the right",
+          "url": "https://stripe.com/",
+          "verified": true
+        },
+        {
+          "who": "Supabase",
+          "where": "Home page: headline and buttons on the left, description on the right",
+          "url": "https://supabase.com/",
+          "verified": true
+        },
+        {
+          "who": "Linear",
+          "where": "Home page: left-aligned headline and description above a product screenshot",
+          "url": "https://linear.app/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Designing Text"
+        },
+        {
+          "ref": "nng-f-pattern-2017",
+          "where": "F-Shaped Pattern of Reading"
+        },
+        {
+          "ref": "nng-homepage-2024",
+          "where": "Homepage Design: 5 Fundamental Principles"
+        }
+      ],
+      "alternatives": [
+        "hero-centered"
+      ]
+    },
+    {
+      "id": "zigzag-rows",
+      "name": "Alternating feature rows",
+      "aka": [
+        "zigzag layout",
+        "alternating image and text"
+      ],
+      "what": "A stack of rows, each with text on one side and an image on the other, with the sides swapping from row to row.",
+      "useWhen": [
+        "Each feature needs an image that carries information, such as a screenshot of that feature",
+        "There are three to five features, each worth a short paragraph"
+      ],
+      "avoidWhen": [
+        "The images are decorative; NN/g found that alternating decorative images make scanning less efficient",
+        "There are many short features (use a card grid or a list)"
+      ],
+      "rules": [
+        "Keep headings on a predictable line: if scanning matters more than rhythm, keep all text on the same side.",
+        "Give every row the same structure: heading, two or three lines, optional link.",
+        "On phones stack every row the same way (heading, text, image) regardless of desktop side.",
+        "Keep text first in the source order in every row; swap sides with CSS only."
+      ],
+      "examples": [
+        {
+          "who": "Vercel",
+          "where": "Home page: feature rows in which the screenshot and the text swap sides from one row to the next",
+          "url": "https://vercel.com/",
+          "verified": true
+        },
+        {
+          "who": "Apple",
+          "where": "Product pages that alternate image-left and image-right feature rows",
+          "verified": false
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-zigzag-2017",
+          "where": "Zigzag Image–Text Layouts Make Scanning Less Efficient"
+        },
+        {
+          "ref": "nng-layer-cake-2019",
+          "where": "The Layer-Cake Pattern of Scanning Content on the Web"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "bento-grid"
+      ]
+    },
+    {
+      "id": "section-nav-page",
+      "name": "Long page with section navigation",
+      "aka": [
+        "sticky table of contents",
+        "scrollspy page",
+        "anchor navigation",
+        "in-page navigation"
+      ],
+      "what": "One long page whose section headings are listed in a menu that stays in view and jumps to each section.",
+      "useWhen": [
+        "The content is one document that people read in parts or search with the browser",
+        "People need to see everything on one page or print it",
+        "Sections are long enough that scrolling between them takes effort"
+      ],
+      "avoidWhen": [
+        "Sections are unrelated tasks that should not load together (use separate pages)",
+        "The page is short: fewer than about four sections"
+      ],
+      "rules": [
+        "List the section headings as links to anchors; clicking scrolls to the section and updates the URL fragment.",
+        "Keep the list in view: in a side column on wide screens, as a collapsed \"On this page\" control above the content on narrow ones.",
+        "Highlight the section currently in view, and mark that link with aria-current.",
+        "Offset the scroll target (scroll-margin-top) so a sticky header does not cover the heading.",
+        "Use the same words in the link and in the heading it points to.",
+        "Wrap the list in a nav element labelled \"On this page\" or similar."
+      ],
+      "examples": [
+        {
+          "who": "Wikipedia",
+          "where": "Articles: a \"Contents\" list of the sections in the left column beside the text",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "MDN Web Docs",
+          "where": "Reference pages: \"In this article\" outline on the right",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "In-page navigation: a sticky list of the headings on the page",
+          "url": "https://designsystem.digital.gov/components/in-page-navigation/",
+          "verified": true
+        },
+        {
+          "who": "GitHub Docs",
+          "where": "Articles: an \"In this article\" control above the content",
+          "url": "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-toc-2023",
+          "where": "Table of Contents: The Ultimate Design Guide"
+        },
+        {
+          "ref": "nng-in-page-links-2023",
+          "where": "In-Page Links for Content Navigation"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Titled Sections"
+        }
+      ],
+      "alternatives": [
+        "tabbed-sections",
+        "accordion-sections",
+        "wizard"
+      ]
+    },
+    {
+      "id": "tabbed-sections",
+      "name": "Tabbed sections",
+      "aka": [
+        "module tabs",
+        "in-page tabs",
+        "tab panel layout"
+      ],
+      "what": "Related content split into panels, with a row of labels that shows one panel at a time.",
+      "useWhen": [
+        "The content falls into two to about seven parallel groups with short names",
+        "People need one group at a time and do not compare across groups",
+        "The groups are views of the same object: overview, activity, settings"
+      ],
+      "avoidWhen": [
+        "People must compare or copy between panels",
+        "The panels are steps in a sequence (use a wizard or step indicator)",
+        "The labels do not fit one row; a second row of tabs breaks the metaphor"
+      ],
+      "rules": [
+        "Show the selected tab as joined to its panel and clearly different from the others, not by color alone.",
+        "Keep tab labels to one or two words and keep all tabs in a single row; scroll horizontally on small screens rather than wrap.",
+        "Follow the ARIA tabs pattern: role tablist, tab and tabpanel; Left and Right arrows move between tabs, Tab moves into the panel.",
+        "Do not change the page behind the user: switching tabs must not submit forms or lose input.",
+        "Give each tab a URL (query or fragment) when people will share or return to it.",
+        "Keep panel content in the DOM order under its tab so the page still works when printed or without script."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Tabs for related sections of content on one page",
+          "url": "https://design-system.service.gov.uk/components/tabs/",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Tabs pattern with keyboard behavior",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+          "verified": true
+        },
+        {
+          "who": "Airbnb",
+          "where": "Home page: \"Popular\", \"Arts & culture\", \"Beach\" and other tabs above a list of destinations",
+          "url": "https://www.airbnb.com/",
+          "verified": true
+        },
+        {
+          "who": "Mastodon",
+          "where": "Explore page: \"Posts\", \"Hashtags\" and \"News\" tabs above the feed",
+          "url": "https://mastodon.social/explore",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Module Tabs"
+        },
+        {
+          "ref": "nng-tabs-2024",
+          "where": "Tabs, Used Right"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Tabbed Interfaces"
+        }
+      ],
+      "alternatives": [
+        "accordion-sections",
+        "section-nav-page",
+        "sidebar-content",
+        "view-switcher"
+      ]
+    },
+    {
+      "id": "accordion-sections",
+      "name": "Accordion sections",
+      "aka": [
+        "collapsible sections",
+        "expand/collapse panels"
+      ],
+      "what": "A stack of headings that each open and close their own block of content in place.",
+      "useWhen": [
+        "People need only a few of many sections and the headings tell them which",
+        "Space is tight, especially on phones",
+        "Seeing all headings at once gives a useful overview"
+      ],
+      "avoidWhen": [
+        "Most people need most of the content: opening every section is more work than scrolling",
+        "People search the page with the browser's find, or print it",
+        "There are only two or three short sections (just show them)"
+      ],
+      "rules": [
+        "Make the whole heading row a button with aria-expanded, and put an icon that shows open or closed on it.",
+        "Allow several sections to be open at once; do not close one section when another opens.",
+        "Offer \"Show all sections\" when there are many sections.",
+        "Keep headings specific enough to choose from without opening.",
+        "Do not nest accordions and do not put an accordion inside a tab panel.",
+        "Keep section state when the user navigates away and back."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "Step-by-step page: numbered sections that open with \"Show\", plus \"Show all steps\"",
+          "url": "https://www.gov.uk/learn-to-drive-a-car",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Accordion with advice to test the content without one first",
+          "url": "https://design-system.service.gov.uk/components/accordion/",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Accordion pattern with keyboard behavior",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Accordion: bordered and multiselectable variants",
+          "url": "https://designsystem.digital.gov/components/accordion/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-accordions-desktop-2023",
+          "where": "Accordions on Desktop: When and How to Use"
+        },
+        {
+          "ref": "tidwell-2020",
+          "where": "Accordion"
+        },
+        {
+          "ref": "pickering-2019",
+          "where": "Collapsible Sections"
+        }
+      ],
+      "alternatives": [
+        "tabbed-sections",
+        "section-nav-page",
+        "disclosure"
+      ]
+    },
+    {
+      "id": "wizard",
+      "name": "Wizard",
+      "aka": [
+        "one thing per page",
+        "multi-step form",
+        "stepped flow"
+      ],
+      "what": "A task split into a fixed sequence of screens, each asking for one thing, with Back and Continue.",
+      "useWhen": [
+        "The task is long or unfamiliar and done rarely",
+        "Later questions depend on earlier answers",
+        "Each step can be validated and saved on its own"
+      ],
+      "avoidWhen": [
+        "Experts do the task often and want everything on one screen",
+        "Steps are independent and can be done in any order (use a task list)",
+        "People must see earlier answers while filling later steps"
+      ],
+      "rules": [
+        "Ask one question or one closely related group per screen, with the question as the page heading.",
+        "Put one primary button, \"Continue\", after the fields; put \"Back\" as a link at the top; make the last step's button say what happens (\"Submit application\").",
+        "Keep answers when people go back and forward, and let the browser Back button work.",
+        "Show a \"Check your answers\" screen with a Change link per answer before the final submit.",
+        "Show progress only if the number of steps is known and does not change with the answers.",
+        "Validate each step on Continue and keep the user on the step until it passes."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK",
+          "where": "\"Check if you need a UK visa\": one question per page with a Continue button",
+          "url": "https://www.gov.uk/check-uk-visa/y",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Question pages pattern: one thing per page",
+          "url": "https://design-system.service.gov.uk/patterns/question-pages/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Check answers pattern: review screen before submitting",
+          "url": "https://design-system.service.gov.uk/patterns/check-answers/",
+          "verified": true
+        },
+        {
+          "who": "Microsoft Windows app design guidance",
+          "where": "Windows wizard guidelines",
+          "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/win-wizards",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Wizard"
+        },
+        {
+          "ref": "nng-wizards-2017",
+          "where": "Wizards: Definition and Design Recommendations"
+        },
+        {
+          "ref": "silver-2018",
+          "where": "A Checkout Form"
+        }
+      ],
+      "alternatives": [
+        "task-list",
+        "section-nav-page",
+        "accordion-sections"
+      ]
+    },
+    {
+      "id": "task-list",
+      "name": "Task list",
+      "aka": [
+        "hub and spoke",
+        "setup checklist"
+      ],
+      "what": "A page listing the parts of a long job, each with its status, that people can complete in any order and over several visits.",
+      "useWhen": [
+        "The job has several independent parts that take more than one sitting",
+        "People need to see what is done and what is left",
+        "Different people may complete different parts"
+      ],
+      "avoidWhen": [
+        "The parts must be done in a fixed order with nothing to choose (use a wizard)",
+        "The whole job takes a few minutes"
+      ],
+      "rules": [
+        "Show each task as a row with a link and a status such as \"Not yet started\", \"In progress\", \"Completed\".",
+        "Group tasks under short headings when there are more than about six.",
+        "Return the user to the task list after each task, with the status updated.",
+        "Show tasks that cannot be started yet as plain text with \"Cannot start yet\" and say what unlocks them.",
+        "Enable the final submit only when every required task is complete, and say which tasks are missing if not."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Task list: rows of tasks with a status tag each",
+          "url": "https://design-system.service.gov.uk/components/task-list/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK Design System",
+          "where": "Complete multiple tasks pattern",
+          "url": "https://design-system.service.gov.uk/patterns/complete-multiple-tasks/",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Setup guide: a checklist of onboarding steps with completion state",
+          "url": "https://shopify.dev/docs/api/app-home/latest/patterns/compositions/setup-guide",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "govuk-ds",
+          "where": "Complete multiple tasks"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Zeigarnik Effect"
+        },
+        {
+          "ref": "yablonski-2024",
+          "where": "Goal-Gradient Effect"
+        }
+      ],
+      "alternatives": [
+        "wizard",
+        "accordion-sections"
+      ]
+    },
+    {
+      "id": "feed",
+      "name": "Feed",
+      "aka": [
+        "stream",
+        "timeline",
+        "activity stream"
+      ],
+      "what": "A single column of items in time order, newest first, that keeps growing.",
+      "useWhen": [
+        "Content arrives continuously and recency is the main order",
+        "Items are short and read in passing: posts, updates, events",
+        "People return often to see what is new"
+      ],
+      "avoidWhen": [
+        "People look for one specific item (give them search, filters or a table)",
+        "Items must be compared by attribute",
+        "There is a natural end, such as a result list; use pagination"
+      ],
+      "rules": [
+        "Use one column of at most about 600–700 px so items are read top to bottom without horizontal eye movement.",
+        "Give every item the same skeleton: author or source, time, body, actions.",
+        "Show time as relative for recent items (\"2h\") with the exact time available on hover or focus.",
+        "When new items arrive, announce them with a \"Show new items\" control rather than moving what the user is reading.",
+        "Keep scroll position when the user opens an item and comes back.",
+        "Mark the list up with role=\"feed\" and each item as an article when it loads more on scroll."
+      ],
+      "examples": [
+        {
+          "who": "Mastodon",
+          "where": "Explore page: a single column of posts with author, time, content and actions",
+          "url": "https://mastodon.social/explore",
+          "verified": true
+        },
+        {
+          "who": "WAI-ARIA Authoring Practices Guide",
+          "where": "Feed pattern: keyboard and screen-reader behavior for a scrolling list of articles",
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Changelog: a dated stream of product updates",
+          "url": "https://github.blog/changelog/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "tidwell-2020",
+          "where": "Streams and Feeds"
+        },
+        {
+          "ref": "wai-aria-apg",
+          "where": "Feed pattern"
+        },
+        {
+          "ref": "nng-infinite-scroll-2022",
+          "where": "Infinite Scrolling: When to Use It, When to Avoid It"
+        }
+      ],
+      "alternatives": [
+        "card-grid",
+        "featured-grid",
+        "data-table",
+        "timeline"
+      ]
+    },
+    {
+      "id": "comparison-table",
+      "name": "Comparison table",
+      "aka": [
+        "feature matrix",
+        "compare view"
+      ],
+      "what": "A table with the things being compared as columns and their attributes as rows, so differences can be read across.",
+      "useWhen": [
+        "People choose between a few options that share the same attributes: plans, products, models",
+        "The differences are in the details, not in one headline number"
+      ],
+      "avoidWhen": [
+        "There are more than about five options; NN/g advises narrowing to five or fewer first",
+        "Options do not share attributes, so most cells would be empty"
+      ],
+      "rules": [
+        "Put options in columns and attributes in rows; keep the option names visible as sticky column headers while scrolling.",
+        "Group rows under subheadings and use the same unit and wording across a row.",
+        "Use text or a labelled icon in every cell; never leave a cell blank to mean \"no\".",
+        "Offer \"Show only differences\" when most rows are identical.",
+        "On phones show two columns at a time with a control to pick which options to compare, or stack one option per card.",
+        "Mark up as a real table with column and row headers."
+      ],
+      "examples": [
+        {
+          "who": "Apple",
+          "where": "Compare iPhone models: three columns, each with a model picker, and attribute rows beneath",
+          "url": "https://www.apple.com/iphone/compare/",
+          "verified": true
+        },
+        {
+          "who": "Slack",
+          "where": "Pricing page: \"Compare all features\" table under the plan cards",
+          "url": "https://slack.com/pricing",
+          "verified": true
+        },
+        {
+          "who": "GitHub",
+          "where": "Pricing page: plans side by side with a \"Compare plans\" button",
+          "url": "https://github.com/pricing",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-comparison-tables-2024",
+          "where": "Comparison Tables for Products, Services, and Features"
+        },
+        {
+          "ref": "baymard-comparison-2022",
+          "where": "4 Ways to Optimize the Comparison Feature for Scanning"
+        },
+        {
+          "ref": "smashing-comparison-2017",
+          "where": "Designing The Perfect Feature Comparison Table"
+        }
+      ],
+      "alternatives": [
+        "pricing-table",
+        "card-grid",
+        "data-table"
+      ]
+    },
+    {
+      "id": "sticky-header",
+      "name": "Sticky header",
+      "aka": [
+        "fixed header",
+        "persistent header"
+      ],
+      "what": "A header that stays at the top of the window while the page scrolls.",
+      "useWhen": [
+        "Pages are long and people need navigation, search or a key action at any scroll position",
+        "The header carries context that must stay visible, such as the name of the object being edited"
+      ],
+      "avoidWhen": [
+        "The header is tall; on small screens it takes space from the content",
+        "Pages are short",
+        "The header holds nothing people need mid-page"
+      ],
+      "rules": [
+        "Keep it small: a single row, and shrink or drop secondary rows once the user scrolls.",
+        "Separate it from the content with a border, shadow or solid background so content does not show through.",
+        "Never let it cover the focused element or an anchor target: set scroll-padding-top to the header height.",
+        "If it hides on scroll down and returns on scroll up, animate it briefly and never on small scroll jitters.",
+        "Keep it in the normal tab order first on the page, with a skip link to the content."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Top app bar: stays at the top and changes on scroll",
+          "url": "https://m3.material.io/components/app-bars/guidelines",
+          "verified": true
+        },
+        {
+          "who": "IBM Carbon",
+          "where": "UI shell header: persistent across the product",
+          "url": "https://www.carbondesignsystem.com/building-blocks/core/components/ui-shell-header/guidelines",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "nng-sticky-headers-2021",
+          "where": "Sticky Headers: 5 Ways to Make Them Better"
+        },
+        {
+          "ref": "smashing-sticky-2023",
+          "where": "Designing Sticky Menus: UX Guidelines"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Focus Not Obscured (Minimum)"
+        }
+      ],
+      "alternatives": [
+        "back-to-top",
+        "section-nav-page"
+      ]
+    },
+    {
+      "id": "bottom-action-bar",
+      "name": "Bottom action bar",
+      "aka": [
+        "sticky footer",
+        "sticky call to action",
+        "docked toolbar"
+      ],
+      "what": "A bar fixed to the bottom of the window that holds the main action for the current screen.",
+      "useWhen": [
+        "The main action must be reachable at any scroll position: add to cart, continue, send",
+        "The screen is a phone, where the bottom edge is easiest to reach with a thumb",
+        "A summary such as a total needs to stay next to the action"
+      ],
+      "avoidWhen": [
+        "The page already has a bottom tab bar and the two would stack",
+        "The action only makes sense after reading the page to the end"
+      ],
+      "rules": [
+        "Hold one primary action, at most one secondary, and optionally one line of summary.",
+        "Make the bar opaque with a top border or shadow, and add bottom padding to the page equal to the bar height so nothing is hidden behind it.",
+        "Respect the device safe area: pad with env(safe-area-inset-bottom).",
+        "Keep it above the on-screen keyboard only if the action is needed while typing; otherwise let the keyboard cover it.",
+        "Make sure a focused field is never hidden under the bar."
+      ],
+      "examples": [
+        {
+          "who": "Material Design 3",
+          "where": "Toolbars: docked and floating bars of actions at the bottom of the screen",
+          "url": "https://m3.material.io/components/toolbars/guidelines",
+          "verified": true
+        },
+        {
+          "who": "Apple Human Interface Guidelines",
+          "where": "Toolbars: actions for the current view",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars",
+          "verified": true
+        },
+        {
+          "who": "Shopify Polaris",
+          "where": "Contextual save bar: Save and Discard stay in view while a form has changes",
+          "url": "https://shopify.dev/docs/api/app-home/latest/app-bridge-web-components/save-bar",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wroblewski-2011",
+          "where": "Actions"
+        },
+        {
+          "ref": "material-3",
+          "where": "Toolbars"
+        },
+        {
+          "ref": "wcag-22",
+          "where": "Focus Not Obscured (Minimum)"
+        }
+      ],
+      "alternatives": [
+        "sticky-save-bar",
+        "floating-action-button",
+        "button"
+      ]
+    },
+    {
+      "id": "contained-width",
+      "name": "Contained width",
+      "aka": [
+        "fixed max width",
+        "centered container",
+        "boxed layout"
+      ],
+      "what": "Page content held inside a centered column with a maximum width, leaving empty margins on wide screens.",
+      "useWhen": [
+        "The page is mostly text or forms, which become hard to read in long lines",
+        "The same layout should look the same on a laptop and a very wide monitor"
+      ],
+      "avoidWhen": [
+        "The content is a table, map, board or canvas that gets better with every extra pixel",
+        "A band of color or an image is meant to reach both edges (use full-bleed for that band)"
+      ],
+      "rules": [
+        "Set one max width for the site (commonly 960–1280 px) and center it with auto margins.",
+        "Keep a side padding of at least 16 px so content never touches the window edge.",
+        "Inside the container, still limit running text to about 75 characters per line.",
+        "Use the same container for header, content and footer so their edges line up."
+      ],
+      "examples": [
+        {
+          "who": "GOV.UK Design System",
+          "where": "Layout guidance: page content in a width container with a two-thirds reading column",
+          "url": "https://design-system.service.gov.uk/styles/layout/",
+          "verified": true
+        },
+        {
+          "who": "Wikipedia",
+          "where": "Articles: a limited-width text column, with a \"Width\" setting to switch to wide",
+          "url": "https://en.wikipedia.org/wiki/Typography",
+          "verified": true
+        },
+        {
+          "who": "U.S. Web Design System",
+          "where": "Layout grid: grid-container with a maximum width",
+          "url": "https://designsystem.digital.gov/utilities/layout-grid/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Layout and Spacing"
+        },
+        {
+          "ref": "marcotte-2014",
+          "where": "The Flexible Grid"
+        },
+        {
+          "ref": "govuk-ds",
+          "where": "Layout"
+        }
+      ],
+      "alternatives": [
+        "full-bleed"
+      ]
+    },
+    {
+      "id": "full-bleed",
+      "name": "Full-bleed width",
+      "aka": [
+        "edge to edge",
+        "fluid width",
+        "full-width layout"
+      ],
+      "what": "Content or a background band that spans the whole window width.",
+      "useWhen": [
+        "The content is a workspace that benefits from width: tables, boards, maps, editors, dashboards",
+        "A section background, image or video should run edge to edge to separate it from its neighbors"
+      ],
+      "avoidWhen": [
+        "The content is running text; lines get too long on wide screens",
+        "Wide screens would only stretch empty space between a few items"
+      ],
+      "rules": [
+        "Let the background run edge to edge but keep the text and controls inside the same container width as the rest of the page.",
+        "Give full-width tools a sensible minimum: collapse side panels before the main area gets too narrow.",
+        "Use responsive images (srcset and sizes) so a full-width image is not loaded at a small device's cost.",
+        "Check at 2560 px wide: nothing should stretch to unreadable line lengths or leave controls far from their labels."
+      ],
+      "examples": [
+        {
+          "who": "Stripe",
+          "where": "Home page: artwork runs to the window edge while text stays in a contained column",
+          "url": "https://stripe.com/",
+          "verified": true
+        },
+        {
+          "who": "GOV.UK",
+          "where": "Home page: a blue band across the full width with the heading and search inside the page container",
+          "url": "https://www.gov.uk/",
+          "verified": true
+        },
+        {
+          "who": "Grafana",
+          "where": "Dashboard: panels use the whole window width beside the sidebar",
+          "url": "https://play.grafana.org/",
+          "verified": true
+        }
+      ],
+      "sources": [
+        {
+          "ref": "marcotte-2014",
+          "where": "The Flexible Grid"
+        },
+        {
+          "ref": "wathan-schoger-2018",
+          "where": "Layout and Spacing"
+        }
+      ],
+      "alternatives": [
+        "contained-width"
+      ]
+    }
+  ]
+}

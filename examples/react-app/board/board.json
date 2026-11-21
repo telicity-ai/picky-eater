@@ -1,0 +1,101 @@
+{
+  "schema": "picky-eater/board",
+  "schemaVersion": "2.0",
+  "title": "Switchback settings",
+  "base": { "kind": "live", "url": "http://localhost:5173/" },
+  "areas": [
+    {
+      "id": "sections",
+      "label": "How the sections are set apart",
+      "anchor": ".settings-form",
+      "source": { "file": "src/pages/SettingsPage.tsx", "component": "SettingsPage" },
+      "options": [
+        { "id": "keep", "label": "A line above each section", "keep": true },
+        { "id": "cards", "label": "Each section in its own card", "pattern": "card", "suggested": true,
+          "patch": [{ "css": ".settings-form{gap:16px}.settings-form .form-section{padding:20px 24px;border:1px solid var(--color-neutral-300);border-radius:12px;background:var(--color-neutral-0)}.settings-form .emergency-section{margin-top:0}" }],
+          "build": "FormSection.css: each section is a card (padding 20px 24px, 1px border, 12px radius, white). SettingsPage.css: 16px between sections, no extra space above Emergency contact." },
+        { "id": "side-titles", "label": "Titles on the left, fields on the right", "pattern": "label-left",
+          "patch": [{ "css": "@media (min-width:720px){.settings-form .form-section{display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:32px;align-content:start}.settings-form .form-section__title,.settings-form .form-section__description{grid-column:1}.settings-form .form-section__body{grid-column:2;grid-row:1 / span 3;margin-top:0}}" }],
+          "build": "FormSection.css: from 720px up a two-column grid, title and description in a 220px column, the fields beside them." }
+      ]
+    },
+    {
+      "id": "days",
+      "label": "Days you can volunteer",
+      "anchor": ".weekday-list",
+      "source": { "file": "src/pages/SettingsPage.tsx", "component": "SettingsPage" },
+      "options": [
+        { "id": "keep", "label": "Checkboxes in a row", "keep": true },
+        { "id": "chips", "label": "A button for each day", "pattern": "toggle-button", "suggested": true,
+          "patch": [{ "css": ".weekday-list{gap:8px}.weekday-list .checkbox{position:relative;gap:0}.weekday-list .checkbox__input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0}.weekday-list .checkbox__label{display:block;padding:6px 14px;border:1px solid var(--color-neutral-300);border-radius:999px;font-size:var(--font-size-sm)}.weekday-list .checkbox:has(:checked) .checkbox__label{border-color:var(--color-brand-600);background:var(--color-brand-600);color:#fff}.weekday-list .checkbox:has(:focus-visible) .checkbox__label{outline:2px solid var(--color-focus-ring);outline-offset:2px}" }],
+          "build": "Show each weekday as a pill that is filled when chosen. Keep the real checkbox for keyboard and screen-reader use." }
+      ]
+    },
+    {
+      "id": "notifications",
+      "label": "Notification choices",
+      "anchor": ".notifications-section",
+      "source": { "file": "src/pages/SettingsPage.tsx", "component": "SettingsPage" },
+      "options": [
+        { "id": "keep", "label": "One list, lead time last", "keep": true },
+        { "id": "columns", "label": "Two columns", "pattern": "checkbox-group", "suggested": true,
+          "patch": [{ "css": ".notification-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px}" }],
+          "build": "SettingsPage.css: .notification-list is a two-column grid, 10px between rows and 24px between columns." },
+        { "id": "lead-first", "label": "Lead time first, then the list", "pattern": "select",
+          "patch": [{ "move": ".select-field", "before": ".notification-list" }],
+          "build": "In SettingsPage.tsx put the \"Reminder lead time\" select before the list of checkboxes." }
+      ]
+    },
+    {
+      "id": "save",
+      "label": "Where Save sits",
+      "anchor": ".settings-actions",
+      "source": { "file": "src/pages/SettingsPage.tsx", "component": "SettingsPage" },
+      "options": [
+        { "id": "keep", "label": "At the end of the form", "keep": true },
+        { "id": "sticky", "label": "A bar that stays at the bottom of the screen", "pattern": "sticky-save-bar", "suggested": true,
+          "patch": [{ "css": ".settings-actions{position:sticky;bottom:0;margin:0 -24px;padding:12px 24px;border-top:1px solid var(--color-neutral-300);background:var(--color-neutral-0);box-shadow:0 -6px 16px rgba(0,0,0,.06)}" }],
+          "build": "SettingsPage.css: .settings-actions is sticky at the bottom, full width of the content, white with a top border and a soft shadow." }
+      ]
+    },
+    {
+      "id": "delete",
+      "label": "Where Delete account lives",
+      "anchor": ".settings-actions .button--secondary",
+      "source": { "file": "src/pages/SettingsPage.tsx", "component": "SettingsPage" },
+      "options": [
+        { "id": "keep", "label": "Next to Save", "keep": true },
+        { "id": "danger-zone", "label": "In a section of its own, in red", "pattern": "confirmation-dialog", "page": true, "suggested": true,
+          "patch": [
+            { "insert": "<section class=\"danger-zone\"><h2>Delete account</h2><p>Removes your profile, shifts and logged hours. This cannot be undone.</p></section>", "after": ".settings-actions" },
+            { "move": ".settings-actions .button--secondary", "into": ".danger-zone" },
+            { "css": ".danger-zone{padding:20px 24px;border:1px solid #e3b3ae;border-radius:12px;background:#fdf3f2}.danger-zone h2{margin:0;font-size:var(--font-size-md)}.danger-zone p{margin:4px 0 12px;font-size:var(--font-size-sm);color:var(--color-neutral-700)}.danger-zone .button{border-color:var(--color-danger-600);color:var(--color-danger-600)}" }
+          ],
+          "focus": ".danger-zone",
+          "build": "Move Delete account out of the save row into a \"Delete account\" section after it, with one sentence of explanation and a red outlined button." }
+      ]
+    },
+    {
+      "id": "saved-note",
+      "label": "Message after saving",
+      "anchor": ".saved-message",
+      "cuts": ["saved"],
+      "source": { "file": "src/pages/SettingsPage.tsx", "component": "SettingsPage" },
+      "options": [
+        { "id": "keep", "label": "\"Saved.\" in green beside the button", "keep": true },
+        { "id": "pill", "label": "\"Changes saved\" with a check mark", "pattern": "inline-confirmation", "suggested": true,
+          "patch": [
+            { "set": ".saved-message", "text": "Changes saved" },
+            { "css": ".saved-message{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--color-brand-50);color:var(--color-brand-700);font-weight:var(--font-weight-semibold)}.saved-message::before{content:\"\\2713\"}" }
+          ],
+          "build": "The message reads \"Changes saved\", as a pill in the brand tint with a check mark before the text." }
+      ]
+    }
+  ],
+  "cuts": [
+    { "id": "top", "label": "Top" },
+    { "id": "notifications", "label": "Notifications in view", "sameAs": "top", "at": ".notifications-section" },
+    { "id": "saved", "label": "Just saved", "at": ".settings-actions",
+      "steps": [{ "wait": ".settings-form" }, { "click": ".settings-actions .button--primary" }, { "wait": ".saved-message" }], "seen": ".saved-message" }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "picky-eater/board",
+  "schemaVersion": "2.0",
+  "title": "Harbor Bikes home page",
+  "base": { "kind": "live", "url": "http://127.0.0.1:4175/" },
+  "areas": [
+    {
+      "id": "header",
+      "label": "Top bar",
+      "anchor": ".site-header",
+      "source": { "file": "site/index.html", "selector": ".site-header" },
+      "options": [
+        { "id": "keep", "label": "As it is now", "keep": true },
+        { "id": "compact", "label": "Lower bar with smaller links", "pattern": "top-nav", "suggested": true,
+          "patch": [{ "css": ".site-header{padding-block:10px}.site-header.is-scrolled{padding-block:6px}.site-header nav a{font-size:15px}.brand{font-size:18px}" }],
+          "build": "site/styles.css: header padding 10px (6px once scrolled), nav links 15px, brand 18px." },
+        { "id": "reserve-button", "label": "Reserve as a button on the right", "pattern": "top-nav",
+          "patch": [
+            { "set": ".site-header nav a[href='#signup']", "addClass": ["nav-cta"] },
+            { "css": ".site-header .nav-cta{padding:8px 16px;border-radius:999px;background:var(--ink);color:#fff}.site-header .nav-cta:hover{background:var(--sea);color:#fff}" }
+          ],
+          "build": "Give the Reserve link the class nav-cta and style it as a filled pill." }
+      ]
+    },
+    {
+      "id": "hero-action",
+      "label": "Main button of the top banner",
+      "anchor": ".hero",
+      "source": { "file": "site/index.html", "selector": ".hero" },
+      "options": [
+        { "id": "keep", "label": "\"See plans\"", "keep": true, "suggested": true },
+        { "id": "reserve", "label": "\"Reserve a bike\", straight to the form",
+          "patch": [{ "set": ".cta", "text": "Reserve a bike", "attr": { "href": "#signup" } }],
+          "focus": ".cta",
+          "build": "Change the hero link to \"Reserve a bike\" and point it at #signup." }
+      ]
+    },
+    {
+      "id": "offer",
+      "label": "The free-helmet offer",
+      "anchor": "#offer",
+      "source": { "file": "site/index.html", "selector": "#offer" },
+      "options": [
+        { "id": "keep", "label": "A line under the button", "keep": true },
+        { "id": "bar", "label": "A bar across the top of the page", "pattern": "banner", "page": true, "suggested": true,
+          "patch": [
+            { "insert": "<p class=\"offer-bar\">Free helmet with every rental this month.</p>", "atStartOf": "body" },
+            { "css": ".offer-bar{margin:0;padding:8px 16px;background:var(--sun);color:var(--ink);font-weight:700;text-align:center}#offer{display:none}" }
+          ],
+          "focus": ".offer-bar",
+          "build": "Move the offer into a full-width bar above the header (not sticky); remove the line under the button." }
+      ]
+    },
+    {
+      "id": "plans",
+      "label": "Plan cards",
+      "anchor": "#plans",
+      "source": { "file": "site/index.html", "selector": "#plans" },
+      "options": [
+        { "id": "keep", "label": "Three equal cards", "keep": true },
+        { "id": "featured", "label": "The week plan stands out", "pattern": "pricing-table", "suggested": true,
+          "patch": [{ "css": "#plans .plan--week{border-color:var(--sea);box-shadow:0 10px 30px rgba(20,33,61,.14);transform:translateY(-8px)}#plans .plan--week button{background:var(--sea)}" }],
+          "build": "site/styles.css: raise .plan--week by 8px with a sea-colored border, a shadow and a sea-colored button." },
+        { "id": "week-first", "label": "The week plan comes first", "pattern": "pricing-table",
+          "patch": [{ "move": ".plan--week", "before": ".plan--day" }],
+          "build": "Put the week card before the day card in the markup." },
+        { "id": "billing", "label": "A switch between renting and subscribing", "pattern": "segmented-control",
+          "patch": [
+            { "insert": "<div class=\"billing\" role=\"group\" aria-label=\"Billing\"><button type=\"button\" aria-pressed=\"true\" data-billing=\"once\">Rent once</button><button type=\"button\" aria-pressed=\"false\" data-billing=\"sub\">Subscribe, 15% off</button></div>", "before": ".plan-row" },
+            { "css": "#plans .billing{display:inline-flex;gap:4px;margin-top:16px;padding:4px;border-radius:999px;background:var(--sand)}#plans .billing button{padding:8px 16px;background:none;color:var(--ink)}#plans .billing button[aria-pressed='true']{background:var(--ink);color:#fff}" },
+            { "script": "var prices = Array.prototype.map.call(area.querySelectorAll('.price b'), function (b) { return [b, b.textContent]; }); this.prices = prices; this.click = function (e) { var b = e.target.closest('[data-billing]'); if (!b) return; Array.prototype.forEach.call(area.querySelectorAll('[data-billing]'), function (x) { x.setAttribute('aria-pressed', String(x === b)); }); prices.forEach(function (p) { p[0].textContent = b.dataset.billing === 'sub' ? String(Math.round(p[1] * 0.85)) : p[1]; }); }; area.addEventListener('click', this.click);",
+              "undo": "area.removeEventListener('click', this.click); this.prices.forEach(function (p) { p[0].textContent = p[1]; });" }
+          ],
+          "build": "A two-button segmented control above the cards. Subscribing shows every price 15% lower." }
+      ]
+    },
+    {
+      "id": "week-badge",
+      "label": "Label on the week plan",
+      "anchor": "#plans .plan--week",
+      "when": { "plans": ["featured"] },
+      "source": { "file": "site/index.html", "selector": ".plan--week" },
+      "options": [
+        { "id": "keep", "label": "No label", "keep": true, "suggested": true },
+        { "id": "popular", "label": "\"Most popular\" above the name", "pattern": "status-badge",
+          "patch": [
+            { "insert": "<span class=\"plan-badge\">Most popular</span>", "atStartOf": ".plan--week" },
+            { "css": ".plan-badge{display:inline-block;margin-bottom:10px;padding:2px 10px;border-radius:999px;background:var(--sun);font-size:13px;font-weight:800}" }
+          ],
+          "build": "A small pill \"Most popular\" as the first child of the week card." }
+      ]
+    },
+    {
+      "id": "form-error",
+      "label": "Message when the form is sent with a mistake",
+      "anchor": ".form-error",
+      "cuts": ["error"],
+      "source": { "file": "site/index.html", "selector": ".form-error" },
+      "options": [
+        { "id": "keep", "label": "Red text above the button", "keep": true },
+        { "id": "box", "label": "A box at the top of the form", "pattern": "error-summary", "page": true, "suggested": true,
+          "patch": [
+            { "move": ".form-error", "atStartOf": ".signup form" },
+            { "css": ".form-error{margin:0 0 8px;padding:12px 14px;border:1px solid #e7b4af;border-left:4px solid #b3261e;border-radius:10px;background:#fdecea}" }
+          ],
+          "build": "Move .form-error to the top of the form and style it as a bordered box." }
+      ]
+    }
+  ],
+  "cuts": [
+    { "id": "top", "label": "Top" },
+    { "id": "plans", "label": "Plans in view", "sameAs": "top", "at": "#plans" },
+    { "id": "error", "label": "Sent blank: error", "at": "#signup",
+      "steps": [{ "scroll": "#signup" }, { "click": "#signup button[type=submit]" }], "seen": ".form-error" },
+    { "id": "sent", "label": "Reserved", "at": "#signup",
+      "steps": [{ "scroll": "#signup" }, { "fill": "#name", "value": "Mina Park" }, { "fill": "#email", "value": "mina@example.com" }, { "click": "#signup button[type=submit]" }], "seen": ".form-done" }
+  ]
+}
