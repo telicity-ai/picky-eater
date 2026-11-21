@@ -296,6 +296,12 @@ export async function launchBrowser(opts: { state?: BrowserState | null } = {}):
       await send('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: 1, mobile: false }, sessionId);
     };
     await resize(width, height);
+    // A page is looked at as people get it who did not ask their system for less motion, whatever
+    // this machine is set to. On a machine set to less motion, what moves would otherwise be measured as nothing.
+    const reducedMotion = async (on: boolean) => {
+      await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: on ? 'reduce' : 'no-preference' }] }, sessionId).catch(() => {});
+    };
+    await reducedMotion(false);
     // Requests under way, to know when a page that loads its data after it opens has it.
     const inflight = new Set<string>();
     let lastRequest = Date.now();
@@ -355,9 +361,7 @@ export async function launchBrowser(opts: { state?: BrowserState | null } = {}):
         const res = await send<{ data: string }>('Page.captureScreenshot', { format: 'png', ...(clip ? { clip: { ...clip, scale: 1 } } : {}) }, sessionId);
         return Buffer.from(res.data, 'base64');
       },
-      reducedMotion: async (on) => {
-        await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: on ? 'reduce' : '' }] }, sessionId).catch(() => {});
-      },
+      reducedMotion,
       close: async () => {
         await send('Target.closeTarget', { targetId }).catch(() => {});
       },

@@ -13657,6 +13657,11 @@ async function launchBrowser(opts = {}) {
       await send("Emulation.setDeviceMetricsOverride", { width: w, height: h, deviceScaleFactor: 1, mobile: false }, sessionId);
     };
     await resize(width, height);
+    const reducedMotion = async (on) => {
+      await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: on ? "reduce" : "no-preference" }] }, sessionId).catch(() => {
+      });
+    };
+    await reducedMotion(false);
     const inflight = /* @__PURE__ */ new Set();
     let lastRequest = Date.now();
     await send("Network.enable", {}, sessionId).catch(() => {
@@ -13716,10 +13721,7 @@ async function launchBrowser(opts = {}) {
         const res = await send("Page.captureScreenshot", { format: "png", ...clip ? { clip: { ...clip, scale: 1 } } : {} }, sessionId);
         return Buffer.from(res.data, "base64");
       },
-      reducedMotion: async (on) => {
-        await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: on ? "reduce" : "" }] }, sessionId).catch(() => {
-        });
-      },
+      reducedMotion,
       close: async () => {
         await send("Target.closeTarget", { targetId }).catch(() => {
         });

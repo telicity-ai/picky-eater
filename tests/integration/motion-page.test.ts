@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { afterAll, beforeAll, describe, expect, test } from 'vitest';
-import { findBrowser } from '../../src/check/browser.js';
+import { findBrowser, launchBrowser } from '../../src/check/browser.js';
 import { approve, readView, setChoices } from '../../src/session/review.js';
 import { workspace } from '../../src/session/store.js';
 import type { Project } from '../helpers/project.js';
@@ -110,4 +110,25 @@ describe.skipIf(!browser)('motion on a running page', () => {
     expect(out).toContain('The built page matches the approved one.');
     expect(code).toBe(0);
   }, 90_000);
+});
+
+describe.skipIf(!browser)('a machine that is set to less motion', () => {
+  test('the page is measured as everyone else gets it, and with less motion only when that is asked for', async () => {
+    const before = process.env.PICKY_EATER_BROWSER_ARGS;
+    process.env.PICKY_EATER_BROWSER_ARGS = '--force-prefers-reduced-motion'; // what such a machine tells its browsers
+    const chrome = await launchBrowser();
+    try {
+      const tab = await chrome.newTab(800, 600);
+      const reduced = () => tab.evaluate<boolean>("matchMedia('(prefers-reduced-motion: reduce)').matches");
+      expect(await reduced()).toBe(false);
+      await tab.reducedMotion(true);
+      expect(await reduced()).toBe(true);
+      await tab.reducedMotion(false);
+      expect(await reduced()).toBe(false);
+    } finally {
+      await chrome.close();
+      if (before === undefined) delete process.env.PICKY_EATER_BROWSER_ARGS;
+      else process.env.PICKY_EATER_BROWSER_ARGS = before;
+    }
+  }, 60_000);
 });
