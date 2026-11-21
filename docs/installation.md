@@ -9,8 +9,8 @@ dependencies.
 **Requirements:** Node.js 22 or newer on the machine where the agent runs, and a browser for the
 review page. No accounts, API keys or network access are needed at runtime.
 
-> Status: the install layout is the same as in version 0.1, for which every method was verified;
-> see [compatibility.md](compatibility.md) for what has been re-checked with version 0.2.
+> Status: every method below was run against this repository with version 0.2.0 on 2026-11-21;
+> see [compatibility.md](compatibility.md#installing) for what was checked.
 
 ## Option 1 — `npx skills` (recommended, all agents)
 
@@ -52,7 +52,7 @@ claude plugin install picky-eater@telicity-ai --scope project
 ```
 
 Plugin skills are namespaced, so the skill appears as `picky-eater:picky-eater`. The marketplace
-entry installs only the `skills/` folder (about 0.8 MB). Uninstall with
+entry installs only the `skills/` folder (about 1.3 MB). Uninstall with
 `claude plugin uninstall picky-eater@telicity-ai`.
 
 ## Option 3 — copy the folder

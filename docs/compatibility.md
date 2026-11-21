@@ -50,6 +50,19 @@ another engine is not caught.
 The skill follows the [Agent Skills](https://agentskills.io) format: one folder with `SKILL.md`,
 references and a script. The install layout and metadata are unchanged from version 0.1.
 
+### Installing
+
+Each method of [installation.md](installation.md) was run against the public repository on
+2026-11-21 (macOS, Node 22.18), into an empty project:
+
+| Method | Result |
+|---|---|
+| `npx skills add telicity-ai/picky-eater --skill picky-eater -a claude-code codex cursor -y` (`skills` 1.5.18) | Created `.agents/skills/picky-eater/`, a link to it at `.claude/skills/picky-eater` and `skills-lock.json`. The CLI answers `--version` with 0.2.0 through both paths |
+| Claude Code 2.1 plugin marketplace: `claude plugin marketplace add telicity-ai/picky-eater --scope project`, then `claude plugin install picky-eater@telicity-ai --scope project` | Listed as `picky-eater@telicity-ai`, version 0.2.0, enabled. 1.3 MB installed. The CLI of the installed copy answers with 0.2.0 |
+| `git clone --depth 1` and a copy of `skills/picky-eater` into `.agents/skills/` and `.claude/skills/` | The CLI answers with 0.2.0 from both, and `new --from` the example board, `validate` and `propose` run |
+
+These runs checked the files and the CLI. No agent was started from these installs.
+
 Version 0.2 was run end to end on 2026-11-14 with each agent in non-interactive mode, on two
 small projects: a new sign-up page for a static site, and changes to the home page of
 `examples/static-site`. A script played the person: it opened the review link, picked the
