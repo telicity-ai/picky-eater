@@ -73,9 +73,16 @@ either way (not verified).
 
 ## npm package
 
-`package.json` defines a `picky-eater` binary that points at the same bundled CLI, and `npm pack`
-produces a working package. **It is not published to the npm registry yet**, so `npx picky-eater` does not work today. You
-do not need it: the skill folder already contains the CLI.
+The same files are published on npm as [`picky-eater`](https://www.npmjs.com/package/picky-eater).
+Its `picky-eater` command is the bundled CLI, so you can run it without installing anything:
+
+```sh
+npx picky-eater --version
+```
+
+Installing the npm package does not install the skill: coding agents look for skills in the
+folders above, not in `node_modules`. Use one of the options above for your agent; the skill
+folder already contains the CLI.
 
 ## After installing
 

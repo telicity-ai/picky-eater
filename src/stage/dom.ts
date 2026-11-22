@@ -87,6 +87,14 @@ async function waitFor(doc: Document, selector: string, ms: number, mustShow = f
   }
 }
 
+/** The live preview's cross-origin frame can take focus after the person interacts with it. */
+function focusForStep(el: HTMLElement, options?: FocusOptions): void {
+  const view = el.ownerDocument.defaultView;
+  if (view && (view.top === view || view.navigator.userActivation?.isActive === true) && typeof el.focus === 'function') {
+    el.focus(options);
+  }
+}
+
 /**
  * A click as a pointer makes it: menus and popovers of component libraries open on the press, not
  * on the click that follows it.
@@ -99,10 +107,7 @@ function press(el: HTMLElement): void {
     el.dispatchEvent(typeof view.PointerEvent === 'function' ? new view.PointerEvent(type, { ...at, buttons, pointerId: 1, pointerType: 'mouse', isPrimary: true }) : new view.MouseEvent(type, { ...at, buttons }));
   pointer('pointerdown', 1);
   const down = el.dispatchEvent(new view.MouseEvent('mousedown', { ...at, buttons: 1, detail: 1 }));
-  // A press gives focus. Inside a frame of another origin a browser only lets a page take focus
-  // after the person has acted in it; there the click that follows has to do.
-  const mayFocus = view.top === view || view.navigator.userActivation?.isActive === true;
-  if (down && mayFocus && typeof el.focus === 'function') el.focus({ preventScroll: true });
+  if (down) focusForStep(el, { preventScroll: true });
   pointer('pointerup', 0);
   el.dispatchEvent(new view.MouseEvent('mouseup', { ...at, buttons: 0, detail: 1 }));
   // The click itself through the element, so that links, labels and form buttons do what they do.
@@ -131,7 +136,7 @@ function pointAt(el: HTMLElement): void {
 function typeKey(doc: Document, key: string, on: HTMLElement | null): void {
   const view = doc.defaultView!;
   const target = on ?? (doc.activeElement as HTMLElement | null) ?? doc.body;
-  if (on && typeof on.focus === 'function') on.focus({ preventScroll: true });
+  if (on) focusForStep(on, { preventScroll: true });
   const code = key.length === 1 ? (/[a-z]/i.test(key) ? `Key${key.toUpperCase()}` : /\d/.test(key) ? `Digit${key}` : key === ' ' ? 'Space' : '') : key;
   const init = { key, code, bubbles: true, cancelable: true, composed: true, view };
   target.dispatchEvent(new view.KeyboardEvent('keydown', init));
@@ -149,7 +154,7 @@ export async function play(doc: Document, steps: Step[]): Promise<void> {
     else if ('key' in step) typeKey(doc, step.key, step.on ? ((await waitFor(doc, step.on, 3000)) as HTMLElement) : null);
     else {
       const el = (await waitFor(doc, step.fill, 3000)) as HTMLInputElement;
-      el.focus();
+      focusForStep(el);
       // Through the native setter, so that frameworks that track the value notice the change.
       const proto = el instanceof view.HTMLTextAreaElement ? view.HTMLTextAreaElement.prototype : el instanceof view.HTMLSelectElement ? view.HTMLSelectElement.prototype : view.HTMLInputElement.prototype;
       const setter = Object.getOwnPropertyDescriptor(proto, 'value')?.set;

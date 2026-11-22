@@ -61,6 +61,10 @@ Each method of [installation.md](installation.md) was run against the public rep
 | Claude Code 2.1 plugin marketplace: `claude plugin marketplace add telicity-ai/picky-eater --scope project`, then `claude plugin install picky-eater@telicity-ai --scope project` | Listed as `picky-eater@telicity-ai`, version 0.2.0, enabled. 1.3 MB installed. The CLI of the installed copy answers with 0.2.0 |
 | `git clone --depth 1` and a copy of `skills/picky-eater` into `.agents/skills/` and `.claude/skills/` | The CLI answers with 0.2.0 from both, and `new --from` the example board, `validate` and `propose` run |
 
+The npm package was installed from the registry on 2026-11-22 (npm 10.9): `npx picky-eater
+--version` answers 0.2.0 without an install, and `npm install picky-eater` puts the same skill
+folder in `node_modules/picky-eater/skills/picky-eater/`.
+
 These runs checked the files and the CLI. No agent was started from these installs.
 
 Version 0.2 was run end to end on 2026-11-14 with each agent in non-interactive mode, on two
