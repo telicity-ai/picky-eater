@@ -23,6 +23,8 @@ Next.js, Nuxt, SvelteKit, Astro and others ([what is tested](docs/compatibility.
 
 ![The review page: a page that is partly sketch and partly finished, with drawn options beside a dot](docs/images/review.png)
 
+[Try the interactive demo](https://telicity-ai.github.io/pe-www/) to see how the review works.
+
 ## Why
 
 - **You decide by looking, not by reading.** No questionnaires and no design vocabulary. The options
@@ -210,6 +212,10 @@ you press Approve.
 It follows the [Agent Skills](https://agentskills.io) format. It has been run end to end with
 Claude Code and the OpenAI Codex CLI; Cursor is not tested yet
 ([compatibility](docs/compatibility.md#coding-agents)).
+
+**Is picky-eater on npm?**
+Yes. The [npm package](https://www.npmjs.com/package/picky-eater) exposes the CLI with
+`npx picky-eater --help`. To use picky-eater from a coding agent, follow the [skill installation steps](#install).
 
 **Does it work with React, Next.js, Vue or Svelte?**
 Yes. On a page that exists, the options are laid over your running app. That is run against the
